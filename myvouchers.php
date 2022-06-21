@@ -21,16 +21,17 @@ $options = array(
     'method'=>"GET",
     'header'=>"Accept-language: en\r\n" .
               "Cookie: foo=bar\r\n" .  // check function.stream-context-create on php.net
-              "Authorization: ".$_SESSION['remember_token']."" // i.e. An iPad 
+              "Authorization: Bearer ".$_SESSION['remember_token']."" // i.e. An iPad 
   )
 );
 $context = stream_context_create($options);
 $json_data = file_get_contents($api_url, false, $context);
 
 $response_data = json_decode($json_data);
-
+// print_r($response_data);
 // All user data exists in 'data' object
 $user_data = $response_data->data;
+// print_r($user_data);
 
 // };
 // $tab = $user_data->kitchen_tabs;
