@@ -48,6 +48,13 @@ $user_data = $response_data->data;
            
             
             </div>
+
+
+
+            <?php
+            for ($x = 0; $x < count($offerchunk); $x++) {
+
+             ?>
              <div class="row" style="margin-top:50px; margin-left:0px;">
                  
             <div class="col-lg-12">
@@ -61,10 +68,20 @@ $user_data = $response_data->data;
                 
                  <small style="float: right; margin-top: -45px; margin-right: 207px;">Expiry: 10-FEB-2022</small>
             </div>
+
+
+
             <div>
               
             </div>
 		</div>
+
+
+            <?php } ?>
+
+
+
+
 </div>
 
 <!-- Modal Map-->
