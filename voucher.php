@@ -1,5 +1,15 @@
-<?php include 'components/header.php' ; ?>
-<?php include 'components/navigation.php' ; ?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sofrah</title>
+
+<?php include 'components/header.php'; ?>
+    
+
+</head>
+<body>
+<?php include 'components/navigation.php'; ?>
+    
 <div class="container">
     <div class="row">
         <div class="col-md-8">

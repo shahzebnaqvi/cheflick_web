@@ -1,123 +1,42 @@
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Sofrah</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" type="text/css" href="css/style-main.css">
-	<style type="text/css">
-  	 .form-control[readonly] {
-    background-color: white;
-    opacity: 1;
-    height: 50px;
-}
-  	input[type="name"]{
-    height: 50px;
+<title>Sofrah</title>
+
+<?php include 'components/header.php'; ?>
     
-}
-.drop{
-    height: 50px;
-    
-}
-.card2 {
-  /* Add shadows to create the "card" effect */
-   border-radius:20px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width:900px;
 
-
-}
-
-/* On mouse-over, add a deeper shadow */
-.card2:hover {
- 
-   border-radius:50px;
-}
-
-</style>
- 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand logo" href="#">
-        <img src="images/logo.png"/>
-    </a>
+<?php include 'components/navigation.php'; ?>
+    <?php
+ $baserurl = 'https://cheflick.code7labs.com/';
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto" style="margin-right: 50px;">
+$api_url = 'https://api.cheflick.net/api/user/get-vouchers';
 
-            <div class="input-group input-group-lg location mr-4">
-                <input type="text" class="form-control" placeholder="Pakistan"  style="border-radius: 10px;border-color:#E1E1E1;" />
-                <div class="input-group-btn">
-                    <button class="fas fa-location ico" data-toggle="modal" data-target="#mapModal"></button>
-                </div>
-            </div>
-			<div class=" input-group-lg search px-2">
-                <select class="form-control" placeholder=""  style="border-radius: 10px; width: 180px;" />
-                	<option>Delivery</option>
-                	<option>Pickup</option>
-                </select>
-            </div>
-            <div class=" input-group-lg search px-2">
-                <select class="form-control" placeholder=""  style="border-radius: 10px; width: 180px;" />
-                	<option>Same Day</option>	
-                </select>
-            </div>
-			<div class=" input-group-lg search px-2">
-                <select class="form-control" placeholder=""  style="border-radius: 10px; width: 180px;" />
-                	<option>Kitchen</option>	
-                </select>
-            </div>
-	
 
-            <!-- <div class="input-group input-group-lg search">
 
-                <input type="text" class="form-control" placeholder="Find Mobile, Car ,laptop" />
-                <div class="input-group-btn">
-                    <button class="fas fa-search ico"></button>
-                </div>
-            </div> -->
+$options = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header'=>"Accept-language: en\r\n" .
+              "Cookie: foo=bar\r\n" .  // check function.stream-context-create on php.net
+              "Authorization: ".$_SESSION['remember_token']."" // i.e. An iPad 
+  )
+);
+$context = stream_context_create($options);
+$json_data = file_get_contents($api_url, false, $context);
 
-        </ul>
-        <form class="form-inline d-flex align-items-center justify-content-between">
-            <span class="my-2 my-sm-0 fas fa-user sell"></span>
-            <div class="sell1">|</div>
-           	 <span class="my-2 my-sm-0 fas fa-heart	 sell"></span>
-           	 <div class="sell1">|</div>
-           	 <span class="my-2 my-sm-0 fas fa-shopping-cart	 sell"></span>
-           	 <div class="dropdown">
-           	 <button class="drop-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           	     <span class="my-2 my-sm-0 fas fa-bars menu"></span>
-           	</button>
-           	 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">My Profile</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="myorders.php">My Orders</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="voucher.php">Vouchers</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Payment Details</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Locations</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Notifications</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
-            </div>
-            </div>
-           	 </form>
-    </div>
-</nav>
- 
+$response_data = json_decode($json_data);
+
+// All user data exists in 'data' object
+$user_data = $response_data->data;
+
+// };
+// $tab = $user_data->kitchen_tabs;
+
+?>
+
 
     
 				<div class="row text-center" style="margin-top:20px;">

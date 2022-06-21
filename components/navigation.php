@@ -2,7 +2,7 @@
 <div class="container-fluid">
 <div class="row">
         <div class="col-md-2">
-    <a class="navbar-brand logo" href="#">
+    <a class="navbar-brand logo" href="index.php">
         <img src="images/logo.png"/>
     </a>
         </div>
@@ -176,17 +176,17 @@
            	 <div class="collapse dropdown-menu-right nav-toggle profile-toggle" id="profileDropdown">
                 <a class="dropdown-item" href="inner-dashboard/profile.php">My Profile</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">My Orders</a>
+                <a class="dropdown-item" href="myorders.php">My Orders</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="voucher.php">Vouchers</a>
+                <a class="dropdown-item" href="myvouchers.php">Vouchers</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Payment Details</a>
+                <a class="dropdown-item" href="paymentcard.php">Payment Details</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Locations</a>
+                <a class="dropdown-item" href="">Locations</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Notifications</a>
+                <a class="dropdown-item" href="notification.php">Notifications</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
+                <a class="dropdown-item" href="logout.php">Logout</a>
             </div>
             </div>
            	 </form>

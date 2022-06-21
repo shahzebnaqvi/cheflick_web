@@ -1,6 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sofrah</title>
 
 <?php include 'components/header.php'; ?>
+    
+
+</head>
+<body>
 <?php include 'components/navigation.php'; ?>
+    
 <?php
 
 $api_url = 'https://api.cheflick.net/api/user/user-dashboard?latitude=24.9047&longitude=67.0781';
