@@ -2,7 +2,9 @@
  session_start();
  $baserurl = 'https://cheflick.code7labs.com/';
 if($_GET['id']==null){
-    header('location:'.$baserurl.'dashboard/');
+    // header('location:'.$baserurl.'dashboard/');
+    header('location: index.php');
+
 }
 $api_url = 'https://api.cheflick.net/api/user/kitchen-detail?kitchen_id='.$_GET['id'].'&user_lat=40&user_long=67.0781';
 
@@ -37,7 +39,7 @@ $tab = $user_data->kitchen_tabs;
 // echo "assaassa";
 // print_r( $tab);
 
-print_r( $dish);
+// print_r( $dish);
 // echo( $tab[0]->tab_name );
 // echo "Sasaasas";
 // echo $user_data->kitchen_banner;
