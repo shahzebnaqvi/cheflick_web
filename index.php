@@ -178,7 +178,7 @@ $nearbychunk = array_chunk($nearby, 2);
                     ?>
            
             <div class="col-4">
-                <a href="https://cheflick.code7labs.com/dashboard/kitchen.php?id=<?php echo $meal[$x]->id ?>" style= "  color: blue; text-decoration: none;">
+                <a href="kitchen.php?id=<?php echo $meal[$x]->id ?>" style= "  color: blue; text-decoration: none;">
                 <div class="mainText" style ="background-image :url(<?php echo $meal[$x]->meal_img ?>)">
                   <div class="overlay">
                     <div class="textEnd">
@@ -874,14 +874,14 @@ $nearbychunk = array_chunk($nearby, 2);
               <div class="cardShadow">
                 <div class="row">       
                   <div class="col-md-5">
-                    <a href="https://cheflick.code7labs.com/dashboard/single-cafe.php?id=<?php echo $nearbychunk[$x][$y]->kId ?>" style= "  color: blue; text-decoration: none;">
+                    <a href="single-cafe.php?id=<?php echo $nearbychunk[$x][$y]->kId ?>" style= "  color: blue; text-decoration: none;">
                     <img class="cardImage" src=" <?php echo $nearbychunk[$x][$y]->kitchen_banner ?> "></a>
                   </div>
                   <div class="col-md-7">
                     <div class="row">
                       <div class="col-md-8">                     
                         <h4 class="cardHeading2"> 
-                        <a href="https://cheflick.code7labs.com/dashboard/single-cafe.php?id=<?php echo $nearbychunk[$x][$y]->kId ?>" style= " all: unset;">
+                        <a href="single-cafe.php?id=<?php echo $nearbychunk[$x][$y]->kId ?>" style= " all: unset;">
 
                         <?php echo $nearbychunk[$x][$y]->kitchen_name ?>    
                         </a>
