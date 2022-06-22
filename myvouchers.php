@@ -31,7 +31,8 @@ $response_data = json_decode($json_data);
 // print_r($response_data);
 // All user data exists in 'data' object
 $user_data = $response_data->data;
-// print_r($user_data);
+$active_voucher = $user_data->active_voucher;
+// print_r($active_voucher);
 
 // };
 // $tab = $user_data->kitchen_tabs;
@@ -52,21 +53,21 @@ $user_data = $response_data->data;
 
 
             <?php
-            for ($x = 0; $x < count($offerchunk); $x++) {
+            for ($x = 0; $x < count($active_voucher); $x++) {
 
              ?>
              <div class="row" style="margin-top:50px; margin-left:0px;">
                  
             <div class="col-lg-12">
                
-               <b style="font-size: 18px; color: #001746;">500 off on your order
+               <b style="font-size: 18px; color: #001746;"><?php echo $active_voucher[$x]->voucherName ;?>
                
                <b style="font-size: 18px; color: #001746; margin-left:240px;">
                    
-               <b style="font-size: 18px; color: #001746; margin-left:180px; margin-top:15px;">Rs 3000
-                <br> <small style="float:left; margin-left:210px;">code:gtree</small>
+               <b style="font-size: 18px; color: #001746; margin-left:180px; margin-top:15px;">Rs <?php echo $active_voucher[$x]->price ;?>
+                <br> <small style="float:left; margin-left:210px;">code:<?php echo $active_voucher[$x]->voucherCode ;?></small>
                 
-                 <small style="float: right; margin-top: -45px; margin-right: 207px;">Expiry: 10-FEB-2022</small>
+                 <small style="float: right; margin-top: -45px; margin-right: 207px;">Expiry: <?php echo $active_voucher[$x]->voucherExpirty ;?></small>
             </div>
 
 
