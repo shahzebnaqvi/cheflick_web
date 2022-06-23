@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>My Order</title>
+<title>My Favourites</title>
 
 <?php include 'components/header.php'; ?>
     
