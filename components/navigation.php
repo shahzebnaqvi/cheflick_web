@@ -44,9 +44,11 @@
 </div>
         <div class="col-md-2">
         <form class="form-inline d-flex align-items-center justify-content-end">
-            <span class="my-2 my-sm-0 fas fa-user sell"></span>
+            <a href="profile.php">
+            <span class="my-2 my-sm-0 fas fa-user sell"></span></a>
             <div class="sell1">|</div>
-           	 <span class="my-2 my-sm-0 fas fa-heart	 sell"></span>
+            <a href="favourites.php">
+           	 <span class="my-2 my-sm-0 fas fa-heart	 sell"></span></a>
            	 <div class="sell1">|</div>
            	 <!--<span class="my-2 my-sm-0 fas fa-shopping-cart	 sell"></span>-->
            	 <div class="dropdown">

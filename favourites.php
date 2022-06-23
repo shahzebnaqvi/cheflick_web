@@ -65,7 +65,7 @@
     <?php
  $baserurl = 'https://cheflick.code7labs.com/';
 
-$api_url = 'https://api.cheflick.net/api/user/past-order';
+$api_url = 'https://api.cheflick.net/api/user/get-favorite';
 
 
 
@@ -82,8 +82,8 @@ $json_data = file_get_contents($api_url, false, $context);
 
 $response_data = json_decode($json_data);
 
-$past_order = $response_data->past_order;
-$active_order = $response_data->active_order;
+$kitchenItem = $response_data->kitchenItem;
+$dishItem = $response_data->dishItem;
 
 ?>
 <?php include 'components/navigation.php'; ?>
