@@ -4,7 +4,13 @@
 <title>Sofrah</title>
 
 <?php include 'components/header.php'; ?>
-    
+    <style type="text/css">
+  .bg{
+
+    background-color: #F2F2FF;
+  }
+</style>
+
 
 </head>
 <body>
@@ -40,50 +46,52 @@ $active_voucher = $user_data->active_voucher;
 ?>
 
 
-    
-				<div class="row text-center" style="margin-top:20px;">
-				    <div class="col-md-12">
+    <div class="container">
+				
 						<h2 style="color:#001746;"><b>My Vouchers</b></h2>
 					
 					
            
             
-            </div>
-
+          
+            
 
 
             <?php
             for ($x = 0; $x < count($active_voucher); $x++) {
 
              ?>
-             <div class="row" style="margin-top:50px; margin-left:0px;">
-                 
-            <div class="col-lg-12">
+             <div class="shadow-none p-3  bg mb-5 rounded">
+              <span style="color:#001746; font-weight: 600;"> <?php echo $active_voucher[$x]->voucherName ;?> </span>
+
+ <p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;"><?php echo $active_voucher[$x]->voucherExpirty;?></b><br>
+<span style="color: #6A6A6A; float: right;">Rs <?php echo $active_voucher[$x]->price ;?>
+</span>
+
+</p><br>
+<span style="color: #6A6A6A;">code:</span><b style="color:#9C3DFD;"><?php echo $active_voucher[$x]->voucherCode ;?></b> 
+
+
+ 
+
+</div>
                
-               <b style="font-size: 18px; color: #001746;"><?php echo $active_voucher[$x]->voucherName ;?>
-               
-               <b style="font-size: 18px; color: #001746; margin-left:240px;">
-                   
-               <b style="font-size: 18px; color: #001746; margin-left:180px; margin-top:15px;">Rs <?php echo $active_voucher[$x]->price ;?>
-                <br> <small style="float:left; margin-left:210px;">code:<?php echo $active_voucher[$x]->voucherCode ;?></small>
-                
-                 <small style="float: right; margin-top: -45px; margin-right: 207px;">Expiry: <?php echo $active_voucher[$x]->voucherExpirty ;?></small>
-            </div>
-
-
-
-            <div>
               
-            </div>
-		</div>
+               
+              
+               
+                
+                Expiry: 
+           
 
 
             <?php } ?>
 
-
-
-
 </div>
+
+
+
 
 <!-- Modal Map-->
 <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

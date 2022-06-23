@@ -5,6 +5,12 @@
 
 <?php include 'components/header.php'; ?>
     
+<style type="text/css">
+  .bg{
+
+    background-color: #F2F2FF;
+  }
+</style>
 
 </head>
 <body>
@@ -12,7 +18,7 @@
     
     <div class="container">
         <h2 style="font-size: 25px; color: #001746; font-weight:700">Notifications</h2>
-        <div>
+       <!--  <div>
               <div class="row" style="margin-left:-80px;" >
         <div class="col-lg-9" >
             <h2 style="font-size: 18px; color: #001746;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h2>
@@ -22,8 +28,94 @@
             <h2 style="font-size: 18px; color: #001746;"><b style="font-weight:400;">Expiry:</b> 10-FEB-2022</h2>
         </div>
             
-        </div>
+        </div> -->
         
+<br>
+<div class="shadow-none p-3  bg mb-5 rounded">
+  <span style="color:#001746; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;">10-Feb-2022</b>
+</p>
+</div>
+<div class="shadow-none p-3  bg mb-5 rounded">
+  <span style="color:#001746; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;">10-Feb-2022</b>
+</p>
+</div>
+<div class="shadow-none p-3  bg mb-5 rounded">
+  <span style="color:#001746; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;">10-Feb-2022</b>
+</p>
+</div>
+<div class="shadow-none p-3  bg mb-5 rounded">
+  <span style="color:#001746; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;">10-Feb-2022</b>
+</p>
+</div>
+<div class="shadow-none p-3  bg mb-5 rounded">
+  <span style="color:#001746; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;">10-Feb-2022</b>
+</p>
+</div>
+<div class="shadow-none p-3  bg mb-5 rounded">
+  <span style="color:#001746; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;">10-Feb-2022</b>
+</p>
+</div>
+<div class="shadow-none p-3  bg mb-5 rounded">
+  <span style="color:#001746; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;">10-Feb-2022</b>
+</p>
+</div>
+<div class="shadow-none p-3  bg mb-5 rounded">
+  <span style="color:#001746; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;">10-Feb-2022</b>
+</p>
+</div>
+<div class="shadow-none p-3  bg mb-5 rounded">
+  <span style="color:#001746; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;">10-Feb-2022</b>
+</p>
+</div>
+<div class="shadow-none p-3  bg mb-5 rounded">
+  <span style="color:#001746; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;">10-Feb-2022</b>
+</p>
+</div>
+<div class="shadow-none p-3  bg mb-5 rounded">
+  <span style="color:#001746; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;">10-Feb-2022</b>
+</p>
+</div>
+<div class="shadow-none p-3  bg mb-5 rounded">
+  <span style="color:#001746; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<p style="float: right;">
+<span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;">10-Feb-2022</b>
+</p>
+</div>
+
     </div>
 
 <!-- Modal Map-->
