@@ -3,7 +3,10 @@
 <head>
 <title>Sofrah</title>
 
-<?php include 'components/header.php'; ?>
+<?php include 'components/header.php';
+
+include 'components/modals/voucher-modal.php'; ?>
+
     <style type="text/css">
   .bg{
 
@@ -47,9 +50,10 @@ $active_voucher = $user_data->active_voucher;
 
 
     <div class="container">
+           <span style="float: right; color:#9C3DFD; float: right; font-size: 15px;font-weight: 700; "><a data-toggle="modal" href="#modal1" class="voucher-btn">Add new Vouchers</a></span>
 				
 						<h2 style="color:#001746;"><b>My Vouchers</b></h2>
-					
+					<br>
 					
            
             
