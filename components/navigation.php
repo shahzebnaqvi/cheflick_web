@@ -174,7 +174,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="paymentcard.php">Payment Details</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="">Locations</a>
+                <a class="dropdown-item" href="locations.php">Locations</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="notification.php">Notifications</a>
                 <div class="dropdown-divider"></div>
