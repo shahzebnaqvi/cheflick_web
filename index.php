@@ -46,11 +46,12 @@ $nearbychunk = array_chunk($nearby, 2);
 
 
 <section>
-  <div class="custom2">
-<div class="row">
+  <div class="container">
+<div class="row mt-4 mb-4">
         <div class="col-lg-4">
-          <div class="col-md-12 input-group input-group-lg filter mr-2">
-                <input type="text" class="form-control" placeholder="search"  style="border-color:#E1E1E1;" />
+          <div class="col-md-12 input-group input-group-lg filter">
+            <span class="input-group-addon search-icon"><i class="fas fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search Food" style="border-color:#E1E1E1;">
                 <div class="input-group-btn">
                     <button class="fas fa-filter ico" data-toggle="modal" data-target="#mapModal"></button>
                 </div>
