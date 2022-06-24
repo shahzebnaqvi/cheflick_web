@@ -936,6 +936,13 @@ $nearbychunk = array_chunk($nearby, 2);
     </div>
 </section>
 <!-- Modal Map-->
+
+
+
+
+
+
+
 <?php include 'components/modals/map-modal.php'; ?>
 </body>
 </html>
