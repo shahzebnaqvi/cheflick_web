@@ -66,7 +66,7 @@ if($obj['status']){
     header("Location:index.php");
 }
 else{
-   header("Location:login.phps");
+   header("Location:login.php");
 
 }
 
