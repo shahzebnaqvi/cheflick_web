@@ -71,6 +71,8 @@ $active_voucher = $user_data->active_voucher;
 
  <p style="float: right;">
 <span style="color: #6A6A6A;">Expiry:</span> <b style="color:#001746;"><?php echo $active_voucher[$x]->voucherExpirty;?></b><br>
+
+
 <span style="color:#9C3DFD; float: right; font-size: 25px;font-weight: 700; ">Rs <?php echo $active_voucher[$x]->price ;?>
 </span>
 

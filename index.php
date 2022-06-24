@@ -64,7 +64,7 @@ $nearbychunk = array_chunk($nearby, 2);
                 </select>
             </div>
         </div>
-        <div class="col-lg-4">
+        <!-- <div class="col-lg-4">
             <div class="col-md-12 input-group-lg dropdown search2">
             <button class="dropbtn 
                     dropdown-toggle" type="button" 
@@ -95,7 +95,7 @@ $nearbychunk = array_chunk($nearby, 2);
                     width="20" height="15"> Brazil</li>
             </ul>
         </div>
-        </div>
+        </div> -->
       </div>
     </div>
       </section>
