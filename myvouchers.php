@@ -55,13 +55,6 @@ $active_voucher = $user_data->active_voucher;
 				
 						<h2 style="color:#001746;"><b>My Vouchers</b></h2>
 					<br>
-					
-           
-            
-          
-            
-
-
             <?php
             for ($x = 0; $x < count($active_voucher); $x++) {
 
