@@ -433,6 +433,7 @@ form.form-inline.d-flex.align-items-center.justify-content-between {
     height: 170px;
     border-radius: 11px;
     border: none;
+    max-width: 350px;
 }
 .bg-2{
     background: linear-gradient(119deg, #FD3D43 0%, #390000 100%) 0% 0%;
@@ -440,6 +441,7 @@ form.form-inline.d-flex.align-items-center.justify-content-between {
     height: 170px;
     border-radius: 11px;
     border: none;
+    max-width: 350px;
 }
 .bg-3{
     background: linear-gradient(119deg, #004CE5 0%, #000A48 100%) 0% 0%;
@@ -447,6 +449,7 @@ form.form-inline.d-flex.align-items-center.justify-content-between {
     height: 170px;
     border-radius: 11px;
     border: none;
+    max-width: 350px;
 }
 .left, .right{
       background: #9C3DFD;
@@ -771,11 +774,24 @@ select{
 /*.custom{*/
 /*  margin: auto !important;*/
 /*}*/
-.rowFlex .col-4{
+/*.rowFlex .col-4{
     flex: 1;
     max-width: 100%;
     margin: 10px 0px;
+}*/
+.left {
+    z-index: 999 !important;
+    position: absolute;
+    top: 40%;
+    left: -10px;
 }
+.right {
+    z-index: 999 !important;
+    position: absolute;
+    top: 40%;
+    right: -10px;
+}
+
 }
 
 @media (max-width: 1240px)
