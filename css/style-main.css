@@ -157,7 +157,12 @@ form.form-inline.d-flex.align-items-center.justify-content-between {
   border: 2px #E1E1E1 solid;
   border-radius: 5px;
 }
-
+.search-icon {
+    position: absolute;
+    z-index: 999;
+    top: 12px;
+    left: 25px;
+}
 .search .ico {
   padding: 10px;
   height: 100% !important;
@@ -495,6 +500,7 @@ form.form-inline.d-flex.align-items-center.justify-content-between {
   background-color: #fff;
   border: 2px #002f34 solid;
   border-radius: 25px;
+  padding: 0.5rem 2rem !important;
 }
 .voucherInput{
   padding-right: 0 !important;

@@ -18,6 +18,7 @@ include 'components/modals/voucher-modal.php'; ?>
 </head>
 <body>
 <?php include 'components/navigation.php'; ?>
+
     <?php
  $baserurl = 'https://cheflick.code7labs.com/';
 
@@ -37,16 +38,16 @@ $context = stream_context_create($options);
 $json_data = file_get_contents($api_url, false, $context);
 
 $response_data = json_decode($json_data);
-// print_r($response_data);
-// All user data exists in 'data' object
+
 $user_data = $response_data->data;
 $active_voucher = $user_data->active_voucher;
-// print_r($active_voucher);
 
-// };
-// $tab = $user_data->kitchen_tabs;
 
 ?>
+
+
+
+
 
 
     <div class="container">

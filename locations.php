@@ -18,6 +18,28 @@ include 'components/modals/map-modal.php';
 </style>
 
 </head>
+  <?php
+
+$api_url = 'https://api.cheflick.net/api/user/all-location';
+
+
+
+$options = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header'=>"Accept-language: en\r\n" .
+              "Cookie: foo=bar\r\n" .  // check function.stream-context-create on php.net
+              "Authorization: Bearer ".$_SESSION['remember_token']."" // i.e. An iPad 
+  )
+);
+$context = stream_context_create($options);
+$json_data = file_get_contents($api_url, false, $context);
+
+$response_data = json_decode($json_data);
+
+$alllocationdata = $response_data->data;
+
+?>
 <body>
 <?php include 'components/navigation.php'; ?>
     
@@ -27,8 +49,16 @@ include 'components/modals/map-modal.php';
       
         
 <br>
+
+
+<?php 
+
+            for ($x = 0; $x < count($alllocationdata); $x++) {
+
+
+ ?>
 <div class="shadow-none p-3  bg mb-5 rounded">
-  <span style="color:#001746; font-weight: 700;">Home  </span>
+  <span style="color:#001746; font-weight: 700;"><?php echo $alllocationdata[$x]->title ?>  </span>
  
 
 <p style="float: right;">
@@ -36,11 +66,18 @@ include 'components/modals/map-modal.php';
 </p>
 <br>
 
-<span style="color: #6A6A6A;">653 Saba Avenue, Phase 7, DHA</span>
+<span style="color: #6A6A6A;"><?php echo $alllocationdata[$x]->address ?><?php echo $alllocationdata[$x]->address1 ?></span>
 
 
 </div>
 
+
+<?php 
+
+            }
+
+
+ ?>
 
     </div>
 
