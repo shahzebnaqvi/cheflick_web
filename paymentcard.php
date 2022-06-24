@@ -23,6 +23,8 @@ include 'components/modals/map-modal.php';
 <?php include 'components/navigation.php'; ?>
     
     <div class="container">
+        <br>
+        <br><br>
        <span style="float: right; color:#9C3DFD; float: right; font-size: 15px;font-weight: 700; "><a data-toggle="modal" href="#mapModal" class="voucher-btn">Add New Card</a></span>  
         <h2 style="font-size: 25px; color: #001746; font-weight:700">Payement Details</h2>
       
