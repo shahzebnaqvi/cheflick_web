@@ -1,49 +1,39 @@
-
 <div class="container-fluid">
-<div class="row">
+<div class="row borderBottom">
         <div class="col-md-2">
     <a class="navbar-brand logo" href="index.php">
         <img src="images/logo.png"/>
     </a>
         </div>
-<div class="col-md-8">
+<div class="col-md-7">
     <div class="form-row my-2">
-            <div class="col-md-5 input-group input-group-lg location mr-4">
+            <div class="col-md-4 input-group input-group-lg location">
                 <input type="text" class="form-control" placeholder="Pakistan"  style="border-radius: 10px;border-color:#E1E1E1;" />
                 <div class="input-group-btn">
                     <button class="fas fa-location ico" data-toggle="modal" data-target="#mapModal"></button>
                 </div>
             </div>
             
-			<div class="col-md-2 input-group-lg search px-2 nav-box">
-                <select class="form-control nav-input" placeholder=""  style="border-radius: 10px; width: 150px;" />
+			<div class="col-md-3 input-group-lg search nav-box">
+                <select class="form-control nav-input" placeholder=""  style="border-radius: 10px;" />
                 	<option>Delivery</option>
                 	<option>Pickup</option>
                 </select>
             </div>
-            <div class="col-md-2 input-group-lg search px-2 nav-box">
-                <select class="form-control nav-input" placeholder=""  style="border-radius: 10px; width: 150px;" />
+            <div class="col-md-3 input-group-lg search nav-box">
+                <select class="form-control nav-input" placeholder=""  style="border-radius: 10px;" />
                 	<option>Same Day</option>	
                 </select>
             </div>
-			<div class="col-md-2 input-group-lg search px-2 nav-box">
-                <select class="form-control nav-input" placeholder=""  style="border-radius: 10px; width: 150px;" />
+			<div class="col-md-2 input-group-lg search nav-box">
+                <select class="form-control nav-input" placeholder=""  style="border-radius: 10px;" />
                 	<option>Kitchen</option>	
                 </select>
             </div>
-	
-
-            <!-- <div class="input-group input-group-lg search">
-
-                <input type="text" class="form-control" placeholder="Find Mobile, Car ,laptop" />
-                <div class="input-group-btn">
-                    <button class="fas fa-search ico"></button>
-                </div>
-            </div> -->
             </div>
 </div>
-        <div class="col-md-2">
-        <form class="form-inline d-flex align-items-center justify-content-end">
+        <div class="col-md-3">
+        <form class="form-inline d-flex align-items-center justify-content-center">
             <a href="profile.php">
             <span class="my-2 my-sm-0 fas fa-user sell"></span></a>
             <div class="sell1">|</div>
