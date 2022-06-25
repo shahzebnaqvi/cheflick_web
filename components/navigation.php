@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid mb-4">
 <div class="row borderBottom">
         <div class="col-md-2">
     <a class="navbar-brand logo" href="index.php">

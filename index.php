@@ -117,11 +117,11 @@ $nearbychunk = array_chunk($nearby, 2);
                         
                         
                     <?php
-
+$bg = array("bg-1","bg-2","bg-3");
             for ($x = 0; $x < count($offerchunk); $x++) {
 
                     ?>
-                        <div class="carousel-item <?php if($x==0){echo "active";}?> ">
+                        <div class="carousel-item <?php if($x==0){echo "active";}?>">
                             <div class="row">
 <?php
 
@@ -129,7 +129,7 @@ $nearbychunk = array_chunk($nearby, 2);
 
                     ?>
                                 <div class="col-md-4 mb-3">
-                                    <div class="card bg-1">
+                                    <div class="card <?php echo $bg[$y] ?>">
                                         <div class="row">
                                           <div class="col-md-6 card-head">
                                             <h4 class="card-title before1"><?php echo $offerchunk[$x][$y]->title ?></h4>
@@ -168,8 +168,8 @@ $nearbychunk = array_chunk($nearby, 2);
 </section>
 
 <section>
-    <div class="container custom">
-        <div class="row rowFlex">
+    <div class="container">
+        <div class="row px-2">
             
                   
                         
@@ -178,7 +178,7 @@ $nearbychunk = array_chunk($nearby, 2);
 
                     ?>
            
-            <div class="col-4">
+            <div class="col-sm-4 mb-2">
                 <a href="kitchen.php?id=<?php echo $meal[$x]->id ?>" style= "  color: blue; text-decoration: none;">
                 <div class="mainText" style ="background-image :url(<?php echo $meal[$x]->meal_img ?>)">
                   <div class="overlay">
@@ -198,72 +198,8 @@ $nearbychunk = array_chunk($nearby, 2);
         </div>
     </div>
 </section>
-<section>
-    <div class="container custom">
-        <div class="row">
-            <div class="col-6">
-                <h3 class="mb-3">Category</h3>
-            </div>
-            <div class="col-6 text-right">
-            </div>
-            <div class="col-12">
-                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+<?php include 'components/slide.php'; ?>
 
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-
-
-
-
-
-
-
-     <?php
-            for ($x = 0; $x <count($category); $x++) {
-
-                    ?>
-           
-                                  <div class="col-4">
-                <a href="testingdsmoasoas" style= "  color: blue; text-decoration: none;">
-                <div class="mainText" style ="background-image :url(<?php echo $category[$x]->category_image ?>)">
-                  <div class="overlay">
-                    <div class="textEnd">
-                  <h2 class="mainText-heading"><?php echo $category[$x]->category_name ?></h2>
-                  </div>
-                  </div>
-                </div> </a>
-            </div>       
-            <?php } ?>
-    
-    
-    
-    
-    
-    
-    
-    
-
-                                    </div>
-                            </div>
-                        </div>
-                    <!--     <div class="carousel-item">
-                            <div class="row">
-
-                            </div>
-                        </div> -->
-                    </div>
-                    <a class="btn btn-primary mb-3 mr-1 left" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                    <i class="fa fa-chevron-left"></i>
-                </a>
-                <a class="btn btn-primary mb-3 right" href="#carouselExampleIndicators2" role="button" data-slide="next">
-                    <i class="fa fa-chevron-right"></i>
-                </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <section>
     <div class="container custom">
         <div class="row">
@@ -942,7 +878,7 @@ $nearbychunk = array_chunk($nearby, 2);
 
 
 
-
+<<script src="components/slide.js"></script>
 
 <?php include 'components/modals/map-modal.php'; ?>
 </body>
