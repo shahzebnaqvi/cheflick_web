@@ -1,7 +1,11 @@
+<?php 
+define("API_KEY","AIzaSyDn1JrKoNqygrc0Wjei_wpPCSFIJXvvclk") ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Sofrah</title>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 <?php include 'components/header.php'; ?>
     
@@ -26,6 +30,7 @@ $meal = $user_data->meal;
 $offer = $user_data->offer;
 $category = $user_data->category;
 $offerchunk = array_chunk($offer, 3, true);
+$categorychunk = array_chunk($category, 3);
 
 
 
@@ -214,12 +219,6 @@ $bg = array("bg-1","bg-2","bg-3");
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row">
-
-
-
-
-
-
                                 <div class="col-lg-3">
                                     <div class="card bgg-1">
                                         <img src="images/row2.png">
@@ -878,7 +877,7 @@ $bg = array("bg-1","bg-2","bg-3");
 
 
 
-<<script src="components/slide.js"></script>
+<script src="components/slide.js"></script>
 
 <?php include 'components/modals/map-modal.php'; ?>
 </body>
