@@ -81,15 +81,34 @@
 <br>
 <section>
 <div class="slick-slider container">
-  <div class="element element-1">1</div>
-  <div class="element element-2">2</div>
-  <div class="element element-3">3</div>
-  <div class="element element-4">4</div>
-  <div class="element element-5">5</div>
-  <div class="element element-6">6</div>
-  <div class="element element-7">7</div>
-  <div class="element element-8">8</div>
-  <div class="element element-9">9</div>
-  <div class="element element-10">10</div>
+  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
+
+
+  </div>
+   <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
+
+
+  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
+
+
+  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
+
+
+  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
+
+
+  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
+
+
+  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
+
+
+  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
+
+
+  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
+
+
+  </div>
 </div>
 </section>
