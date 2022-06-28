@@ -59,7 +59,7 @@ $alllocationdata = $response_data->data;
 
  ?>
 <div class="shadow-none p-3  bg mb-5 rounded">
-  <span style="color:#001746; font-weight: 700;"><?php echo $alllocationdata[$x]->title ?>  </span>
+  <span style="color:#001746; font-weight: 700;"><?php echo $alllocationdata[$x]->type ?>  </span>
  
 
 <p style="float: right;">

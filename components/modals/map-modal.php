@@ -4,7 +4,7 @@
 
 
 if(isset($_POST['locationadd'])){
-  $baseurlapi="https://api.cheflick.net/api/";
+$baseurlapi="https://api.cheflick.net/api/";
 $url = $baseurlapi."user/user-location";
 // echo $url;
 
@@ -42,7 +42,7 @@ $data= <<<DATA
   
   }
 DATA;
-echo $data;
+// echo $data;
 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
 $resp = curl_exec($curl);
