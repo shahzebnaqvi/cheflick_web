@@ -3,7 +3,36 @@
 <head>
 <title>Sofrah</title>
 
-<?php include 'components/header.php'; ?>
+<?php 
+include 'components/header.php';
+include 'components/modals/map-modal.php';
+
+
+ ?>
+<?php
+ $baserurl = 'https://cheflick.code7labs.com/';
+
+$api_url = 'https://api.cheflick.net/api/user/past-order';
+
+
+
+$options = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header'=>"Accept-language: en\r\n" .
+              "Cookie: foo=bar\r\n" .  // check function.stream-context-create on php.net
+              "Authorization: Bearer ".$_SESSION['remember_token']."" // i.e. An iPad 
+  )
+);
+$context = stream_context_create($options);
+$json_data = file_get_contents($api_url, false, $context);
+
+$response_data = json_decode($json_data);
+
+$past_order = $response_data->past_order;
+$active_order = $response_data->active_order;
+
+?>
     
 <style type="text/css">
   .bg{
@@ -49,6 +78,9 @@
 
 <div id="active" class="category" style="display:none">
 
+
+<?php   for ($y = 0; $y < count($active_order); $y++){?>
+
 <div class="shadow-none p-3  mb-5 rounded">
 
  <span><img src="images/icon.PNG" width="53" height="53" class="rounded-circle"> </span>
@@ -69,6 +101,8 @@
 <span style="color:#001746; font-weight: 600; display: inline;"> 20 OCT 2020 | 12:00 am</span>
 </div>
 </div>
+
+<?php } ?>
     </div>
 
 
@@ -78,13 +112,17 @@
 
     <div id="post" class="category" style="display:block">
 
-<div class="shadow-none p-3  mb-5 rounded">
 
- <span><img src="images/icon.PNG" width="53" height="53" class="rounded-circle"> </span>
 
-  <span style="color:#001746; font-weight: 600; display: inline;">
-  
-  Nandos    (In Process)</span>
+
+    <?php   for ($x = 0; $x < count($past_order); $x++){?>
+    <div class="shadow-none p-3  mb-5 rounded">
+
+<span><img src="images/icon.PNG" width="53" height="53" class="rounded-circle"> </span>
+
+ <span style="color:#001746; font-weight: 600; display: inline;">
+ 
+ Nandos    (In Process)</span>
 
 
 
@@ -98,6 +136,13 @@
 <span style="color:#001746; font-weight: 600; display: inline;"> 20 OCT 2020 | 12:00 am</span>
 </div>
 </div>
+  <?php }?>
+
+
+
+
+
+
     </div>
 
 
