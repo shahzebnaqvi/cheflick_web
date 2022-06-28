@@ -3,10 +3,10 @@
 // include_once 'constant.php';
 
 
-if(isset($_POST['login'])){
-
+if(isset($_GET['locationadd'])){
   $baseurlapi="https://api.cheflick.net/api/";
 $url = $baseurlapi."user/user-location";
+echo $url;
 
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, $url);
@@ -14,9 +14,11 @@ curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 $title=$_POST['title'];
-$address=$_POST['address'];
-$latitude=$_POST['latitude'];
-$longitude=$_POST['longitude'];
+$address=$_POST['location'];
+// $latitude=$_POST['latitude'];
+// $longitude=$_POST['longitude'];
+$latitude = "<script>document.write(latitude)</script>"; 
+$longitude = "<script>document.write(longitude)</script>"; 
 $type=$_POST['type'];
 
 
@@ -45,7 +47,6 @@ $resp = curl_exec($curl);
 
 $obj = json_decode($resp,true);
 
-$obj = json_decode($resp,true);
 if($obj['status']){
 
     print_r( $obj['data']);
@@ -111,8 +112,9 @@ $iframe= ' <iframe class="map-custom" width="100%" height="400" frameborder="0" 
 
         <div class="mapsearch" id="mapsearch">
           <?php echo $iframe;?>
-         </div>
+        </div>
 
+        <form action="#" method="post">
 
           <div class="row">
               <div class="input-group input-group-lg location my-2 col-lg-12">
@@ -125,10 +127,9 @@ $iframe= ' <iframe class="map-custom" width="100%" height="400" frameborder="0" 
               </form> -->
 
 
-
               
 
-              <input  class="form-control" placeholder="Pakistan"  style="border-radius: 10px;border-color:#E1E1E1;" type="text" name="location" id ="location" />
+              <input  class="form-control" placeholder="Pakistan"  style="border-radius: 10px;border-color:#E1E1E1;" type="text" name="location" id ="location" required/>
 
               
 
@@ -141,20 +142,29 @@ $iframe= ' <iframe class="map-custom" width="100%" height="400" frameborder="0" 
                 <div class="input-group-btn" >
                     <button class="fas fa-location ico" onclick="getLocation()"></button>
                 </div>
+            
+
+         
+
+
+
+
 
             </div>
           </div>
           <div class="row">
               <div class=" input-group-lg location my-2 col-lg-6">
-                <select class="form-control" placeholder=""  style="border-radius: 10px;" />
-                	<option>Mark this position as</option>
-                	<option>Pickup</option>
+                <select class="form-control" placeholder="" name="type" style="border-radius: 10px;" required>
+                	<option value="home">Home</option>
+                	<option  value="work" >Work</option>
+                  <option value="other">Other</option>
                 </select>
             </div>
             <div class=" input-group-lg search my-2 col-lg-6">
-            <button class="rate">FIND EATRIES</button>
+            <button type="submit" class="rate" name="locationadd">Add Location</button>
             </div>
           </div>
+          </form>
           </div>
       </div>
     </div>
@@ -174,6 +184,8 @@ function getLocation() {
 }
 
 function showPosition(position) {
+  latitude = position.coords.latitude;
+  longitude = position.coords.longitude;
   x.innerHTML = '<iframe class="map-custom" width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q='  + position.coords.latitude +',' +position.coords.longitude+'&output=embed"></iframe>' ;
 
 }
