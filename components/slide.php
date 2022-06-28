@@ -80,12 +80,12 @@
 <br>
 <br>
 <section>
-<div class="slick-slider">
+<div class="slick-slider container">
   <div class="element element-1">1</div>
   <div class="element element-2">2</div>
   <div class="element element-3">3</div>
   <div class="element element-4">4</div>
-  <div class="element element-5">4</div>
+  <div class="element element-5">5</div>
   <div class="element element-6">6</div>
   <div class="element element-7">7</div>
   <div class="element element-8">8</div>
