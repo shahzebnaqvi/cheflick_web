@@ -4,16 +4,7 @@ $iframe= ' <iframe class="map-custom" width="100%" height="400" frameborder="0" 
   ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<!-- <script>
-    document.onkeydown=function(evt){
-        var keyCode = evt ? (evt.which ? evt.which : evt.keyCode) : event.keyCode;
-        if(keyCode == 13)
-        {
-            //your function call here
-            document.test.submit();
-        }
-    }
-</script> -->
+
 
 
 <script type='text/javascript'>
