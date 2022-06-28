@@ -1,63 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>My Order</title>
+<title>Sofrah</title>
 
 <?php include 'components/header.php'; ?>
     
+<style type="text/css">
+  .bg{
+
+    background-color: #F2F2FF;
+  }
+</style>
 
 </head>
 <body>
-<?php
- $baserurl = 'https://cheflick.code7labs.com/';
-
-$api_url = 'https://api.cheflick.net/api/user/past-order';
-
-
-
-$options = array(
-  'http'=>array(
-    'method'=>"GET",
-    'header'=>"Accept-language: en\r\n" .
-              "Cookie: foo=bar\r\n" .  // check function.stream-context-create on php.net
-              "Authorization: Bearer ".$_SESSION['remember_token']."" // i.e. An iPad 
-  )
-);
-$context = stream_context_create($options);
-$json_data = file_get_contents($api_url, false, $context);
-
-$response_data = json_decode($json_data);
-
-$past_order = $response_data->past_order;
-$active_order = $response_data->active_order;
-
-?>
 <?php include 'components/navigation.php'; ?>
     
+    <div class="container">
+     
 
-				<div class="row text-center" style="margin-top:20px;">
-				    <div class="col-md-12">
-						<h2 style="color:#001746;"><b>My Orders</b></h2>
-					
-					
-					    <br>
-			<button class="btn btn-primary" style="background-color:#9C3DFD; border-radius:15px; width:135px;">All</button>
-            <button class="btn btn-primary" style="background-color:#9C3DFD; border-radius:15px;  width:135px;">Active</button>
+        <h2 style="font-size: 25px; color: #001746; font-weight:700">My Orders</h2>
+
+<br>
+        
+
+        <div class="text-center">
+
+         <button class="btn btn-primary" style="background-color:#9C3DFD; border-radius:15px;  width:135px;">Active</button>
             <button class="btn btn-primary" style="background-color:#9C3DFD; border-radius:15px;  width:135px;">Post</button>
-            <button class="btn btn-primary" style="background-color:#9C3DFD; border-radius:15px;  width:135px;">Sheduled</button>
-           
-            
             </div>
-             <div class="row" style="margin-top:50px; margin-left:50px;">
-            <div class="col-lg-12">
-                <img src="images/icon.PNG" width="53" height="53" class="rounded-circle"> 
-               <b style="font-size: 18px; color: #001746;">Junaid Ahmed 
-               <b style="font-size: 18px; color: #001746; margin-left:240px;">In Process
-               <b style="font-size: 18px; color: #001746; margin-left:140px;">Rs 3000
-            </div>
+
+
+       <!--  <div>
+              <div class="row" style="margin-left:-80px;" >
+        <div class="col-lg-9" >
+            <h2 style="font-size: 18px; color: #001746;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h2>
+        </div>
+        
+        <div class="col-lg-3">
+            <h2 style="font-size: 18px; color: #001746;"><b style="font-weight:400;">Expiry:</b> 10-FEB-2022</h2>
+        </div>
             
-		</div>
+        </div> -->
+        
+<br>
+<div class="shadow-none p-3  mb-5 rounded">
+
+ <span><img src="images/icon.PNG" width="53" height="53" class="rounded-circle"> </span>
+
+  <span style="color:#001746; font-weight: 600; display: inline;">
+  
+  Nandos    (In Process)</span>
+
+
+
+
+<p style="float: right;">
+<span style="color: #6A6A6A;"> <b style="color:#001746; font-size:20px;">Rs 3000</b></span>
+</p>
+<br>
+<div style="margin-left:59px;">
+
+<span style="color:#001746; font-weight: 600; display: inline;"> 20 OCT 2020 | 12:00 am</span>
 </div>
+</div>
+    </div>
 
 <!-- Modal Map-->
 <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -77,8 +84,8 @@ $active_order = $response_data->active_order;
           <div class="row">
               <div class=" input-group-lg search my-2 col-lg-6">
                 <select class="form-control" placeholder=""  style="border-radius: 10px;" />
-                	<option>Mark this position as</option>
-                	<option>Pickup</option>
+                  <option>Mark this position as</option>
+                  <option>Pickup</option>
                 </select>
             </div>
             <div class=" input-group-lg search my-2 col-lg-6">
@@ -90,20 +97,5 @@ $active_order = $response_data->active_order;
     </div>
   </div>
 </div>
-<script type="text/javascript">
-    function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-</script>
 </body>
 </html>
