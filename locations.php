@@ -12,7 +12,6 @@ include 'components/modals/map-modal.php';
     
 <style type="text/css">
   .bg{
-
     background-color: #F2F2FF;
   }
 </style>

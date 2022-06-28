@@ -3,10 +3,10 @@
 // include_once 'constant.php';
 
 
-if(isset($_GET['locationadd'])){
+if(isset($_POST['locationadd'])){
   $baseurlapi="https://api.cheflick.net/api/";
 $url = $baseurlapi."user/user-location";
-echo $url;
+// echo $url;
 
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, $url);
@@ -19,6 +19,7 @@ $address=$_POST['location'];
 // $longitude=$_POST['longitude'];
 $latitude = "<script>document.write(latitude)</script>"; 
 $longitude = "<script>document.write(longitude)</script>"; 
+
 $type=$_POST['type'];
 
 
@@ -41,6 +42,7 @@ $data= <<<DATA
   
   }
 DATA;
+echo $data;
 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
 $resp = curl_exec($curl);
@@ -57,7 +59,6 @@ else{
 
 
 curl_close($curl);
-
 
 
 
@@ -114,9 +115,14 @@ $iframe= ' <iframe class="map-custom" width="100%" height="400" frameborder="0" 
           <?php echo $iframe;?>
         </div>
 
-        <form action="#" method="post">
+        <form action="" method="post">
 
           <div class="row">
+            
+          <div class="input-group input-group-lg location my-2 col-lg-12">
+
+          <input  class="form-control" placeholder="Title"  style="border-radius: 10px;border-color:#E1E1E1;" type="text" name="title" id ="title" required/>
+          </div>
               <div class="input-group input-group-lg location my-2 col-lg-12">
               
               
@@ -188,5 +194,11 @@ function showPosition(position) {
   longitude = position.coords.longitude;
   x.innerHTML = '<iframe class="map-custom" width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q='  + position.coords.latitude +',' +position.coords.longitude+'&output=embed"></iframe>' ;
 
+}
+</script>
+
+<script>
+if ( window.history.replaceState ) {
+    window.history.replaceState( null, null, window.location.href );
 }
 </script>
