@@ -26,8 +26,8 @@
 
         <div class="text-center">
 
-         <button class="btn btn-primary" style="background-color:#9C3DFD; border-radius:15px;  width:135px;">Active</button>
-            <button class="btn btn-primary" style="background-color:#9C3DFD; border-radius:15px;  width:135px;">Post</button>
+         <a  onclick="category('active')"><button class="btn btn-primary" style="background-color:#9C3DFD; border-radius:15px;  width:135px;">Active</button></a>
+         <a  onclick="category('post')"> <button class="btn btn-primary" style="background-color:#9C3DFD; border-radius:15px;  width:135px;">Post</button></a>
             </div>
 
 
@@ -44,6 +44,11 @@
         </div> -->
         
 <br>
+
+
+
+<div id="active" class="category" style="display:none">
+
 <div class="shadow-none p-3  mb-5 rounded">
 
  <span><img src="images/icon.PNG" width="53" height="53" class="rounded-circle"> </span>
@@ -65,6 +70,49 @@
 </div>
 </div>
     </div>
+
+
+
+
+
+
+    <div id="post" class="category" style="display:block">
+
+<div class="shadow-none p-3  mb-5 rounded">
+
+ <span><img src="images/icon.PNG" width="53" height="53" class="rounded-circle"> </span>
+
+  <span style="color:#001746; font-weight: 600; display: inline;">
+  
+  Nandos    (In Process)</span>
+
+
+
+
+<p style="float: right;">
+<span style="color: #6A6A6A;"> <b style="color:#001746; font-size:20px;">Rs 3000</b></span>
+</p>
+<br>
+<div style="margin-left:59px;">
+
+<span style="color:#001746; font-weight: 600; display: inline;"> 20 OCT 2020 | 12:00 am</span>
+</div>
+</div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
 
 <!-- Modal Map-->
 <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -97,5 +145,14 @@
     </div>
   </div>
 </div>
+<script>function category(categoryName) {
+  var i;
+  var x = document.getElementsByClassName("category");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(categoryName).style.display = "block";  
+}</script>
 </body>
 </html>
+
