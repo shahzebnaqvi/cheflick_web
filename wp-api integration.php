@@ -1,5 +1,7 @@
 
 <?php
+
+
 add_shortcode( 'termscondition', 'termsconditionfunc' );
 
 
@@ -12,20 +14,29 @@ function termsconditionfunc() {
     );
 
 
-wp_remote_get($url, array('sslverify' => FALSE));
-add_filter('https_ssl_verify', '__return_false');
 
 	
-	
+	add_filter( 'https_ssl_verify', '__return_false' );
 	$response = wp_remote_get( $url, $arguments );
-
+	$data = json_decode( wp_remote_retrieve_body( $response ) );
+// 	$data = json_decode(wp_remote_retrieve_body( $response ));
+  //	var_dump($data);
+// 	$data= 	json_decode(var_dump($data));
+// 	
+	$dat = $data ->data;
+	$dattext =  $dat ->text;
 	if ( is_wp_error( $response ) ) {
 		$error_message = $response->get_error_message();
 		return "Something went wrong: $error_message";
 	} else {
-		echo '<pre>';
-		var_dump( wp_remote_retrieve_body( $data ) );
-		echo '</pre>';
+		
+// 		echo '<pre>dssdsdkj';
+// 		var_dump( wp_remote_retrieve_body( $response ) );
+// 		 json_decode(wp_remote_retrieve_body( $response ));
+//         json_decode( wp_remote_retrieve_body( $response ) );
+// 	echo '</pre>';
+	
+echo $dattext;
 	}
 }	
 
@@ -148,9 +159,8 @@ curl_close($curl);
   transition: 0.3s; height:50px; color: " name="login" value="Login Now">
     </div>
  </form>';
+	
 }	
-
-
 
 
 
