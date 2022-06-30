@@ -156,14 +156,27 @@ $data = $response_data1->data;
           <span class="float-left mr-3 text-main">Reviews: </span>
           <div class="text-muted text-xs">
             <div class="text-second">
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star-o" aria-hidden="true"></i>
-              
+
+            <?php 
+                      $ab =$user_data->rating ;
+                      for ($yyb = 0; $yyb < $ab ; $yyb++){
+                      ?>
+
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <?php } ?>
+                   
+                      <?php 
+                         $bb  = 5 - $ab ;
+                      for ($yyyb = 0; $yyyb < $bb ; $yyyb++){
+                      ?>
+
+                      <i class="fa fa-star-o " aria-hidden="true"></i>
+                      <?php } ?>
+
+
+
             </div>
-            4 star rating
+            <?php echo  $ab;?> star rating
           </div>
         </div>
     
@@ -338,13 +351,23 @@ for ($x = 0; $x < count($data); $x++) {
 						</div>
 										<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name"><?php echo $data[$x]->username?> </span>
                     <div class="elementor-star-rating">
+                      <?php 
+                      $a =$data[$x]->rating ;
+                      for ($yy = 0; $yy < $a ; $yy++){
+                      ?>
+
                       <i class="elementor-star-full">&#xE934;</i>
-                      <i class="elementor-star-full">&#xE934;</i>
+                      <?php } ?>
+                   
+                      <?php 
+                         $b  = 5 - $a ;
+                      for ($yyy = 0; $yyy < $b ; $yyy++){
+                      ?>
+
                       <i class="elementor-star-empty">&#xE934;</i>
-                      <i class="elementor-star-empty">&#xE934;</i>
-                      <i class="elementor-star-empty">&#xE934;</i>
-                    </div>
-                    <span class="elementor-testimonial__title"><?php echo $data[$x]->rating_date ?> 	</span></cite>					<div class="elementor-testimonial__icon elementor-icon elementor-icon-twitter">
+                      <?php } ?>
+                     
+                    </div><span class="elementor-testimonial__title"><?php echo $data[$x]->rating_date ?> 	</span></cite>					<div class="elementor-testimonial__icon elementor-icon elementor-icon-twitter">
                       <i aria-hidden="true" class="fab fa-twitter"></i><span class="elementor-screen-only">Read More</span></div>				</div>
 										<div class="elementor-testimonial__content">
 					<div class="elementor-testimonial__text">
