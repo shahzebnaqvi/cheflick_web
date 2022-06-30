@@ -2,7 +2,6 @@
  session_start();
  $baserurl = 'https://cheflick.code7labs.com/';
 if($_GET['id']==null){
-    // header('location:'.$baserurl.'dashboard/');
     header('location: index.php');
 
 }
@@ -18,31 +17,41 @@ $options = array(
               "Authorization: ".$_SESSION['remember_token']."" // i.e. An iPad 
   )
 );
-// echo $_SESSION['remember_token'];
 $context = stream_context_create($options);
 $json_data = file_get_contents($api_url, false, $context);
-// Read JSON file
-// $json_data = file_get_contents($api_url);
-// print_r($json_data);
-// Decode JSON data into PHP array
+
 $response_data = json_decode($json_data);
 
-// All user data exists in 'data' object
 $user_data = $response_data->data;
-// print_r($user_data);
-// $category = $user_data->category;
-// if($user_data->kId==null){
-//         header('location:'.$baserurl.'dashboard/');
 
-// };
 $tab = $user_data->kitchen_tabs;
-// echo "assaassa";
-// print_r( $tab);
 
-// print_r( $dish);
-// echo( $tab[0]->tab_name );
-// echo "Sasaasas";
-// echo $user_data->kitchen_banner;
+
+
+
+
+
+
+$api_url1 = 'https://api.cheflick.net/api/user/get-rate-list?kid='.$_GET['id'].'';
+
+
+
+$options1 = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header'=>"Accept-language: en\r\n" .
+              "Cookie: foo=bar\r\n" .  // check function.stream-context-create on php.net
+              "Authorization: ".$_SESSION['remember_token']."" // i.e. An iPad 
+  )
+);
+$context1 = stream_context_create($options1);
+$json_data1 = file_get_contents($api_url1, false, $context1);
+
+$response_data1 = json_decode($json_data1);
+
+$data = $response_data1->data;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -147,14 +156,27 @@ $tab = $user_data->kitchen_tabs;
           <span class="float-left mr-3 text-main">Reviews: </span>
           <div class="text-muted text-xs">
             <div class="text-second">
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star-o" aria-hidden="true"></i>
-              
+
+            <?php 
+                      $ab =$user_data->rating ;
+                      for ($yyb = 0; $yyb < $ab ; $yyb++){
+                      ?>
+
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <?php } ?>
+                   
+                      <?php 
+                         $bb  = 5 - $ab ;
+                      for ($yyyb = 0; $yyyb < $bb ; $yyyb++){
+                      ?>
+
+                      <i class="fa fa-star-o " aria-hidden="true"></i>
+                      <?php } ?>
+
+
+
             </div>
-            4 star rating
+            <?php echo  $ab;?> star rating
           </div>
         </div>
     
@@ -169,7 +191,7 @@ $tab = $user_data->kitchen_tabs;
       <div class="row ml-4"><div class="col-12 font-weight-bold">
           <?php      for ($x = 0; $x < count($tab); $x++) { ?>
           
-          <a  onclick="category('<?php echo $tab[$x]->tab_id ;?>')"><?php echo $tab[$x]->tab_name ;?></a>
+          <a  onclick="category('<?php echo $tab[$x]->tab_id ;?>')"><?php echo $tab[$x]->tab_name ; ?></a>
           <?php    } ?>
           </div>
       </div>
@@ -177,8 +199,7 @@ $tab = $user_data->kitchen_tabs;
       <button type="button" class=" m-4 btn btn-second btn-lg btn-block">Minimum order value Rs.450</button>
       
        <?php      for ($x = 0; $x < count($tab); $x++) { ?>
-          
-            <div id="<?php echo $tab[$x]->tab_id ;?>" class="category" style="display:none">
+            <div id="<?php echo $tab[$x]->tab_id ;?>" class="category <?php echo $x;?>"  style="display:<?php if($x==0){echo 'block'; } else{echo 'none'; } ?>">
                 
                 <!--$dishes = $tab ->dishes;-->
                 
@@ -265,1123 +286,7 @@ $tab = $user_data->kitchen_tabs;
           <?php    } ?>
           
           
-          
-      
-    <!--<div id="32" class="category">-->
-    <!--    <div class="row m-4">-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-        
-    <!--    </div>-->
-    <!--    <div class="row m-4">-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-        
-    <!--    </div>-->
-    <!--    <div class="row m-4">-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-        
-    <!--    </div>-->
-    <!--    <div class="row m-4">-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-        
-    <!--    </div>-->
-    <!--    <div class="row m-4">-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-        
-    <!--    </div>-->
-    <!--</div>-->
-    
-    <!--<div id="39" class="category"  style="display:none">-->
-    <!--    <div class="row m-4">-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-        
-    <!--    </div>-->
-    <!--    <div class="row m-4">-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-        
-    <!--    </div>-->
-    <!--    <div class="row m-4">-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-        
-    <!--    </div>-->
-    <!--    <div class="row m-4">-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-        
-    <!--    </div>-->
-    <!--    <div class="row m-4">-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <div class="col-6">-->
-    <!--        <div class="card">-->
-    <!--          <div class="row no-gutters">-->
-    <!--            <div class="col-auto">-->
-    <!--              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>-->
-    <!--            </div>-->
-    <!--            <div class="col">-->
-    <!--              <div class="card-block p-2">-->
-    <!--                <div class="card-title row m-0 p-0">-->
-    <!--                  <h4 class="col-7 pl-0">Pizza Veloper</h4>-->
-    <!--                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span-->
-    <!--                      class="text-second font-weight-bold"> Rs 150</span></h5>-->
-    <!--                </div>-->
-    <!--                <p class="card-text text-muted m-0 text-12">-->
-    <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-    <!--                  Ornare leo non mollis id cursus. Eu euismod faucibus in,-->
-    <!--                </p>-->
-    <!--                <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>-->
-    <!--                <div class="card-text row mt-2">-->
-    <!--                  <h5 class="col-6 text-second">Service 2</h5>-->
-    <!--                  <div class="col-6">-->
-    <!--                    <span class="float-left mr-1">Reviews: </span>-->
-    <!--                    <div class="text-muted text-xs">-->
-    <!--                      <div class="text-second">-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star" aria-hidden="true"></i>-->
-    <!--                        <i class="fa fa-star-o" aria-hidden="true"></i>-->
-                            
-    <!--                      </div>-->
-    <!--                      4 star rating-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--          <div class="w-100 row m-0 p-0">-->
-    <!--            <div class="col-8 mt-2 text-muted">-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs-->
-    <!--              </p>-->
-    <!--              <p class="w-100 p-0 m-0">-->
-    <!--                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--            <div class="col-4">-->
-    <!--              <img class="float-left w-50" src="images/Heart.svg">-->
-    <!--              <img class="float-right w-50" src="images/basket.svg">-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-        
-    <!--    </div>-->
-    <!--</div>-->
+     
   </div>
  <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1427,45 +332,63 @@ $tab = $user_data->kitchen_tabs;
 .elementor-star-rating{color:#ccd6df;font-family:eicons;display:inline-block}.elementor-star-rating i{display:inline-block;position:relative;font-style:normal;cursor:default}.elementor-star-rating i:before{content:"\e934";display:block;font-size:inherit;font-family:inherit;position:absolute;overflow:hidden;color:#f0ad4e;top:0;left:0}.elementor-star-rating .elementor-star-empty:before{content:none}.elementor-star-rating .elementor-star-1:before{width:10%}.elementor-star-rating .elementor-star-2:before{width:20%}.elementor-star-rating .elementor-star-3:before{width:30%}.elementor-star-rating .elementor-star-4:before{width:40%}.elementor-star-rating .elementor-star-5:before{width:50%}.elementor-star-rating .elementor-star-6:before{width:60%}.elementor-star-rating .elementor-star-7:before{width:70%}.elementor-star-rating .elementor-star-8:before{width:80%}.elementor-star-rating .elementor-star-9:before{width:90%}.elementor-star-rating__wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.elementor-star-rating__title{margin-right:10px}.elementor-star-rating--align-right .elementor-star-rating__wrapper{text-align:right;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.elementor-star-rating--align-left .elementor-star-rating__wrapper{text-align:left;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.elementor-star-rating--align-center .elementor-star-rating__wrapper{text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.elementor-star-rating--align-justify .elementor-star-rating__title{margin-right:auto}@media (max-width:1024px){.elementor-star-rating-tablet--align-right .elementor-star-rating__wrapper{text-align:right;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.elementor-star-rating-tablet--align-left .elementor-star-rating__wrapper{text-align:left;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.elementor-star-rating-tablet--align-center .elementor-star-rating__wrapper{text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.elementor-star-rating-tablet--align-justify .elementor-star-rating__title{margin-right:auto}}@media (max-width:767px){.elementor-star-rating-mobile--align-right .elementor-star-rating__wrapper{text-align:right;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.elementor-star-rating-mobile--align-left .elementor-star-rating__wrapper{text-align:left;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.elementor-star-rating-mobile--align-center .elementor-star-rating__wrapper{text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.elementor-star-rating-mobile--align-justify .elementor-star-rating__title{margin-right:auto}}.last-star{letter-spacing:0}.elementor--star-style-star_unicode .elementor-star-rating{font-family:Arial,Helvetica,sans-serif}.elementor--star-style-star_unicode .elementor-star-rating i:not(.elementor-star-empty):before{content:"\002605"}</style><link rel="stylesheet" href="https://cheflick.code7labs.com/wp-content/plugins/elementor-pro/assets/css/widget-carousel.min.css">		<div class="elementor-swiper">
 			<div class="elementor-main-swiper swiper-container">
 				<div class="swiper-wrapper">
-											<div class="swiper-slide">
+											
+        
+
+
+        <?php 
+  // print_r($data);
+for ($x = 0; $x < count($data); $x++) {
+
+
+        ?>
+        
+        <div class="swiper-slide">
 									<div class="elementor-testimonial elementor-repeater-item-bdb9647">
 							<div class="elementor-testimonial__header">
 											<div class="elementor-testimonial__image">
 							<img src="https://cheflick.code7labs.com/wp-content/plugins/elementor/assets/images/placeholder.png" alt="John Doe">
 						</div>
-										<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">John Doe</span><div class="elementor-star-rating"><i class="elementor-star-full">&#xE934;</i><i class="elementor-star-full">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i></div><span class="elementor-testimonial__title">@username</span></cite>					<div class="elementor-testimonial__icon elementor-icon elementor-icon-twitter"><i aria-hidden="true" class="fab fa-twitter"></i><span class="elementor-screen-only">Read More</span></div>				</div>
+										<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name"><?php echo $data[$x]->username?> </span>
+                    <div class="elementor-star-rating">
+                      <?php 
+                      $a =$data[$x]->rating ;
+                      for ($yy = 0; $yy < $a ; $yy++){
+                      ?>
+
+                      <i class="elementor-star-full">&#xE934;</i>
+                      <?php } ?>
+                   
+                      <?php 
+                         $b  = 5 - $a ;
+                      for ($yyy = 0; $yyy < $b ; $yyy++){
+                      ?>
+
+                      <i class="elementor-star-empty">&#xE934;</i>
+                      <?php } ?>
+                     
+                    </div><span class="elementor-testimonial__title"><?php echo $data[$x]->rating_date ?> 	</span></cite>					<div class="elementor-testimonial__icon elementor-icon elementor-icon-twitter">
+                      <i aria-hidden="true" class="fab fa-twitter"></i><span class="elementor-screen-only">Read More</span></div>				</div>
 										<div class="elementor-testimonial__content">
 					<div class="elementor-testimonial__text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.					</div>
+          <?php echo $data[$x]->feedback?> 					</div>
 				</div>
 					</div>
 								</div>
-									<div class="swiper-slide">
-									<div class="elementor-testimonial elementor-repeater-item-bdb9647">
-							<div class="elementor-testimonial__header">
-											<div class="elementor-testimonial__image">
-							<img src="https://cheflick.code7labs.com/wp-content/plugins/elementor/assets/images/placeholder.png" alt="John Doe">
-						</div>
-										<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">John Doe</span><div class="elementor-star-rating"><i class="elementor-star-full">&#xE934;</i><i class="elementor-star-full">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i></div><span class="elementor-testimonial__title">@username</span></cite>					<div class="elementor-testimonial__icon elementor-icon elementor-icon-twitter"><i aria-hidden="true" class="fab fa-twitter"></i><span class="elementor-screen-only">Read More</span></div>				</div>
-										<div class="elementor-testimonial__content">
-					<div class="elementor-testimonial__text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.					</div>
-				</div>
-					</div>
-								</div>
-									<div class="swiper-slide">
-									<div class="elementor-testimonial elementor-repeater-item-bdb9647">
-							<div class="elementor-testimonial__header">
-											<div class="elementor-testimonial__image">
-							<img src="https://cheflick.code7labs.com/wp-content/plugins/elementor/assets/images/placeholder.png" alt="John Doe">
-						</div>
-										<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">John Doe</span><div class="elementor-star-rating"><i class="elementor-star-full">&#xE934;</i><i class="elementor-star-full">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i></div><span class="elementor-testimonial__title">@username</span></cite>					<div class="elementor-testimonial__icon elementor-icon elementor-icon-twitter"><i aria-hidden="true" class="fab fa-twitter"></i><span class="elementor-screen-only">Read More</span></div>				</div>
-										<div class="elementor-testimonial__content">
-					<div class="elementor-testimonial__text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.					</div>
-				</div>
-					</div>
-								</div>
+
+
+
+                <?php 
+
+              }
+
+          ?>
+
+
+
+
+
+
     </div>
   </div>
 </div>

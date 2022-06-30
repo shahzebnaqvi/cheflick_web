@@ -19,6 +19,8 @@ $address=$_POST['location'];
 // $longitude=$_POST['longitude'];
 $latitude = "<script>document.write(latitude)</script>"; 
 $longitude = "<script>document.write(longitude)</script>"; 
+echo   "<script>document.write(yy)</script>"; 
+  
 
 $type=$_POST['type'];
 
@@ -51,7 +53,7 @@ $obj = json_decode($resp,true);
 
 if($obj['status']){
 
-    print_r( $obj['data']);
+    // print_r( $obj['data']);
 }
 else{
 
@@ -146,7 +148,7 @@ $iframe= ' <iframe class="map-custom" width="100%" height="400" frameborder="0" 
 
 
                 <div class="input-group-btn" >
-                    <button class="fas fa-location ico" onclick="getLocation()"></button>
+                    <button class="fas fa-location ico" onclick="getLocation()" required></button>
                 </div>
             
 
@@ -192,6 +194,9 @@ function getLocation() {
 function showPosition(position) {
   latitude = position.coords.latitude;
   longitude = position.coords.longitude;
+  // y  = "https://www.google.com/maps/search/" + latitude +
+  //     ",+" + longitude+"/@"+ latitude+","+ longitude+","+"17z";
+  //     alert(y);
   x.innerHTML = '<iframe class="map-custom" width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q='  + position.coords.latitude +',' +position.coords.longitude+'&output=embed"></iframe>' ;
 
 }
