@@ -177,58 +177,68 @@ add_shortcode( 'referafriend', 'referafriendfunc' );
 
 
 function referafriendfunc() {
-	
 	session_start();
-$url = "https://api.cheflick.net/api/user/refer-friend";
+	$message = "";
+	$baseurlapi = "https://api.cheflick.net/api/";
+$webbaseurl = "https://cheflick.code7labs.com/";
+	$url = $baseurlapi."user/refer-friend";
 
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-// curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
-if(isset($_POST['refer'])){
-$name=$_POST['name'];
+if(isset($_POST['refer']) AND isset($_POST['name'])  AND isset($_POST['email'])  AND isset($_POST['phone'])  AND isset($_POST['when_to_contact'])  AND isset($_POST['from']) ){
+
+	
+	$name=$_POST['name'];
 $email=$_POST['email'];
 $phone_number=$_POST['phone'];
 $when_to_contact=$_POST['when_to_contact'];
 // $to=$_POST['to'];
 $from=$_POST['from'];
 
+
+
+
 $headers = array(
    "Accept: application/json",
    "Content-Type: application/json",
-   "Authorization: Bearer ".$_SESSION['remember_token']."" 
 );
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
 $data= <<<DATA
 {
+ 	
  	"name":"$name",
     "email":"$email",
     "phone_number":"$phone_number",
     "when_to_contact":"$when_to_contact",
     "to":"$name",
     "from":"$from"
-
+	
   }
 DATA;
 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
 $resp = curl_exec($curl);
-curl_close($curl);
-if($resp->status == 1){
-		$message="<div class='alert alert-success' role='alert'>
-  Refered
-</div>";
+
+$obj = json_decode($resp,true);
+
+$obj = json_decode($resp,true);
+if($obj['status']){
+
+   
+   
+
+    header("Location:".$webbaseurl."dashboard/");
 }
 else{
-//    header("Location:".$webbaseurl."login-signup/");
 $message="<div class='alert alert-danger' role='alert'>
-  Login First
+  Warning! The User Not Found
 </div>";
 }
-	
+curl_close($curl);
 }
 
     echo '
@@ -307,22 +317,18 @@ $message="<div class='alert alert-danger' role='alert'>
         <option>...</option>
       </select>
     </div>
-  </div>
+  </div>  <div class="form-group col-md-12 " >
+  '.$message.' </div>
   <div class="form-group col-md-12 " >
       
       <input type="submit" class="form-control" style="border-radius:20px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s; height:50px; color: " name="refer" value="Refer Now">
-       
+  transition: 0.3s; height:50px; color: " name="refer">   
     </div>
   
 </form>';
 
 	
-	'.$message.'  
+	 
 }	
-
-
-
-
 
 ?>
