@@ -164,4 +164,165 @@ curl_close($curl);
 
 
 
+
+
+
+
+
+
+
+
+
+add_shortcode( 'referafriend', 'referafriendfunc' );
+
+
+function referafriendfunc() {
+	
+	session_start();
+$url = "https://api.cheflick.net/api/user/refer-friend";
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+// curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+if(isset($_POST['refer'])){
+$name=$_POST['name'];
+$email=$_POST['email'];
+$phone_number=$_POST['phone'];
+$when_to_contact=$_POST['when_to_contact'];
+// $to=$_POST['to'];
+$from=$_POST['from'];
+
+$headers = array(
+   "Accept: application/json",
+   "Content-Type: application/json",
+   "Authorization: Bearer ".$_SESSION['remember_token']."" 
+);
+curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+$data= <<<DATA
+{
+ 	"name":"$name",
+    "email":"$email",
+    "phone_number":"$phone_number",
+    "when_to_contact":"$when_to_contact",
+    "to":"$name",
+    "from":"$from"
+
+  }
+DATA;
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+
+$resp = curl_exec($curl);
+curl_close($curl);
+if($resp->status == 1){
+		$message="<div class='alert alert-success' role='alert'>
+  Refered
+</div>";
+}
+else{
+//    header("Location:".$webbaseurl."login-signup/");
+$message="<div class='alert alert-danger' role='alert'>
+  Login First
+</div>";
+}
+	
+}
+
+    echo '
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<form class="" method="post" action="">
+ <div class="form-row  ">
+    <div class="form-group col-md-6 " >
+      <label for="inputEmail4">Your Name</label>
+      <input style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; " type="name" class="form-control card2" id="inputEmail4" placeholder="Name" name="name">
+    </div>
+     <div class="form-group col-md-6 " >
+      <label for="inputEmail4">Your Number</label>
+      <input style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; " type="name" class="form-control card2" id="inputEmail4" placeholder="Phone Number" name="phone">
+    </div>
+  </div>
+
+ 
+  <div class="form-row  ">
+    <div class="form-group col-md-6 " >
+      <label for="inputEmail4">Refferal Name</label>
+      <input style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; " type="name" class="form-control card2" id="inputEmail4" placeholder="Name" name="from">
+    </div>
+     <div class="form-group col-md-6 " >
+      <label for="inputEmail4">Bussiness Name</label>
+      <input style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; " type="name" class="form-control card2" id="inputEmail4" placeholder="Bussiness Name" name="bname">
+    </div>
+  </div>
+   <div class="form-row  ">
+    <div class="form-group col-md-6 " >
+      <label for="inputEmail4">How do you find us?</label>
+         <select id="inputState" class="form-control" style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; height:50px; " name="findus">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+     <div class="form-group col-md-6 " >
+      <label for="inputEmail4">Refferal Number</label>
+      <input style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; " type="name" class="form-control card2" id="inputEmail4" placeholder="Phone" name="phone">
+    </div>
+  </div>
+  <div class="form-row  ">
+    <div class="form-group col-md-6 " >
+      <label for="inputEmail4">Email</label>
+      <input style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; " type="email" class="form-control card2" id="inputEmail4" placeholder="Email" name="email">
+    </div>
+     <div class="form-group col-md-6 " >
+      <label for="inputEmail4">When Should we Contact</label>
+      <select id="inputState" class="form-control" style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; height:50px; " name="when_to_contact">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row  ">
+    <div class="form-group col-md-6 " >
+      <label for="inputEmail4">City</label>
+      <select id="inputState" class="form-control" style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; height:50px; " name="city">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+     <div class="form-group col-md-6 " >
+      <label for="inputEmail4">Address</label>
+      <select id="inputState" class="form-control" style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; height:50px; " name="address">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group col-md-12 " >
+      
+      <input type="submit" class="form-control" style="border-radius:20px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; height:50px; color: " name="refer" value="Refer Now">
+       
+    </div>
+  
+</form>';
+
+	
+	'.$message.'  
+}	
+
+
+
+
+
 ?>
