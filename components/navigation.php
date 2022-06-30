@@ -155,7 +155,13 @@
                        <div class="col-sm-5 d-flex justify-content-end align-items-center">
                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
                        </div>
+
+                        <button class="rate2" onclick="location.href = 'www.yoursite.com';">Add to Cart</button>
+                            
+
                    </div>
+
+
                 </div>
             </div>
             </div>
