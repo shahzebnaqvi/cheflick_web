@@ -2,7 +2,6 @@
  session_start();
  $baserurl = 'https://cheflick.code7labs.com/';
 if($_GET['id']==null){
-    // header('location:'.$baserurl.'dashboard/');
     header('location: index.php');
 
 }
@@ -18,31 +17,41 @@ $options = array(
               "Authorization: ".$_SESSION['remember_token']."" // i.e. An iPad 
   )
 );
-// echo $_SESSION['remember_token'];
 $context = stream_context_create($options);
 $json_data = file_get_contents($api_url, false, $context);
-// Read JSON file
-// $json_data = file_get_contents($api_url);
-// print_r($json_data);
-// Decode JSON data into PHP array
+
 $response_data = json_decode($json_data);
 
-// All user data exists in 'data' object
 $user_data = $response_data->data;
-// print_r($user_data);
-// $category = $user_data->category;
-// if($user_data->kId==null){
-//         header('location:'.$baserurl.'dashboard/');
 
-// };
 $tab = $user_data->kitchen_tabs;
-// echo "assaassa";
-// print_r( $tab);
 
-// print_r( $dish);
-// echo( $tab[0]->tab_name );
-// echo "Sasaasas";
-// echo $user_data->kitchen_banner;
+
+
+
+
+
+
+$api_url1 = 'https://api.cheflick.net/api/user/get-rate-list?kid='.$_GET['id'].'';
+
+
+
+$options1 = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header'=>"Accept-language: en\r\n" .
+              "Cookie: foo=bar\r\n" .  // check function.stream-context-create on php.net
+              "Authorization: ".$_SESSION['remember_token']."" // i.e. An iPad 
+  )
+);
+$context1 = stream_context_create($options1);
+$json_data1 = file_get_contents($api_url1, false, $context1);
+
+$response_data1 = json_decode($json_data1);
+
+$data = $response_data1->data;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -310,45 +319,53 @@ $tab = $user_data->kitchen_tabs;
 .elementor-star-rating{color:#ccd6df;font-family:eicons;display:inline-block}.elementor-star-rating i{display:inline-block;position:relative;font-style:normal;cursor:default}.elementor-star-rating i:before{content:"\e934";display:block;font-size:inherit;font-family:inherit;position:absolute;overflow:hidden;color:#f0ad4e;top:0;left:0}.elementor-star-rating .elementor-star-empty:before{content:none}.elementor-star-rating .elementor-star-1:before{width:10%}.elementor-star-rating .elementor-star-2:before{width:20%}.elementor-star-rating .elementor-star-3:before{width:30%}.elementor-star-rating .elementor-star-4:before{width:40%}.elementor-star-rating .elementor-star-5:before{width:50%}.elementor-star-rating .elementor-star-6:before{width:60%}.elementor-star-rating .elementor-star-7:before{width:70%}.elementor-star-rating .elementor-star-8:before{width:80%}.elementor-star-rating .elementor-star-9:before{width:90%}.elementor-star-rating__wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.elementor-star-rating__title{margin-right:10px}.elementor-star-rating--align-right .elementor-star-rating__wrapper{text-align:right;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.elementor-star-rating--align-left .elementor-star-rating__wrapper{text-align:left;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.elementor-star-rating--align-center .elementor-star-rating__wrapper{text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.elementor-star-rating--align-justify .elementor-star-rating__title{margin-right:auto}@media (max-width:1024px){.elementor-star-rating-tablet--align-right .elementor-star-rating__wrapper{text-align:right;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.elementor-star-rating-tablet--align-left .elementor-star-rating__wrapper{text-align:left;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.elementor-star-rating-tablet--align-center .elementor-star-rating__wrapper{text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.elementor-star-rating-tablet--align-justify .elementor-star-rating__title{margin-right:auto}}@media (max-width:767px){.elementor-star-rating-mobile--align-right .elementor-star-rating__wrapper{text-align:right;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.elementor-star-rating-mobile--align-left .elementor-star-rating__wrapper{text-align:left;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.elementor-star-rating-mobile--align-center .elementor-star-rating__wrapper{text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.elementor-star-rating-mobile--align-justify .elementor-star-rating__title{margin-right:auto}}.last-star{letter-spacing:0}.elementor--star-style-star_unicode .elementor-star-rating{font-family:Arial,Helvetica,sans-serif}.elementor--star-style-star_unicode .elementor-star-rating i:not(.elementor-star-empty):before{content:"\002605"}</style><link rel="stylesheet" href="https://cheflick.code7labs.com/wp-content/plugins/elementor-pro/assets/css/widget-carousel.min.css">		<div class="elementor-swiper">
 			<div class="elementor-main-swiper swiper-container">
 				<div class="swiper-wrapper">
-											<div class="swiper-slide">
+											
+        
+
+
+        <?php 
+  // print_r($data);
+for ($x = 0; $x < count($data); $x++) {
+
+
+        ?>
+        
+        <div class="swiper-slide">
 									<div class="elementor-testimonial elementor-repeater-item-bdb9647">
 							<div class="elementor-testimonial__header">
 											<div class="elementor-testimonial__image">
 							<img src="https://cheflick.code7labs.com/wp-content/plugins/elementor/assets/images/placeholder.png" alt="John Doe">
 						</div>
-										<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">John Doe</span><div class="elementor-star-rating"><i class="elementor-star-full">&#xE934;</i><i class="elementor-star-full">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i></div><span class="elementor-testimonial__title">@username</span></cite>					<div class="elementor-testimonial__icon elementor-icon elementor-icon-twitter"><i aria-hidden="true" class="fab fa-twitter"></i><span class="elementor-screen-only">Read More</span></div>				</div>
+										<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name"><?php echo $data[$x]->username?> </span>
+                    <div class="elementor-star-rating">
+                      <i class="elementor-star-full">&#xE934;</i>
+                      <i class="elementor-star-full">&#xE934;</i>
+                      <i class="elementor-star-empty">&#xE934;</i>
+                      <i class="elementor-star-empty">&#xE934;</i>
+                      <i class="elementor-star-empty">&#xE934;</i>
+                    </div>
+                    <span class="elementor-testimonial__title"><?php echo $data[$x]->rating_date ?> 	</span></cite>					<div class="elementor-testimonial__icon elementor-icon elementor-icon-twitter">
+                      <i aria-hidden="true" class="fab fa-twitter"></i><span class="elementor-screen-only">Read More</span></div>				</div>
 										<div class="elementor-testimonial__content">
 					<div class="elementor-testimonial__text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.					</div>
+          <?php echo $data[$x]->feedback?> 					</div>
 				</div>
 					</div>
 								</div>
-									<div class="swiper-slide">
-									<div class="elementor-testimonial elementor-repeater-item-bdb9647">
-							<div class="elementor-testimonial__header">
-											<div class="elementor-testimonial__image">
-							<img src="https://cheflick.code7labs.com/wp-content/plugins/elementor/assets/images/placeholder.png" alt="John Doe">
-						</div>
-										<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">John Doe</span><div class="elementor-star-rating"><i class="elementor-star-full">&#xE934;</i><i class="elementor-star-full">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i></div><span class="elementor-testimonial__title">@username</span></cite>					<div class="elementor-testimonial__icon elementor-icon elementor-icon-twitter"><i aria-hidden="true" class="fab fa-twitter"></i><span class="elementor-screen-only">Read More</span></div>				</div>
-										<div class="elementor-testimonial__content">
-					<div class="elementor-testimonial__text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.					</div>
-				</div>
-					</div>
-								</div>
-									<div class="swiper-slide">
-									<div class="elementor-testimonial elementor-repeater-item-bdb9647">
-							<div class="elementor-testimonial__header">
-											<div class="elementor-testimonial__image">
-							<img src="https://cheflick.code7labs.com/wp-content/plugins/elementor/assets/images/placeholder.png" alt="John Doe">
-						</div>
-										<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">John Doe</span><div class="elementor-star-rating"><i class="elementor-star-full">&#xE934;</i><i class="elementor-star-full">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i><i class="elementor-star-empty">&#xE934;</i></div><span class="elementor-testimonial__title">@username</span></cite>					<div class="elementor-testimonial__icon elementor-icon elementor-icon-twitter"><i aria-hidden="true" class="fab fa-twitter"></i><span class="elementor-screen-only">Read More</span></div>				</div>
-										<div class="elementor-testimonial__content">
-					<div class="elementor-testimonial__text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.					</div>
-				</div>
-					</div>
-								</div>
+
+
+
+                <?php 
+
+              }
+
+          ?>
+
+
+
+
+
+
     </div>
   </div>
 </div>
