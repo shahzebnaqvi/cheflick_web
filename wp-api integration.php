@@ -171,8 +171,6 @@ curl_close($curl);
 
 
 
-
-
 add_shortcode( 'referafriend', 'referafriendfunc' );
 
 
@@ -188,10 +186,10 @@ curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-if(isset($_POST['refer']) AND isset($_POST['name'])  AND isset($_POST['email'])  AND isset($_POST['phone'])  AND isset($_POST['when_to_contact'])  AND isset($_POST['from']) ){
+if(isset($_POST['refer'])  ){
 
-	
-	$name=$_POST['name'];
+	$message="b";
+	$name=$_POST['name1'];
 $email=$_POST['email'];
 $phone_number=$_POST['phone'];
 $when_to_contact=$_POST['when_to_contact'];
@@ -204,6 +202,7 @@ $from=$_POST['from'];
 $headers = array(
    "Accept: application/json",
    "Content-Type: application/json",
+   "Authorization: Bearer ".$_SESSION['remember_token']."" 
 );
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
@@ -229,13 +228,15 @@ $obj = json_decode($resp,true);
 if($obj['status']){
 
    
-   
+   $message="<div class='alert alert-success' role='alert'>
+   Reffered
+</div>";
 
-    header("Location:".$webbaseurl."dashboard/");
+//     header("Location:".$webbaseurl."dashboard/");
 }
 else{
 $message="<div class='alert alert-danger' role='alert'>
-  Warning! The User Not Found
+  Warning! The User Not Found Login First <a href ='/login'> Login Now</a>
 </div>";
 }
 curl_close($curl);
@@ -248,7 +249,7 @@ curl_close($curl);
     <div class="form-group col-md-6 " >
       <label for="inputEmail4">Your Name</label>
       <input style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s; " type="name" class="form-control card2" id="inputEmail4" placeholder="Name" name="name">
+  transition: 0.3s; " type="name" class="form-control card2" id="inputEmail4" placeholder="Name" name="name1">
     </div>
      <div class="form-group col-md-6 " >
       <label for="inputEmail4">Your Number</label>
@@ -276,7 +277,7 @@ curl_close($curl);
          <select id="inputState" class="form-control" style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s; height:50px; " name="findus">
         <option selected>Choose...</option>
-        <option>...</option>
+        <option>saassaas</option>
       </select>
     </div>
      <div class="form-group col-md-6 " >
@@ -296,7 +297,7 @@ curl_close($curl);
       <select id="inputState" class="form-control" style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s; height:50px; " name="when_to_contact">
         <option selected>Choose...</option>
-        <option>...</option>
+        <option>sasasasa</option>
       </select>
     </div>
   </div>
@@ -306,7 +307,7 @@ curl_close($curl);
       <select id="inputState" class="form-control" style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s; height:50px; " name="city">
         <option selected>Choose...</option>
-        <option>...</option>
+        <option>sasasa</option>
       </select>
     </div>
      <div class="form-group col-md-6 " >
@@ -314,21 +315,25 @@ curl_close($curl);
       <select id="inputState" class="form-control" style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s; height:50px; " name="address">
         <option selected>Choose...</option>
-        <option>...</option>
+        <option>sasa</option>
       </select>
     </div>
-  </div>  <div class="form-group col-md-12 " >
-  '.$message.' </div>
+  </div> 
   <div class="form-group col-md-12 " >
       
-      <input type="submit" class="form-control" style="border-radius:20px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s; height:50px; color: " name="refer">   
+      <input type="submit"  name="refer" value="Refer" class="form-control" style="border-radius:20px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; height:50px; color: ">   
     </div>
   
-</form>';
+</form><div class="form-group col-md-12 " >
+  '.$message.' </div>';
 
 	
 	 
 }	
+
+
+
+
 
 ?>
