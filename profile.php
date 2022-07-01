@@ -53,48 +53,100 @@ font-weight: 700;
  <?php 
 require'components/header.php';
 require'components/navigation.php';
+
+
+
+if(isset($_GET['asasas'])){
+
+
+
+  $username = $_GET['username'];
+  $useremail = $_GET['useremail'];
+  $userphone = $_GET['userphone'];
+  $api_url12 = 'https://api.cheflick.net/api/user/update-profile';
+
+  $curl = curl_init();
+  curl_setopt($curl, CURLOPT_URL, $api_url12);
+  curl_setopt($curl, CURLOPT_POST, true);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+  
+  
+  $headers = array(
+     "Accept: application/json",
+     "Content-Type: application/json",
+     "Authorization: Bearer ".$_SESSION['remember_token']."" 
+  );
+  curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+  
+  $data= <<<DATA
+  {
+    
+    "full_name":"$username",
+    "email":"$useremail",
+    "phone":"$userphone",
+   
+    
+    }
+  DATA;
+  // echo $data;
+  curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+  
+  $resp = curl_exec($curl);
+  
+  
+
+$response_data12 = json_decode($resp);
+
+$profileaddstatus = $response_data12->status;
+$profilemessage = $response_data12->message;
+echo '<script>alert("'.$profilemessage.'")</script>';
+
+}
     ?>
   <body>
         <!-- Page Content  -->
 <div class="container col-md-8">
 <div class="profile text-center">
-<img class="rounded-circle " alt="80x80" src="https://picsum.photos/id/3/80/80"data-holder-rendered="true">
-<h2 class="username">Emilia Clark</h2>
+<img class="rounded-circle " alt="80x80" src="<?php echo $_SESSION['userImage']; ?>" data-holder-rendered="true">
+<h2 class="username"><?php echo $_SESSION['userFullName']; ?> </h2>
      </div>       
    
-<form  class="text-center">
+<form  class="text-left" method="get" action="">
   <div class="form-row">
     <div class="form-group col-md-6 ">
       <label for="inputEmail4">Name</label>
       <div class="card2">
-      <input  type="name" style="border-radius:10px; " class="form-control" id="inputEmail4" placeholder="Email">
+      <input  type="text" style="border-radius:10px; " class="form-control" id="inputEmail4" value="<?php echo $_SESSION['userFullName']; ?> " name="username" >
     </div>
     </div>
     <div class="form-group col-md-6 ">
-      <label for="inputEmail4">Name</label>
+      <label for="inputEmail4">Email</label>
       <div class="card2">
-      <input  type="name" style="border-radius:10px; " class="form-control" id="inputEmail4" placeholder="Email">
+      <input  type="email" style="border-radius:10px; " class="form-control" id="inputEmail4" value="<?php echo $_SESSION['userEmail']; ?>"  name="useremail">
     </div>
     </div>
   </div>
    <div class="form-row">
-    <div class="form-group col-md-6 " >
-      <label for="inputEmail4">How do you find us</label>
-      <div class="card2">
-         <select id="inputState" class="form-control" style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s; height:50px; ">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-</div>
+    
      <div class="form-group col-md-6 ">
-      <label for="inputEmail4">Name</label>
+      <label for="inputEmail4">Phone Number</label>
       <div class="card2">
-      <input  type="name" style="border-radius:10px; " class="form-control" id="inputEmail4" placeholder="Email">
+      <input  type="number" style="border-radius:10px; " class="form-control" id="inputEmail4" value="<?php echo $_SESSION['userPhoneNumber']; ?>"  name="userphone">
     </div>
     </div>
+
+    <div class="form-group col-md-6 mt-2">
+      
+      <input type="submit" class="form-control card2" style="border-radius:20px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s; height:50px; color:white;  background-color: #9C3DFD;" value="Save" name="asasas">
+       
+    </div>
+
+
   </div>
+</form>
+  <form  class="text-left">
+
   <div class="form-row  ">
     <div class="form-group col-md-6 ">
       <label for="inputEmail4">Name</label>
@@ -102,6 +154,7 @@ require'components/navigation.php';
       <input  type="name" style="border-radius:10px; " class="form-control" id="inputEmail4" placeholder="Email">
     </div>
     </div>
+
      <div class="form-group col-md-6 " >
       <label for="inputEmail4">When Should we Contact</label>
       <select id="inputState" class="form-control" style="border-radius:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

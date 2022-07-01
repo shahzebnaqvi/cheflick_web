@@ -46,7 +46,6 @@ $response_data12 = json_decode($json_data12);
 $voucheraddstatus = $response_data12->status;
 $voucheraddmessage = $response_data12->message;
 echo '<script>alert("'.$voucheraddmessage.'")</script>';
-exit();
 
 }
 ?>
