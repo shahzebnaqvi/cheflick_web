@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Sidebar 05</title>
+  	<title>Profile</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -56,13 +56,13 @@ require'components/navigation.php';
 
 
 
-if(isset($_GET['asasas'])){
+if(isset($_POST['asasas'])){
 
 
 
-  $username = $_GET['username'];
-  $useremail = $_GET['useremail'];
-  $userphone = $_GET['userphone'];
+  $username = $_POST['username'];
+  $useremail = $_POST['useremail'];
+  $userphone = $_POST['userphone'];
   $api_url12 = 'https://api.cheflick.net/api/user/update-profile';
 
   $curl = curl_init();
@@ -83,7 +83,7 @@ if(isset($_GET['asasas'])){
     
     "full_name":"$username",
     "email":"$useremail",
-    "phone":"$userphone",
+    "phone":"$userphone"
    
     
     }
@@ -98,6 +98,16 @@ if(isset($_GET['asasas'])){
 $response_data12 = json_decode($resp);
 
 $profileaddstatus = $response_data12->status;
+
+
+$profileadddata = $response_data12->data;
+
+
+
+$_SESSION['userFullName'] =$profileadddata ->userFullName;
+$_SESSION['userEmail'] =$profileadddata ->userEmail;
+$_SESSION['userPhoneNumber'] = $profileadddata ->userPhoneNumber;
+
 $profilemessage = $response_data12->message;
 echo '<script>alert("'.$profilemessage.'")</script>';
 
@@ -111,7 +121,7 @@ echo '<script>alert("'.$profilemessage.'")</script>';
 <h2 class="username"><?php echo $_SESSION['userFullName']; ?> </h2>
      </div>       
    
-<form  class="text-left" method="get" action="">
+<form  class="text-left" method="post" action="">
   <div class="form-row">
     <div class="form-group col-md-6 ">
       <label for="inputEmail4">Name</label>
