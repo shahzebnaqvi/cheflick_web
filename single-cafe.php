@@ -189,7 +189,10 @@ $data = $response_data1->data;
         <div class="col-12 text-muted"><?php echo $user_data->description ;?></div>
       </div>
       <div class="row ml-4"><div class="col-12 font-weight-bold">
-          <?php      for ($x = 0; $x < count($tab); $x++) { ?>
+          <?php      
+          for ($x = 0; $x < count($tab); $x++) { 
+            
+            ?>
           
           <a  onclick="category('<?php echo $tab[$x]->tab_id ;?>')"><?php echo $tab[$x]->tab_name ; ?></a>
           <?php    } ?>

@@ -95,14 +95,170 @@ $dishItem = $response_data->dishItem;
               <h2>Favourites</h2>
           </div>
       </div>
-      <div class="row ml-4"><div class="col-12 font-weight-bold"><a class="text-main mr-4" href="#">Popular</a>
-        <a class="text-muted mr-4" href="#">All</a>
-        <a class="text-muted mr-4" href="#">Resturant</a>
-        <a class="text-muted mr-4" href="#">HomeChef</a>
-        <a class="text-muted mr-4" href="#">Dishes</a></div>
+      <div class="row ml-4">
+        <div class="col-12 font-weight-bold">
+  
+        <a  class="text-main mr-4" onclick="category('kitchenItem')">Kitchen Item</a>
+        <a class="text-muted mr-4" onclick="category('dishItem')">Dish Item</a>
+                  
       </div>
-        <div class="row m-4">
-      <div class="col-6">
+      <div  id="kitchenItem" class="category"  style="display:block;width:100%;color">
+
+        <div class="row ">
+
+
+
+        <?php      
+          for ($x = 0; $x < count($kitchenItem); $x++) { 
+            
+            ?>
+
+
+        <div class="col-lg-6 mt-4">
+          <div class="card">
+            <div class="row no-gutters">
+              <div class="col-auto">
+                <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>
+              </div>
+              <div class="col">
+                <div class="card-block p-2">
+                  <div class="card-title row m-0 p-0">
+                    <h4 class="col-7 pl-0">Pizza </h4>
+                    <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span
+                        class="text-second font-weight-bold"> Rs 150</span></h5>
+                  </div>
+                  <p class="card-text text-muted m-0 text-12">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Ornare leo non mollis id cursus. Eu euismod faucibus in,
+                  </p>
+                  <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>
+                  <div class="card-text row mt-2">
+                    <h5 class="col-6 text-second">Service 2</h5>
+                    <div class="col-6">
+                      <span class="float-left mr-1">Reviews: </span>
+                      <div class="text-muted text-xs">
+                        <div class="text-second">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star-o" aria-hidden="true"></i>
+                          
+                        </div>
+                        4 star rating
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-100 row m-0 p-0">
+              <div class="col-8 mt-2 text-muted">
+                <p class="w-100 p-0 m-0">
+                  <span class="font-weight-bold">Preparation Time:</span> 3 Hrs
+                </p>
+                <p class="w-100 p-0 m-0">
+                  <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs
+                </p>
+              </div>
+              <div class="col-4">
+                <img class="float-left w-50" src="images/Heart.svg">
+                <img class="float-right w-50" src="images/basket.svg">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+<?php } ?>
+     
+      </div>
+
+      </div>
+     
+      <div  id="dishItem" class="category"  style="display:none;width:100%">
+
+   <div class="row ">
+
+
+   <?php      
+          for ($x = 0; $x < count($dishItem); $x++) { 
+            
+            ?>
+
+
+        
+        <div class="col-lg-6 mt-4">
+          <div class="card">
+            <div class="row no-gutters">
+              <div class="col-auto">
+                <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>
+              </div>
+              <div class="col">
+                <div class="card-block p-2">
+                  <div class="card-title row m-0 p-0">
+                    <h4 class="col-7 pl-0">Pizza </h4>
+                    <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span
+                        class="text-second font-weight-bold"> Rs 150</span></h5>
+                  </div>
+                  <p class="card-text text-muted m-0 text-12">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Ornare leo non mollis id cursus. Eu euismod faucibus in,
+                  </p>
+                  <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>
+                  <div class="card-text row mt-2">
+                    <h5 class="col-6 text-second">Service 2</h5>
+                    <div class="col-6">
+                      <span class="float-left mr-1">Reviews: </span>
+                      <div class="text-muted text-xs">
+                        <div class="text-second">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star-o" aria-hidden="true"></i>
+                          
+                        </div>
+                        4 star rating
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-100 row m-0 p-0">
+              <div class="col-8 mt-2 text-muted">
+                <p class="w-100 p-0 m-0">
+                  <span class="font-weight-bold">Preparation Time:</span> 3 Hrs
+                </p>
+                <p class="w-100 p-0 m-0">
+                  <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs
+                </p>
+              </div>
+              <div class="col-4">
+                <img class="float-left w-50" src="images/Heart.svg">
+                <img class="float-right w-50" src="images/basket.svg">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+<?php } ?>
+
+     
+      </div>
+
+      </div>
+
+
+
+
+    <div class="row m-4">
+      <div class="col-lg-6 mt-4">
         <div class="card">
           <div class="row no-gutters">
             <div class="col-auto">
@@ -156,7 +312,7 @@ $dishItem = $response_data->dishItem;
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6 mt-4">
         <div class="card">
           <div class="row no-gutters">
             <div class="col-auto">
@@ -210,452 +366,8 @@ $dishItem = $response_data->dishItem;
           </div>
         </div>
       </div>
-    
     </div>
-    <div class="row m-4">
-      <div class="col-6">
-        <div class="card">
-          <div class="row no-gutters">
-            <div class="col-auto">
-              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>
-            </div>
-            <div class="col">
-              <div class="card-block p-2">
-                <div class="card-title row m-0 p-0">
-                  <h4 class="col-7 pl-0">Pizza Veloper</h4>
-                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span
-                      class="text-second font-weight-bold"> Rs 150</span></h5>
-                </div>
-                <p class="card-text text-muted m-0 text-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Ornare leo non mollis id cursus. Eu euismod faucibus in,
-                </p>
-                <a href="#" class="m-0 text-main font-weight-bold">Read more</a>
-                <div class="card-text row mt-2">
-                  <h5 class="col-6 text-second">Service 2</h5>
-                  <div class="col-6">
-                    <span class="float-left mr-1">Reviews: </span>
-                    <div class="text-muted text-xs">
-                      <div class="text-second">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        
-                      </div>
-                      4 star rating
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-100 row m-0 p-0">
-            <div class="col-8 mt-2 text-muted">
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs
-              </p>
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs
-              </p>
-            </div>
-            <div class="col-4">
-              <img class="float-left w-50" src="images/Heart.svg">
-              <img class="float-right w-50" src="images/basket.svg">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="card">
-          <div class="row no-gutters">
-            <div class="col-auto">
-              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>
-            </div>
-            <div class="col">
-              <div class="card-block p-2">
-                <div class="card-title row m-0 p-0">
-                  <h4 class="col-7 pl-0">Pizza Veloper</h4>
-                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span
-                      class="text-second font-weight-bold"> Rs 150</span></h5>
-                </div>
-                <p class="card-text text-muted m-0 text-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Ornare leo non mollis id cursus. Eu euismod faucibus in,
-                </p>
-                <a href="#" class="m-0 text-main font-weight-bold">Read more</a>
-                <div class="card-text row mt-2">
-                  <h5 class="col-6 text-second">Service 2</h5>
-                  <div class="col-6">
-                    <span class="float-left mr-1">Reviews: </span>
-                    <div class="text-muted text-xs">
-                      <div class="text-second">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        
-                      </div>
-                      4 star rating
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-100 row m-0 p-0">
-            <div class="col-8 mt-2 text-muted">
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs
-              </p>
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs
-              </p>
-            </div>
-            <div class="col-4">
-              <img class="float-left w-50" src="images/Heart.svg">
-              <img class="float-right w-50" src="images/basket.svg">
-            </div>
-          </div>
-        </div>
-      </div>
-    
-    </div>
-    <div class="row m-4">
-      <div class="col-6">
-        <div class="card">
-          <div class="row no-gutters">
-            <div class="col-auto">
-              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>
-            </div>
-            <div class="col">
-              <div class="card-block p-2">
-                <div class="card-title row m-0 p-0">
-                  <h4 class="col-7 pl-0">Pizza Veloper</h4>
-                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span
-                      class="text-second font-weight-bold"> Rs 150</span></h5>
-                </div>
-                <p class="card-text text-muted m-0 text-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Ornare leo non mollis id cursus. Eu euismod faucibus in,
-                </p>
-                <a href="#" class="m-0 text-main font-weight-bold">Read more</a>
-                <div class="card-text row mt-2">
-                  <h5 class="col-6 text-second">Service 2</h5>
-                  <div class="col-6">
-                    <span class="float-left mr-1">Reviews: </span>
-                    <div class="text-muted text-xs">
-                      <div class="text-second">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        
-                      </div>
-                      4 star rating
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-100 row m-0 p-0">
-            <div class="col-8 mt-2 text-muted">
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs
-              </p>
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs
-              </p>
-            </div>
-            <div class="col-4">
-              <img class="float-left w-50" src="images/Heart.svg">
-              <img class="float-right w-50" src="images/basket.svg">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="card">
-          <div class="row no-gutters">
-            <div class="col-auto">
-              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>
-            </div>
-            <div class="col">
-              <div class="card-block p-2">
-                <div class="card-title row m-0 p-0">
-                  <h4 class="col-7 pl-0">Pizza Veloper</h4>
-                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span
-                      class="text-second font-weight-bold"> Rs 150</span></h5>
-                </div>
-                <p class="card-text text-muted m-0 text-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Ornare leo non mollis id cursus. Eu euismod faucibus in,
-                </p>
-                <a href="#" class="m-0 text-main font-weight-bold">Read more</a>
-                <div class="card-text row mt-2">
-                  <h5 class="col-6 text-second">Service 2</h5>
-                  <div class="col-6">
-                    <span class="float-left mr-1">Reviews: </span>
-                    <div class="text-muted text-xs">
-                      <div class="text-second">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        
-                      </div>
-                      4 star rating
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-100 row m-0 p-0">
-            <div class="col-8 mt-2 text-muted">
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs
-              </p>
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs
-              </p>
-            </div>
-            <div class="col-4">
-              <img class="float-left w-50" src="images/Heart.svg">
-              <img class="float-right w-50" src="images/basket.svg">
-            </div>
-          </div>
-        </div>
-      </div>
-    
-    </div>
-    <div class="row m-4">
-      <div class="col-6">
-        <div class="card">
-          <div class="row no-gutters">
-            <div class="col-auto">
-              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>
-            </div>
-            <div class="col">
-              <div class="card-block p-2">
-                <div class="card-title row m-0 p-0">
-                  <h4 class="col-7 pl-0">Pizza Veloper</h4>
-                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span
-                      class="text-second font-weight-bold"> Rs 150</span></h5>
-                </div>
-                <p class="card-text text-muted m-0 text-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Ornare leo non mollis id cursus. Eu euismod faucibus in,
-                </p>
-                <a href="#" class="m-0 text-main font-weight-bold">Read more</a>
-                <div class="card-text row mt-2">
-                  <h5 class="col-6 text-second">Service 2</h5>
-                  <div class="col-6">
-                    <span class="float-left mr-1">Reviews: </span>
-                    <div class="text-muted text-xs">
-                      <div class="text-second">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        
-                      </div>
-                      4 star rating
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-100 row m-0 p-0">
-            <div class="col-8 mt-2 text-muted">
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs
-              </p>
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs
-              </p>
-            </div>
-            <div class="col-4">
-              <img class="float-left w-50" src="images/Heart.svg">
-              <img class="float-right w-50" src="images/basket.svg">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="card">
-          <div class="row no-gutters">
-            <div class="col-auto">
-              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>
-            </div>
-            <div class="col">
-              <div class="card-block p-2">
-                <div class="card-title row m-0 p-0">
-                  <h4 class="col-7 pl-0">Pizza Veloper</h4>
-                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span
-                      class="text-second font-weight-bold"> Rs 150</span></h5>
-                </div>
-                <p class="card-text text-muted m-0 text-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Ornare leo non mollis id cursus. Eu euismod faucibus in,
-                </p>
-                <a href="#" class="m-0 text-main font-weight-bold">Read more</a>
-                <div class="card-text row mt-2">
-                  <h5 class="col-6 text-second">Service 2</h5>
-                  <div class="col-6">
-                    <span class="float-left mr-1">Reviews: </span>
-                    <div class="text-muted text-xs">
-                      <div class="text-second">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        
-                      </div>
-                      4 star rating
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-100 row m-0 p-0">
-            <div class="col-8 mt-2 text-muted">
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs
-              </p>
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs
-              </p>
-            </div>
-            <div class="col-4">
-              <img class="float-left w-50" src="images/Heart.svg">
-              <img class="float-right w-50" src="images/basket.svg">
-            </div>
-          </div>
-        </div>
-      </div>
-    
-    </div>
-    <div class="row m-4">
-      <div class="col-6">
-        <div class="card">
-          <div class="row no-gutters">
-            <div class="col-auto">
-              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>
-            </div>
-            <div class="col">
-              <div class="card-block p-2">
-                <div class="card-title row m-0 p-0">
-                  <h4 class="col-7 pl-0">Pizza Veloper</h4>
-                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span
-                      class="text-second font-weight-bold"> Rs 150</span></h5>
-                </div>
-                <p class="card-text text-muted m-0 text-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Ornare leo non mollis id cursus. Eu euismod faucibus in,
-                </p>
-                <a href="#" class="m-0 text-main font-weight-bold">Read more</a>
-                <div class="card-text row mt-2">
-                  <h5 class="col-6 text-second">Service 2</h5>
-                  <div class="col-6">
-                    <span class="float-left mr-1">Reviews: </span>
-                    <div class="text-muted text-xs">
-                      <div class="text-second">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        
-                      </div>
-                      4 star rating
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-100 row m-0 p-0">
-            <div class="col-8 mt-2 text-muted">
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs
-              </p>
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs
-              </p>
-            </div>
-            <div class="col-4">
-              <img class="float-left w-50" src="images/Heart.svg">
-              <img class="float-right w-50" src="images/basket.svg">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="card">
-          <div class="row no-gutters">
-            <div class="col-auto">
-              <a href="#" class="pop"><img src="images/pizza-round.png" id="imageresource" class="img m-2" alt="" /></a>
-            </div>
-            <div class="col">
-              <div class="card-block p-2">
-                <div class="card-title row m-0 p-0">
-                  <h4 class="col-7 pl-0">Pizza Veloper</h4>
-                  <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span
-                      class="text-second font-weight-bold"> Rs 150</span></h5>
-                </div>
-                <p class="card-text text-muted m-0 text-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Ornare leo non mollis id cursus. Eu euismod faucibus in,
-                </p>
-                <a href="#" class="m-0 text-main font-weight-bold">Read more</a>
-                <div class="card-text row mt-2">
-                  <h5 class="col-6 text-second">Service 2</h5>
-                  <div class="col-6">
-                    <span class="float-left mr-1">Reviews: </span>
-                    <div class="text-muted text-xs">
-                      <div class="text-second">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        
-                      </div>
-                      4 star rating
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-100 row m-0 p-0">
-            <div class="col-8 mt-2 text-muted">
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Preparation Time:</span> 3 Hrs
-              </p>
-              <p class="w-100 p-0 m-0">
-                <span class="font-weight-bold">Delevery Time:</span> 30 Min - 1.5 Hrs
-              </p>
-            </div>
-            <div class="col-4">
-              <img class="float-left w-50" src="images/Heart.svg">
-              <img class="float-right w-50" src="images/basket.svg">
-            </div>
-          </div>
-        </div>
-      </div>
-    
-    </div>
+  
 
   </div>
  <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -771,6 +483,16 @@ $dishItem = $response_data->dishItem;
 
 
     </script>
+     <script>
+function category(categoryName) {
+  var i;
+  var x = document.getElementsByClassName("category");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(categoryName).style.display = "block";  
+}
+</script>
 </body>
 
 </html>
