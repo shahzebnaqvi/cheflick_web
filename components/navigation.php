@@ -48,21 +48,21 @@
            	 <div class="collapse dropdown-menu-right nav-toggle cart-toggle" id="dropMenuCart">
                 <div class="row my-4">
                 <div class="col-sm-12">
-                <div class="myCard cardMy">
+                <div class="cardMy">
                    <div class="row">
                        <div class="col-sm-1">
                            <img class="heiImage" src="images/pizza.png" />
                        </div>
-                       <div class="col-sm-3 ml-4">
+                       <div class="col-sm-5">
                            <p class="pizzaHead">Pizza Vlopper</p>
-                           <div><span class="purpleBack"><i class="fas fa-plus"></i></span>
+                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
                            <span class="simpleBack">2</span>
                            <span class="purpleBack"><i class="fas fa-minus"></i></span>
                        </div></div>
                        <div class="col-sm-2 d-flex align-items-center">
                            <p class="serveText">Serves 2</p>
                        </div>
-                       <div class="col-sm-5 d-flex justify-content-end align-items-center">
+                       <div class="col-sm-4 d-flex justify-content-end align-items-center">
                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
                        </div>
                    </div>
@@ -71,16 +71,16 @@
                        <div class="col-sm-1">
                            <img class="heiImage" src="images/pizza.png" />
                        </div>
-                       <div class="col-sm-3 ml-3">
+                       <div class="col-sm-5">
                            <p class="pizzaHead">Pizza Vlopper</p>
-                           <span class="purpleBack"><i class="fas fa-plus"></i></span>
+                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
                            <span class="simpleBack">2</span>
                            <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                       </div>
+                       </div></div>
                        <div class="col-sm-2 d-flex align-items-center">
                            <p class="serveText">Serves 2</p>
                        </div>
-                       <div class="col-sm-5 d-flex justify-content-end align-items-center">
+                       <div class="col-sm-4 d-flex justify-content-end align-items-center">
                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
                        </div>
                    </div>
@@ -89,16 +89,16 @@
                        <div class="col-sm-1">
                            <img class="heiImage" src="images/pizza.png" />
                        </div>
-                       <div class="col-sm-3 ml-3">
+                       <div class="col-sm-5">
                            <p class="pizzaHead">Pizza Vlopper</p>
-                           <span class="purpleBack"><i class="fas fa-plus"></i></span>
+                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
                            <span class="simpleBack">2</span>
                            <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                       </div>
+                       </div></div>
                        <div class="col-sm-2 d-flex align-items-center">
                            <p class="serveText">Serves 2</p>
                        </div>
-                       <div class="col-sm-5 d-flex justify-content-end align-items-center">
+                       <div class="col-sm-4 d-flex justify-content-end align-items-center">
                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
                        </div>
                    </div>
@@ -107,16 +107,16 @@
                        <div class="col-sm-1">
                            <img class="heiImage" src="images/pizza.png" />
                        </div>
-                       <div class="col-sm-3 ml-3">
+                       <div class="col-sm-5">
                            <p class="pizzaHead">Pizza Vlopper</p>
-                           <span class="purpleBack"><i class="fas fa-plus"></i></span>
+                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
                            <span class="simpleBack">2</span>
                            <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                       </div>
+                       </div></div>
                        <div class="col-sm-2 d-flex align-items-center">
                            <p class="serveText">Serves 2</p>
                        </div>
-                       <div class="col-sm-5 d-flex justify-content-end align-items-center">
+                       <div class="col-sm-4 d-flex justify-content-end align-items-center">
                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
                        </div>
                    </div>
@@ -125,16 +125,16 @@
                        <div class="col-sm-1">
                            <img class="heiImage" src="images/pizza.png" />
                        </div>
-                       <div class="col-sm-3 ml-3">
+                       <div class="col-sm-5">
                            <p class="pizzaHead">Pizza Vlopper</p>
-                           <span class="purpleBack"><i class="fas fa-plus"></i></span>
+                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
                            <span class="simpleBack">2</span>
                            <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                       </div>
+                       </div></div>
                        <div class="col-sm-2 d-flex align-items-center">
                            <p class="serveText">Serves 2</p>
                        </div>
-                       <div class="col-sm-5 d-flex justify-content-end align-items-center">
+                       <div class="col-sm-4 d-flex justify-content-end align-items-center">
                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
                        </div>
                    </div>
@@ -143,22 +143,19 @@
                        <div class="col-sm-1">
                            <img class="heiImage" src="images/pizza.png" />
                        </div>
-                       <div class="col-sm-3 ml-3">
+                       <div class="col-sm-5">
                            <p class="pizzaHead">Pizza Vlopper</p>
-                           <span class="purpleBack"><i class="fas fa-plus"></i></span>
+                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
                            <span class="simpleBack">2</span>
                            <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                       </div>
+                       </div></div>
                        <div class="col-sm-2 d-flex align-items-center">
                            <p class="serveText">Serves 2</p>
                        </div>
-                       <div class="col-sm-5 d-flex justify-content-end align-items-center">
+                       <div class="col-sm-4 d-flex justify-content-end align-items-center">
                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
                        </div>
-
-                        <button class="rate2" onclick="location.href = 'www.yoursite.com';">Add to Cart</button>
-                            
-
+                       <button class="rate2 mt-4" onclick="location.href = 'www.yoursite.com';">Checkout</button>
                    </div>
 
 

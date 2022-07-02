@@ -302,15 +302,19 @@ form.form-inline.d-flex.align-items-center.justify-content-between {
 #modal2 .modal-content {
     margin-left: 50%;
 }
+.cartBtn{
+    margin-left: 50px;
+}
 .rate2{
         background: #9C3DFD 0% 0% no-repeat padding-box;
-    border-radius: 50px;
+    border-radius: 30px;
     color: white;
-    width: 100%;
+    width: 90%;
     height: 100%;
     outline: none;
     border: none;
     padding: 16px 0px;
+    margin-left: 30px;
 }
 .rate2:focus{
     outline: none;
@@ -688,6 +692,10 @@ img.cardImage {
     height: 400px;
     overflow-y: scroll;
     overflow-x: hidden;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 12px;
+    background-color: #fff;
 }
 .serveText{
     font-size: 18px;
@@ -700,13 +708,13 @@ img.cardImage {
 }
 .purpleBack {
     background: #9C3DFD;
-    padding: 3px 12px;
+    padding: 2px 8px;
     border-radius: 15px;
     margin: 0px;
 }
 .simpleBack {
     border: 1px solid #9C3DFD;
-    padding: 3px 11px;
+    padding: 2px 8px;
     border-radius: 15px;
     margin: 0px;
     color: #9C3DFD;
@@ -742,6 +750,7 @@ img.cardImage {
 .thanksImg {
     width: 165px;
     height: 165px;
+    padding: 20px;
 }
 @media(max-width:500px){
 /*    .container{*/
@@ -819,11 +828,45 @@ select{
   z-index: 10000;
 }
 .cart-toggle{
-  background-color: #f9f9f9;
+  background-color: #fff;
 min-width: 600PX;
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);}
+/*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+border-bottom-right-radius: 20px;
+border-bottom-left-radius: 20px;
+}
 @media(max-width:992px)
 {
   .mainText-text {
   font-size: 12px;}
+}
+.purple{
+  color: #9C3DFD;
+  width: 120px;
+  height: 120px;
+  border-width: 8px;
+  animation: spinner-border 1.25s linear infinite;
+  border-right-color: #f3f3f3;
+}
+.payMenuToggle .payMenu{
+    width: 350px !important;
+    color: #fff !important;
+}
+.btn-group {
+    width: 332px !important;
+    background: #fff !important;
+    border-radius: 12px;
+    filter: drop-shadow(0px 4px 8px #C6C3E391);
+}
+.payMenuToggle img{
+    margin-right: 10px;
+}
+.payMenuToggle{
+    padding-right: 50px;
+}
+.payMenuToggle .fas{
+    margin-left: 20px;
+    margin-right: -40px;
+}
+.payMenu>li>a:hover{
+    background: #f1f9fd;
 }
