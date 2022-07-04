@@ -1,5 +1,6 @@
 <?php
  session_start();
+ $aaa =32323;
  $baserurl = 'https://cheflick.code7labs.com/';
 if($_GET['id']==null){
     header('location: index.php');
@@ -236,7 +237,7 @@ $data = $response_data1->data;
                     <p class="card-text text-muted m-0 text-12">
                   <?php echo $dish[$y]->description ;?>
                     </p>
-                    <a href="433434" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal"  data-code="codasknasnsknssse">Read more </a>
+                    <a href="433434" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal<?php echo $aaa;?>"  data-code="codasknasnsknssse">Read more </a>
                     <div class="card-text row mt-2">
                       <h5 class="col-6 text-second">Service 2</h5>
                       <div class="col-6">
@@ -302,7 +303,11 @@ $data = $response_data1->data;
   </div>
 </div>
 
-<div class="modal fade" id="hotelmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="border-radius:25px;">
+
+
+
+<!--- pop up --->
+<div class="modal fade" id="hotelmodal<?php echo $aaa;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="border-radius:25px;">
   <div class="modal-dialog modal-lg ">
     <div class="modal-content">              
       <div class="modal-body rounded-20">
@@ -330,10 +335,12 @@ $data = $response_data1->data;
         // document.writeln(t);        </script>";   
           ?>
 
-<input  id="code" />
+<!-- <input  id="code" /> -->
 
-<?php  echo "<script>document.write('')</script>"; ?>
-<?php  echo "<script>document.getElementById('code')</script>"; ?>
+<?php
+  echo "<input  id='code' />"; 
+?>
+<?php  echo "<script>document.getElementById('code')['0'];</script>"; ?>
 
 
 #weeecode
@@ -409,6 +416,8 @@ for ($x = 0; $x < count($data); $x++) {
 </div>
 </section>
 
+<!--- pop up --->
+
 
 
 
@@ -468,6 +477,15 @@ $(function () {
 
   });
 });
+
+            // Selecting the input element and get its value 
+            $(document).ready(function(){
+  $("#code").change(function(){
+    var inputVal = document.getElementById("code").value;
+    alert(inputVal);
+  });
+});
+    
 </script>
 </body>
 
