@@ -1,5 +1,6 @@
 <?php
  session_start();
+ $aa ="";
  $baserurl = 'https://cheflick.code7labs.com/';
 if($_GET['id']==null){
     header('location: index.php');
@@ -236,7 +237,7 @@ $data = $response_data1->data;
                     <p class="card-text text-muted m-0 text-12">
                   <?php echo $dish[$y]->description ;?>
                     </p>
-                    <a href="#" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal">Read more</a>
+                    <a href="433434" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal"  data-code="codasknasnsknssse">Read more </a>
                     <div class="card-text row mt-2">
                       <h5 class="col-6 text-second">Service 2</h5>
                       <div class="col-6">
@@ -312,9 +313,10 @@ $data = $response_data1->data;
           <p class="col-2 text-muted" style="float:right; font-size:18px;"><del class="text-12">Rs 250</del><span
                       class="text-second font-weight-bold"> Rs 150</span>
                       
+                      <input type="text" id="code" readonly />
 
 
-        
+<div id="code"><span id="code"></span></div>
         <h4 style="padding-left:90px; color:#FFAA00;">Service 2</h4>
         
                 <p style="float:right;padding-top:0px; margin-top: -81px;" >
@@ -324,7 +326,11 @@ $data = $response_data1->data;
         <hr >
         <h5 style="font-weight:700; font-family:arial;">Description</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare leo non mollis id cursus. Eu euismod faucibus in leo malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare leo non mollis id cursus. Eu euismod faucibus in leo malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare leo non mollis id cursus. Eu euismod faucibus in leo malesuada.</p>
-        
+        codedata
+        <?php echo $aa ;
+echo "<script>document.writeln(codedat);</script>";
+?>
+#code
        <section class="elementor-section elementor-top-section elementor-element elementor-element-b7fb50b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b7fb50b" data-element_type="section">
 						<div class="elementor-container elementor-column-gap-default">
 					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9f60f4d" data-id="9f60f4d" data-element_type="column">
@@ -432,6 +438,30 @@ function category(categoryName) {
   }
   document.getElementById(categoryName).style.display = "block";  
 }
+
+
+$(document).on("click", ".open-AddBookDialog", function () {
+     var myBookId = $(this).data('id');
+     $(".modal-body #bookId").val( myBookId );
+});
+
+
+// Execute something when the modal window is shown.
+$(function () {
+  $('#hotelmodal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var codedat = button.data('code'); // Extract info from data-* attributes
+    var company = button.data('company'); // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this);
+    modal.find('#code').val(code);
+    
+    <?php $aa = 'console.log(codedat)';?>;
+    var codedata = modal.find('#code').val(codedat);
+    // document.writeln(codedat);
+  });
+});
 </script>
 </body>
 
