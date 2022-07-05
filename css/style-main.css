@@ -576,7 +576,10 @@ button.fas.fa-filter.ico {
   font-size: 12px;
   background: #D2FFDD;
   border-radius: 30px;
-  padding: 5px;
+  padding: 3px;
+}
+.watch22{
+    text-align: left;
 }
 .watch2 i{
   color: #098000;
@@ -655,6 +658,12 @@ img.cardImage {
     font-size: 25px;
     font-weight: bold;
     margin-top: 10px;
+}
+.cardHeading22{
+font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: left;
 }
 .mainText-heading{
   color: #fff;
@@ -781,8 +790,17 @@ img.cardImage {
 /*    .container{*/
 /*    margin: auto;*/
 /*}*/
+.cardHeading22{
+    text-align: center;
+}
+.watch22{
+    text-align: center;
+}
 .w-50 {
     width: 30%!important;
+}
+.cardText{
+    text-align: center;
 }
 .cart-toggle{
     min-width: 300px !important;
