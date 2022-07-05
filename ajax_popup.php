@@ -12,6 +12,7 @@
     <Strong>Preparation Time:</Strong>3 hrs <br><Strong>Delivery time:</Strong> 30 min – 1.5 hrs</p>
                 
              
+             
         <hr >
         <h5 style="font-weight:700; font-family:arial;">Description</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare leo non mollis id cursus. Eu euismod faucibus in leo malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare leo non mollis id cursus. Eu euismod faucibus in leo malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare leo non mollis id cursus. Eu euismod faucibus in leo malesuada.</p>
