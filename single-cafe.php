@@ -59,7 +59,7 @@ $data = $response_data1->data;
 <html lang="en">
 
 <head>
-  <title>Challenge 16</title>
+  <title><?php echo $user_data->kitchen_name ?> Cafe</title>
   <!-- Required meta tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -124,23 +124,25 @@ $data = $response_data1->data;
     
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cheflick.code7labs.com/wp-content/plugins/elementor-pro/assets/css/widget-carousel.min.css">
+  <link rel="stylesheet" href="css/style-main.css">
   <style>/*! elementor - v3.6.5 - 27-04-2022 */
 .elementor-star-rating{color:#ccd6df;font-family:eicons;display:inline-block}.elementor-star-rating i{display:inline-block;position:relative;font-style:normal;cursor:default}.elementor-star-rating i:before{content:"\e934";display:block;font-size:inherit;font-family:inherit;position:absolute;overflow:hidden;color:#f0ad4e;top:0;left:0}.elementor-star-rating .elementor-star-empty:before{content:none}.elementor-star-rating .elementor-star-1:before{width:10%}.elementor-star-rating .elementor-star-2:before{width:20%}.elementor-star-rating .elementor-star-3:before{width:30%}.elementor-star-rating .elementor-star-4:before{width:40%}.elementor-star-rating .elementor-star-5:before{width:50%}.elementor-star-rating .elementor-star-6:before{width:60%}.elementor-star-rating .elementor-star-7:before{width:70%}.elementor-star-rating .elementor-star-8:before{width:80%}.elementor-star-rating .elementor-star-9:before{width:90%}.elementor-star-rating__wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.elementor-star-rating__title{margin-right:10px}.elementor-star-rating--align-right .elementor-star-rating__wrapper{text-align:right;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.elementor-star-rating--align-left .elementor-star-rating__wrapper{text-align:left;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.elementor-star-rating--align-center .elementor-star-rating__wrapper{text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.elementor-star-rating--align-justify .elementor-star-rating__title{margin-right:auto}@media (max-width:1024px){.elementor-star-rating-tablet--align-right .elementor-star-rating__wrapper{text-align:right;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.elementor-star-rating-tablet--align-left .elementor-star-rating__wrapper{text-align:left;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.elementor-star-rating-tablet--align-center .elementor-star-rating__wrapper{text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.elementor-star-rating-tablet--align-justify .elementor-star-rating__title{margin-right:auto}}@media (max-width:767px){.elementor-star-rating-mobile--align-right .elementor-star-rating__wrapper{text-align:right;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.elementor-star-rating-mobile--align-left .elementor-star-rating__wrapper{text-align:left;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.elementor-star-rating-mobile--align-center .elementor-star-rating__wrapper{text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.elementor-star-rating-mobile--align-justify .elementor-star-rating__title{margin-right:auto}}.last-star{letter-spacing:0}.elementor--star-style-star_unicode .elementor-star-rating{font-family:Arial,Helvetica,sans-serif}.elementor--star-style-star_unicode .elementor-star-rating i:not(.elementor-star-empty):before{content:"\002605"}</style><link rel="stylesheet" href="https://cheflick.code7labs.com/wp-content/plugins/elementor-pro/assets/css/widget-carousel.min.css">		<div class="elementor-swiper">
 </head>
 
 <body>
-  <div class="container-fluid">
-    <img src="<?php echo $user_data->kitchen_banner ;?>" class="img-fluid  img-thumbnail" alt="" />
+  <?php include "components/navigation.php"; ?>
+  <div class="containerCustom marginMinus">
+    <img src="<?php echo $user_data->kitchen_banner ;?>" class="img-fluid imgHeader" alt="" />
   </div>
   <div class="container">
     <div class="row m-4 border-bottom">
-      <div class="col-6">
+      <div class="col-sm-6">
         <p>
           <span class="h5 font-weight-bold mr-2"><?php echo $user_data->kitchen_name  ?></span>
           <span class="text-muted text-12"> Café <i class="fas fa-circle text-xs text-main"></i> Western Food
           </span></p>
       </div>
-      <div class="col-6">
+      <div class="col-sm-6">
         <p class="font-weight-bold mr-2"><?php echo $user_data->from ;?> - <?php echo $user_data->to ;?> <span class="m-2"><?php echo $user_data->kitchen_city ;?></span>
           <span class="top-green p-2 text-12"><i class="fa-regular fa-clock"></i><span class="text-muted"> <?php echo $user_data->currentStatus ;?></span></span>
           <span class="top-green p-2 text-12 ml-2"><i class="fa fa-tag fa-lg"></i><span class="text-muted"> Discount</span></span>
@@ -148,12 +150,12 @@ $data = $response_data1->data;
         </div>  
       </div>
       <div class="row ml-4">
-        <div class="col-10">
+        <div class="col-sm-10">
           <p>
             <span class="h5 font-weight-bold mr-2">Status</span>
             <span class="text-muted text-12"> Thanks for enjoying our tasty dishes and services.</span></p>
         </div>
-        <div class="col-2">
+        <div class="col-sm-2">
           <span class="float-left mr-3 text-main">Reviews: </span>
           <div class="text-muted text-xs">
             <div class="text-second">
@@ -183,13 +185,13 @@ $data = $response_data1->data;
     
       </div>
       <div class="row ml-4 mt-0">
-        <div class="col-12">
+        <div class="col-sm-12">
           <p class="h5 font-weight-bold mr-2">Description</p></div>
       </div>
       <div class="row m-4 pb-4 border-bottom">
-        <div class="col-12 text-muted"><?php echo $user_data->description ;?></div>
+        <div class="col-sm-12 text-muted"><?php echo $user_data->description ;?></div>
       </div>
-      <div class="row ml-4"><div class="col-12 font-weight-bold">
+      <div class="row ml-4"><div class="col-sm-12 font-weight-bold">
           <?php      
           for ($x = 0; $x < count($tab); $x++) { 
             
@@ -221,17 +223,17 @@ $data = $response_data1->data;
                
                ?>
           
-          <div class="col-6">
+          <div class="col-sm-6">
             <div class="card">
               <div class="row no-gutters">
-                <div class="col-auto">
-                  <a href="#" class="pop"><img src= "<?php echo $dish[$y]->dish_image ;?>" id="imageresource" class="img m-2" alt="" /></a>
+                <div class="col-sm-auto">
+                  <a href="#" class="pop"><img src= "<?php echo $dish[$y]->dish_image ;?>" id="imageresource" class="img m-2 itemImg" alt="" /></a>
                 </div>
                 <div class="col">
                   <div class="card-block p-2">
                     <div class="card-title row m-0 p-0">
-                      <h4 class="col-7 pl-0"><?php echo $dish[$y]->dish_name ;?></h4>
-                      <p class="col-5 text-muted float-Right"><del class="text-12">Rs 250</del><span
+                      <h4 class="col-sm-7 pl-0 text-dark"><?php echo $dish[$y]->dish_name ;?></h4>
+                      <p class="col-sm-5 text-muted float-Right"><del class="text-12">Rs 250</del><span
                           class="text-second font-weight-bold"> Rs 150</span></h5>
                     </div>
                     <p class="card-text text-muted m-0 text-12">
@@ -239,9 +241,9 @@ $data = $response_data1->data;
                     </p>
                     <a href="433434" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal<?php echo $aaa;?>"  data-code="codasknasnsknssse">Read more </a>
                     <div class="card-text row mt-2">
-                      <h5 class="col-6 text-second">Service 2</h5>
-                      <div class="col-6">
-                        <span class="float-left mr-1">Reviews: </span>
+                      <h5 class="col-sm-6 text-second">Service 2</h5>
+                      <div class="col-sm-6">
+                        <span class="float-left mr-1 text-dark">Reviews: </span>
                         <div class="text-muted text-xs">
                           <div class="text-second">
                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -259,7 +261,7 @@ $data = $response_data1->data;
                 </div>
               </div>
               <div class="w-100 row m-0 p-0">
-                <div class="col-8 mt-2 text-muted">
+                <div class="col-sm-8 mt-2 text-muted">
                   <p class="w-100 p-0 m-0">
                     <span class="font-weight-bold">Preparation Time:</span>  <?php echo $dish[$y]->prepare_hours ;?> - <?php echo $dish[$y]->prepare_minutes ;?>
                   </p>
@@ -267,7 +269,7 @@ $data = $response_data1->data;
                     <span class="font-weight-bold">Delivery Time:</span> 30 Min - 1.5 Hrs
                   </p>
                 </div>
-                <div class="col-4">
+                <div class="col-sm-4">
                   <img class="float-left w-50" src="images/Heart.svg">
                   <img class="float-right w-50" src="images/basket.svg">
                 </div>
@@ -314,7 +316,7 @@ $data = $response_data1->data;
       	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <img src="images/pizza-round.png" class="" alt="" width="70px;" height="75px;"/> 
         <h3 style="display:inline; Padding-left:20px; font-family:Metropolis,Regular;font-weight:300">Pizza Veloper</h3>
-          <p class="col-2 text-muted" style="float:right; font-size:18px;"><del class="text-12">Rs 250</del><span
+          <p class="col-sm-2 text-muted" style="float:right; font-size:18px;"><del class="text-12">Rs 250</del><span
                       class="text-second font-weight-bold"> Rs 150</span>
                       
                       
@@ -346,7 +348,7 @@ $data = $response_data1->data;
 #weeecode
        <section class="elementor-section elementor-top-section elementor-element elementor-element-b7fb50b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b7fb50b" data-element_type="section">
 						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9f60f4d" data-id="9f60f4d" data-element_type="column">
+					<div class="elementor-column elementor-col-sm-100 elementor-top-column elementor-element elementor-element-9f60f4d" data-id="9f60f4d" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-ac85422 elementor-arrows-yes elementor-pagination-type-bullets elementor-review--has-separator elementor--star-style-star_fontawesome elementor-widget elementor-widget-reviews" data-id="ac85422" data-element_type="widget" data-settings="{&quot;slides_per_view&quot;:&quot;3&quot;,&quot;show_arrows&quot;:&quot;yes&quot;,&quot;pagination&quot;:&quot;bullets&quot;,&quot;speed&quot;:500,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;loop&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;space_between&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;space_between_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;space_between_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]}}" data-widget_type="reviews.default">
 				<div class="elementor-widget-container">
@@ -433,6 +435,7 @@ for ($x = 0; $x < count($data); $x++) {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
       <script>
         $(function() {
 		$('.pop').on('click', function() {

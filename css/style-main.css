@@ -756,10 +756,34 @@ img.cardImage {
     right: 0;
     left: auto;
 }
+.imgHeader{
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    background-size: cover;
+}
+.imgHeader {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+}
+.marginMinus{
+    margin-top: -24px;
+}
+.itemImg {
+    max-width: 200px;
+    max-height: 200px;
+}
 @media(max-width:500px){
 /*    .container{*/
 /*    margin: auto;*/
 /*}*/
+.w-50 {
+    width: 30%!important;
+}
 .cart-toggle{
     min-width: 300px !important;
 }

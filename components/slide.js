@@ -7,10 +7,4 @@
      // dots: false, Boolean
     // arrows: false, Boolean
   });
-$('#profileDrop').click(function(){
-  $('#dropMenuCart').removeClass('show');
-});
-$('#dropMenu').click(function(){
-  $('#profileDropdown').removeClass('show');
-});
 
