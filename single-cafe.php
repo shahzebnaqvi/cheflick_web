@@ -2,10 +2,10 @@
  session_start();
  $aaa =32323;
  $baserurl = 'https://cheflick.code7labs.com/';
-// if($_GET['id']==null){
-//     header('location: index.php');
+if($_GET['id']==null){
+    header('location: index.php');
 
-// }
+}
 $api_url = 'https://api.cheflick.net/api/user/kitchen-detail?kitchen_id='.$_GET['id'].'&user_lat=40&user_long=67.0781';
 
 
