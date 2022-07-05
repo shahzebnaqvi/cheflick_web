@@ -310,8 +310,10 @@ $data = $response_data1->data;
 
 <!--- pop up --->
 <div class="modal fade" id="hotelmodal<?php echo $aaa;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="border-radius:25px;">
-  <div class="modal-dialog modal-lg ">
+    <div class="modal-dialog modal-lg ">
+    
     <div class="modal-content">              
+<<<<<<< HEAD
       <div class="modal-body rounded-20">
       	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <img src="images/pizza-round.png" class="" alt="" width="70px;" height="75px;"/> 
@@ -330,18 +332,14 @@ $data = $response_data1->data;
         <h5 style="font-weight:700; font-family:arial;">Description</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare leo non mollis id cursus. Eu euismod faucibus in leo malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare leo non mollis id cursus. Eu euismod faucibus in leo malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare leo non mollis id cursus. Eu euismod faucibus in leo malesuada.</p>
         codedata
+=======
+      <div class="modal-body rounded-20">            
+>>>>>>> c879429c0da2b839feb7dd3284ea0a44b424416a
 
-        <?php
-        // echo "<script>document.writeln(document.getElementsByTagName('code')[0]);
-        // var t=document.getElementsByName('code')[0].innerHTML;');
-        // document.writeln(t);        </script>";   
-          ?>
-
-<!-- <input  id="code" /> -->
-
-<?php
-  echo "<input  id='code' />"; 
+<?php 
+include 'ajax_popup.php'; 
 ?>
+<<<<<<< HEAD
 <?php  echo "<script>document.getElementById('code')['0'];</script>"; ?>
 
 
@@ -415,8 +413,12 @@ for ($x = 0; $x < count($data); $x++) {
 
     </div>
   </div>
+=======
+>>>>>>> c879429c0da2b839feb7dd3284ea0a44b424416a
 </div>
-</section>
+</div>
+</div>
+</div>
 
 <!--- pop up --->
 
