@@ -201,8 +201,8 @@ $data = $response_data1->data;
           <?php    } ?>
           </div>
       </div>
-      <button type="button" class=" m-4 btn btn-main btn-lg btn-block">Flat Discount of 30% on all Items</button>
-      <button type="button" class=" m-4 btn btn-second btn-lg btn-block">Minimum order value Rs.450</button>
+      <button type="button" class="mx-4 ml-auto btn btn-main btn-lg btn-block">Flat Discount of 30% on all Items</button>
+      <button type="button" class="mx-4 ml-auto btn btn-second btn-lg btn-block">Minimum order value Rs.450</button>
       
        <?php      for ($x = 0; $x < count($tab); $x++) { ?>
             <div id="<?php echo $tab[$x]->tab_id ;?>" class="category <?php echo $x;?>"  style="display:<?php if($x==0){echo 'block'; } else{echo 'none'; } ?>">
