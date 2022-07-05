@@ -42,10 +42,10 @@
            	 <div class="sell1">|</div>
            	 <!--<span class="my-2 my-sm-0 fas fa-shopping-cart	 sell"></span>-->
            	 <div class="dropdown">
-           	 <button class="drop-btn dropdown-toggle" type="button" id="" data-toggle="collapse" href="#dropMenuCart" role="button" aria-expanded="false" aria-controls="collapseExample">
+           	 <button class="drop-btn dropdown-toggle" type="button" id="dropMenu" data-toggle="collapse" href="#dropMenuCart" role="button" aria-expanded="false" aria-controls="collapseExample">
            	     <span class="my-2 my-sm-0 fas fa-shopping-cart	 sell"></span>
            	</button>
-           	 <div class="collapse dropdown-menu-right nav-toggle cart-toggle" id="dropMenuCart">
+           	 <div class="collapse dropdown-menu-center nav-toggle cart-toggle" id="dropMenuCart">
                 <div class="row my-4">
                 <div class="col-sm-12">
                 <div class="cardMy">
@@ -165,7 +165,7 @@
             </div>
             </div>
            	 <div class="dropdown">
-           	 <button class="drop-btn dropdown-toggle" type="button"  data-toggle="collapse" href="#profileDropdown" role="button" aria-expanded="false" aria-controls="collapseExample">
+           	 <button class="drop-btn dropdown-toggle" id="profileDrop" type="button"  data-toggle="collapse" href="#profileDropdown" role="button" aria-expanded="false" aria-controls="collapseExample">
            	     <span class="my-2 my-sm-0 fas fa-bars menu"></span>
            	</button>
            	 <div class="collapse dropdown-menu-right nav-toggle profile-toggle" id="profileDropdown">

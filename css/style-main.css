@@ -756,6 +756,24 @@ img.cardImage {
 /*    .container{*/
 /*    margin: auto;*/
 /*}*/
+.cart-toggle{
+    min-width: 300px !important;
+}
+.dropdown-menu-center{
+    max-width: 300px;
+    position: absolute !important;
+    right: -120px;
+}
+.mobileDisplay{
+    display: flex;
+    justify-content: flex-start;
+}
+.pizzaHead{
+    text-align: left;
+}
+.cartBtn{
+    margin-left: 0px;
+}
 .dropdown-menu2{
     position: absolute !important;
     top: 0 !important;
