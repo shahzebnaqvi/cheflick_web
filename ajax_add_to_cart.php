@@ -1,6 +1,6 @@
 <?php
 echo "sasas";
-echo $_POST['sql'];
+print_r( $_POST);
 
 
 ?>

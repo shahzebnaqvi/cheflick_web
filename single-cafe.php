@@ -439,18 +439,12 @@ $("#cartbutton").click(function(){
   $.ajax({
   type:'post',
   url : 'ajax_add_to_cart.php',
-  data : { sql : $('#dish_id').val(), code : $('#code').val(), name : $('#name').val(), price : $('#price').val(), quantity : $('#quantity').val(), image : $('#image').val()},
+  data : { dish_id : $('#dish_id').val(), dish_image : $('#dish_image').val(), dish_name : $('#dish_name').val(), dish_category : $('#dish_category').val(), kitchen_id : $('#kitchen_id').val()},
   success:function(result){
     $('.mycart').html(result);
   }});
 
 });
-<input type="hidden" id="dish_id" name="dish_id" value=" <?php echo $dish[$y]->dish_id ;?> ">
-<input type="hidden" id="dish_image" name="dish_image" value="<?php echo $dish[$y]->dish_image ;?>">
-<input type="hidden" id="dish_name" name="dish_name" value="<?php echo $dish[$y]->dish_name ;?>">
-<input type="hidden" id="dish_category" name="dish_category" value="<?php echo $dish[$y]->dish_category ;?>">
-<input type="hidden" id="kitchen_id" name="kitchen_id" value="<?php echo $_GET['id'] ;?>">
-              
 
 
 // $(document).ready(function(){
