@@ -280,7 +280,7 @@ $data = $response_data1->data;
                   <img class="float-left w-50" src="images/Heart.svg">
                   
                   
-                  
+                  <form method="post" action="" id="formId">
 
                   <input type="hidden" id="dish_id" class="dish_id" name="dish_id" value="<?php echo $dish[$y]->dish_id ;?> ">
                 <input type="hidden" id="dish_image" class="dish_image" name="dish_image" value="<?php echo $dish[$y]->dish_image ;?>">
@@ -289,7 +289,8 @@ $data = $response_data1->data;
                 <input type="hidden" id="kitchen_id" class="kitchen_id" name="kitchen_id" value="<?php echo $_GET['id'] ;?>">
 
 
-                  <img class="float-right w-50  cartbutton" value="<?php echo $dish[$y]->dish_id ;?>" src="images/basket.svg">
+                  <img class="float-right w-50  cartbutton" type="submit" value="<?php echo $dish[$y]->dish_id ;?>" src="images/basket.svg">
+              </form>
                 </div>
               </div>
             </div>
@@ -447,16 +448,16 @@ $(function () {
 //     });
 // });
 
-$(".cartbutton").click(function(){
-  $.ajax({
-  type:'post',
-  url : 'ajax_add_to_cart.php',
-  data : { dish_id : $('.dish_id').val(), dish_image : $('.dish_image').val(), dish_name : $('.dish_name').val(), dish_category : $('.dish_category').val(), kitchen_id : $('.kitchen_id').val()},
-  success:function(result){
-    $('.mycart').html(result);
-  }});
+// $(".cartbutton").click(function(){
+//   $.ajax({
+//   type:'post',
+//   url : 'ajax_add_to_cart.php',
+//   data : { dish_id : $('.dish_id').val(), dish_image : $('.dish_image').val(), dish_name : $('.dish_name').val(), dish_category : $('.dish_category').val(), kitchen_id : $('.kitchen_id').val()},
+//   success:function(result){
+//     $('.mycart').html(result);
+//   }});
 
-});
+// });
 
 
 
@@ -466,7 +467,7 @@ $(".cartbutton").click(function(){
     $(() => {
         // function will get executed 
         // on click of submit button
-        $("#submitButton").click(function(ev) {
+        $("#cartbutton").click(function(ev) {
             var form = $("#formId");
             var url = form.attr('action');
             $.ajax({
@@ -475,7 +476,6 @@ $(".cartbutton").click(function(){
                 data: form.serialize(),
                 success: function(data) {
                       
-                    // Ajax call completed successfully
                     alert("Form Submited Successfully");
                 },
                 error: function(data) {
