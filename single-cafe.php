@@ -280,9 +280,9 @@ $data = $response_data1->data;
                   <img class="float-left w-50" src="images/Heart.svg">
                   
                   
-                  <form method="post" action="" class="formId">
-
-                  <input type="hidden" id="dish_id" class="dish_id" name="dish_id" value="<?php echo $dish[$y]->dish_id ;?> ">
+                  <form method="post" action="" id="formId">
+                    
+                <input type="hidden" id="dish_id" class="dish_id" name="dish_id" value="<?php echo $dish[$y]->dish_id ;?> ">
                 <input type="hidden" id="dish_image" class="dish_image" name="dish_image" value="<?php echo $dish[$y]->dish_image ;?>">
                 <input type="hidden" id="dish_name" class="dish_name" name="dish_name" value="<?php echo $dish[$y]->dish_name ;?>">
                 <input type="hidden" id="dish_category" class="dish_category" name="dish_category" value="<?php echo $dish[$y]->dish_category ;?>">
@@ -407,8 +407,7 @@ $(function () {
   });
 });
 
-            // Selecting the input element and get its value 
-            $(document).ready(function(){
+$(document).ready(function(){
   $("#code").change(function(){
     var inputVal = document.getElementById("code").value;
     alert(inputVal);
@@ -468,7 +467,7 @@ $(function () {
         // function will get executed 
         // on click of submit button
         $(".cartbutton").click(function(ev) {
-            var form = $(".formId");
+            var form = $("#formId");
             var url =  'ajax_add_to_cart.php';
             $.ajax({
                 type: "POST",
