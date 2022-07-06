@@ -155,7 +155,7 @@
                        <div class="col-sm-4 d-flex justify-content-end align-items-center">
                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
                        </div>
-                       <button class="rate2 mt-4" onclick="location.href = 'www.yoursite.com';">Checkout</button>
+                      <a class="rate2 mt-4 text-center" style="color:white" href="checkout.php">Checkout</a>
                    </div>
 
 
