@@ -226,7 +226,8 @@ $data = $response_data1->data;
             <div class="card">
               <div class="row no-gutters">
                 <div class="col-sm-auto">
-                  <a href="#" class="pop"><img src= "<?php echo $dish[$y]->dish_image ;?>" id="imageresource" class="img m-2 itemImg" alt="" /></a>
+                  <a href="#" class="pop">
+                    <img src= "<?php echo $dish[$y]->dish_image ;?>" id="imageresource" class="img m-2 itemImg" alt="" /></a>
                 </div>
                 <div class="col">
                   <div class="card-block p-2">
@@ -270,16 +271,23 @@ $data = $response_data1->data;
                 </div>
                 <input type="text" id="dish_id" name="dish_id" value=" <?php echo $dish[$y]->dish_id ;?> ">
 
-                <input type="hidden" id="dish_id" class="dish_id" name="dish_id" value=" <?php echo $dish[$y]->dish_id ;?> ">
-                <input type="hidden" id="dish_image" class="dish_image" name="dish_image" value="<?php echo $dish[$y]->dish_image ;?>">
-                <input type="hidden" id="dish_name" class="dish_name" name="dish_name" value="<?php echo $dish[$y]->dish_name ;?>">
-                <input type="hidden" id="dish_category" class="dish_category" name="dish_category" value="<?php echo $dish[$y]->dish_category ;?>">
-                <input type="hidden" id="kitchen_id" class="kitchen_id" name="kitchen_id" value="<?php echo $_GET['id'] ;?>">
+                
               
                 
                 <div class="col-sm-4">
                   <img class="float-left w-50" src="images/Heart.svg">
-                  <img class="float-right w-50  cartbutton" value="<?php echo $dish[$y]->dish_id ;?> " src="images/basket.svg">
+                  
+                  
+                  
+
+                  <input type="hidden" id="dish_id" class="dish_id" name="dish_id" value="<?php echo $dish[$y]->dish_id ;?> ">
+                <input type="hidden" id="dish_image" class="dish_image" name="dish_image" value="<?php echo $dish[$y]->dish_image ;?>">
+                <input type="hidden" id="dish_name" class="dish_name" name="dish_name" value="<?php echo $dish[$y]->dish_name ;?>">
+                <input type="hidden" id="dish_category" class="dish_category" name="dish_category" value="<?php echo $dish[$y]->dish_category ;?>">
+                <input type="hidden" id="kitchen_id" class="kitchen_id" name="kitchen_id" value="<?php echo $_GET['id'] ;?>">
+
+
+                  <img class="float-right w-50  cartbutton" value="<?php echo $dish[$y]->dish_id ;?>" src="images/basket.svg">
                 </div>
               </div>
             </div>
@@ -447,6 +455,36 @@ $(".cartbutton").click(function(){
   }});
 
 });
+
+
+
+      
+    // // When DOM is loaded this 
+    // // function will get executed
+    // $(() => {
+    //     // function will get executed 
+    //     // on click of submit button
+    //     $("#submitButton").click(function(ev) {
+    //         var form = $("#formId");
+    //         var url = form.attr('action');
+    //         $.ajax({
+    //             type: "POST",
+    //             url: url,
+    //             data: form.serialize(),
+    //             success: function(data) {
+                      
+    //                 // Ajax call completed successfully
+    //                 alert("Form Submited Successfully");
+    //             },
+    //             error: function(data) {
+                      
+    //                 // Some error in ajax call
+    //                 alert("some Error");
+    //             }
+    //         });
+    //     });
+    // });
+    
 
 
 // $(document).ready(function(){
