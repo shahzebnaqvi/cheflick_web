@@ -130,6 +130,8 @@ $data = $response_data1->data;
 </head>
 
 <body>
+<?php include 'components/navigation.php'; ?>
+
   <div class="containerCustom marginMinus">
     <img src="<?php echo $user_data->kitchen_banner ;?>" class="img-fluid imgHeader" alt="" />
   </div>
@@ -461,29 +463,29 @@ $(".cartbutton").click(function(){
       
     // // When DOM is loaded this 
     // // function will get executed
-    // $(() => {
-    //     // function will get executed 
-    //     // on click of submit button
-    //     $("#submitButton").click(function(ev) {
-    //         var form = $("#formId");
-    //         var url = form.attr('action');
-    //         $.ajax({
-    //             type: "POST",
-    //             url: url,
-    //             data: form.serialize(),
-    //             success: function(data) {
+    $(() => {
+        // function will get executed 
+        // on click of submit button
+        $("#submitButton").click(function(ev) {
+            var form = $("#formId");
+            var url = form.attr('action');
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(),
+                success: function(data) {
                       
-    //                 // Ajax call completed successfully
-    //                 alert("Form Submited Successfully");
-    //             },
-    //             error: function(data) {
+                    // Ajax call completed successfully
+                    alert("Form Submited Successfully");
+                },
+                error: function(data) {
                       
-    //                 // Some error in ajax call
-    //                 alert("some Error");
-    //             }
-    //         });
-    //     });
-    // });
+                    // Some error in ajax call
+                    alert("some Error");
+                }
+            });
+        });
+    });
     
 
 
