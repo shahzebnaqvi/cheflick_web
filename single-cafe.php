@@ -250,6 +250,9 @@ $data = $response_data1->data;
                   <?php echo $dish[$y]->description ;?>
                     </p>
                     <a href="433434" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal<?php echo $dish[$y]->dish_id ;?>"  data-code="codasknasnsknssse">Read more </a>
+
+
+                    
                     <script type="text/javascript">
                       $(function () {
                     $('#hotelmodal<?php echo $dish[$y]->dish_id ;?>').on('show.bs.modal', function (event) {
