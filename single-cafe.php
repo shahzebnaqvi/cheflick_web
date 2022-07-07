@@ -252,7 +252,7 @@ $data = $response_data1->data;
                     <a href="433434" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal<?php echo $dish[$y]->dish_id ;?>"  data-code="codasknasnsknssse">Read more </a>
 
 
-                    
+
                     <script type="text/javascript">
                       $(function () {
                     $('#hotelmodal<?php echo $dish[$y]->dish_id ;?>').on('show.bs.modal', function (event) {
@@ -299,7 +299,6 @@ $data = $response_data1->data;
                     <span class="font-weight-bold">Delivery Time:</span> 30 Min - 1.5 Hrs
                   </p>
                 </div>
-                <input type="text" id="dish_id" name="dish_id" value=" <?php echo $dish[$y]->dish_id ;?> ">
 
                 
               
