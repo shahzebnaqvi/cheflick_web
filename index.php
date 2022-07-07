@@ -105,8 +105,7 @@ $nearbychunk = array_chunk($nearby, 2);
       </div>
     </div>
       </section>
-   
-<section class="pt-5 pb-5">
+      <section class="pt-5 pb-5">
     <div class="container custom">
         <div class="row">
             <div class="col-6">
@@ -114,64 +113,37 @@ $nearbychunk = array_chunk($nearby, 2);
             </div>
             <div class="col-6 text-right">
             </div>
-            <div class="col-12">
-                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-
-                    <div class="carousel-inner">
-                        
-                        
-                        
-                    <?php
-$bg = array("bg-1","bg-2","bg-3");
+            <div class="col-sm-12 slick-slider">
+                        <?php
+            $bg = array("bg-1","bg-2","bg-3");
             for ($x = 0; $x < count($offerchunk); $x++) {
-
                     ?>
-                        <div class="carousel-item <?php if($x==0){echo "active";}?>">
-                            <div class="row">
-<?php
-
+                        <?php
             for ($y = 0; $y < count($offerchunk[$x]); $y++) {
-
                     ?>
-                                <div class="col-md-4 mb-3">
-                                    <div class="card <?php echo $bg[$y] ?>">
-                                        <div class="row">
-                                          <div class="col-md-6 card-head">
-                                            <h4 class="card-title before1"><?php echo $offerchunk[$x][$y]->title ?></h4>
-                                            <p class="card-text"><?php if (strlen($offerchunk[$x][$y]->description) > 60){echo substr($offerchunk[$x][$y]->description, 0, 59) . '...';}else{echo $offerchunk[$x][$y]->description;} ?></p>
-                                            <a href="#" class="availText">Avail Now</a>
-                                          </div>
-                                        <div class="col-md-6">
-                                          <img class="cardImg" src="<?php echo $offerchunk[$x][$y]->image?>">
-                                        </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-                                    
-                                    <?php }?> 
-         
-                            </div>
-                        </div>
-                        
-                                                 <?php
-}
- ?>
-
-                        
+                <a href="testingdsmoasoas" style= "  color: blue; text-decoration: none;">
+                <div class="col-md-4 mb-3">
+                <div class="card <?php echo $bg[$y] ?> element element-2">
+                    <div class="row">
+                      <div class="col-6 card-head">
+                        <h4 class="card-title before1"><?php echo $offerchunk[$x][$y]->title ?></h4>
+                        <p class="card-text"><?php if (strlen($offerchunk[$x][$y]->description) > 60){echo substr($offerchunk[$x][$y]->description, 0, 59) . '...';}else{echo $offerchunk[$x][$y]->description;} ?></p>
+                        <a href="#" class="availText">Avail Now</a>
+                      </div>
+                    <div class="col-6">
+                      <img class="cardImg" src="<?php echo $offerchunk[$x][$y]->image?>">
                     </div>
-                    <a class="btn btn-primary mb-3 mr-1 left" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                    <i class="fa fa-arrow-left"></i>
-                </a>
-                <a class="btn btn-primary mb-3 right" href="#carouselExampleIndicators2" role="button" data-slide="next">
-                    <i class="fa fa-arrow-right"></i>
-                </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                    </div>
+                    </div>
 
+                </div>
+                </a>      
+        <?php } ?>
+                            <?php } ?>
+                </div>    
+                    </div>
+                </div>
+</section>
 <section>
     <div class="container">
         <div class="row px-2">
@@ -782,10 +754,10 @@ $bg = array("bg-1","bg-2","bg-3");
 <section>
     <div class="container custom">
         <div class="row mb-4">
-            <div class="col-6">
+            <div class="col-sm-6">
                 <h3 class="mb-3">Kitchens Nearby</h3>
             </div>
-            <div class="col-6 text-right">
+            <div class="col-sm-6 text-right">
             </div>
 
         </div>
@@ -806,7 +778,7 @@ $bg = array("bg-1","bg-2","bg-3");
         // print_r($nearbychunk[$x]);
             ?>
             
-            <div class="col-6">
+            <div class="col-sm-6">
               <div class="cardShadow">
                 <div class="row">       
                   <div class="col-md-5">

@@ -160,21 +160,21 @@
                     <div class="myCard">
                         <p class="card-tex"><span class="bold">Order Status</span></p>
                         <div class="row d-flex justify-content-center">
-                            <div class="col-sm-3">
+                            <div class="col-3">
                        <div class="iconImg"><img src="images/001-cooking.svg"></div>
                        <p class="orderBold">Preparing Your Food</p>
                     </div>
-                    <div class="col-sm-1">
+                    <div class="col-1">
                        <i class="rightArrow fas fa-arrow-right"></i>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-3">
                        <div class="iconImg2"><img src="images/003-pizza-box.svg"></div>
                        <p class="orderBold">Order Picked Up</p>
                     </div>
-                    <div class="col-sm-1">
+                    <div class="col-1">
                        <i class="rightArrow fas fa-arrow-right"></i>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-3">
                        <div class="iconImg2"><img src="images/002-delivery-man.svg"></div>
                        <p class="orderBold">Rider On The Way</p>
                     </div>
@@ -196,13 +196,13 @@
                 <div class="col-sm-12">
                     <div class="myCard">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-6">
                             <p class="card-texttt">Sub Total</p>
                             <p class="card-texttt">Discount</p>
                             <p class="card-texttt">GST</p>
                             <p class="card-texttt">Total</p>
                         </div>
-                        <div class="col-sm-6 text-end">
+                        <div class="col-6 text-end">
                             <p class="bold">Rs.6800</p>
                             <p class="bold">Rs.500</p>
                             <p class="bold">Rs.800</p>

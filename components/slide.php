@@ -1,56 +1,24 @@
-<link rel="stylesheet" type="text/css" href="slider.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
-<style type="text/css">
-    .slick-slider .element{
-  height:300px;
-  width:300px;
-  background-color:#000;
-  color:#fff;
-  border-radius:5px;
-  display:inline-block;
-  margin:0px 10px;
-  display:-webkit-box;
-  display:-ms-flexbox;
-  display:flex;
-  -webkit-box-pack:center;
-      -ms-flex-pack:center;
-          justify-content:center;
-  -webkit-box-align:center;
-      -ms-flex-align:center;
-          align-items:center;
-  font-size:20px;
-}
-.slick-slider .slick-disabled {
-  opacity : 0; 
-  pointer-events:none;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="components/slider.css">
 <section>
-    <div class="container custom">
+  <div class="container custom">
         <div class="row">
             <div class="col-6">
                 <h3 class="mb-3">Category</h3>
             </div>
             <div class="col-6 text-right">
             </div>
-            <div class="col-12">
-                <div id="carouselExample2" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
+            <div class="col-sm-12 slick-slider">
                         <?php
             for ($x = 0; $x < count($categorychunk); $x++) {
-                    ?>
-                        <div class="carousel-item <?php if($x==0){echo "active";}?>">
-                            <div class="row">  
+                    ?> 
                                 <?php
-
-
             for ($y = 0; $y < count($categorychunk[$x]); $y++) {
                     ?>
-                                  <div class="col-sm-4">
+                                  <div class="element element-1">
                 <a href="testingdsmoasoas" style= "  color: blue; text-decoration: none;">
-                <div class="mainText" style ="background-image :url('<?php echo $categorychunk[$x][$y]->category_image ?>');">
+                <div class="mainText" style ="background-image :url('<?php echo $categorychunk[$x][$y]->category_image ?>');background-size: cover;width: 200px; height: 200px;">
                   <div class="overlay">
                     <div class="textEnd">
                   <h2 class="mainText-heading"><?php echo $categorychunk[$x][$y]->category_name ?></h2>
@@ -59,56 +27,8 @@
                 </div> </a>
             </div>       
         <?php } ?>
-                           </div>
-                            </div>
                             <?php } ?>
-                        </div>
-                    </div>
-                    <a class="btn btn-primary mb-3 mr-1 left" href="#carouselExample2" role="button" data-slide="prev">
-                    <i class="fa fa-chevron-left"></i>
-                </a>
-                <a class="btn btn-primary mb-3 right" href="#carouselExample2" role="button" data-slide="next">
-                    <i class="fa fa-chevron-right"></i>
-                </a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<br>
-
-<br>
-<br>
-<section>
-<div class="slick-slider container">
-  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
-
-
-  </div>
-   <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
-
-
-  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
-
-
-  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
-
-
-  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
-
-
-  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
-
-
-  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
-
-
-  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
-
-
-  </div>  <div class="element element-1 " style ="background-image :url('http://localhost/cheflick-dashboard-github/images/row2.png'); background-size: contain;" >
-
-
-  </div>
-</div>
 </section>
