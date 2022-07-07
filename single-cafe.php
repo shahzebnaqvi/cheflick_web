@@ -120,11 +120,19 @@ $data = $response_data1->data;
   </style>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cheflick.code7labs.com/wp-content/plugins/elementor-pro/assets/css/widget-carousel.min.css">
-  <link rel="stylesheet" href="css/style-main.css">
+  <link rel="stylesheet" href="css/style-main.css">  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
   <style>/*! elementor - v3.6.5 - 27-04-2022 */
 .elementor-star-rating{color:#ccd6df;font-family:eicons;display:inline-block}.elementor-star-rating i{display:inline-block;position:relative;font-style:normal;cursor:default}.elementor-star-rating i:before{content:"\e934";display:block;font-size:inherit;font-family:inherit;position:absolute;overflow:hidden;color:#f0ad4e;top:0;left:0}.elementor-star-rating .elementor-star-empty:before{content:none}.elementor-star-rating .elementor-star-1:before{width:10%}.elementor-star-rating .elementor-star-2:before{width:20%}.elementor-star-rating .elementor-star-3:before{width:30%}.elementor-star-rating .elementor-star-4:before{width:40%}.elementor-star-rating .elementor-star-5:before{width:50%}.elementor-star-rating .elementor-star-6:before{width:60%}.elementor-star-rating .elementor-star-7:before{width:70%}.elementor-star-rating .elementor-star-8:before{width:80%}.elementor-star-rating .elementor-star-9:before{width:90%}.elementor-star-rating__wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.elementor-star-rating__title{margin-right:10px}.elementor-star-rating--align-right .elementor-star-rating__wrapper{text-align:right;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.elementor-star-rating--align-left .elementor-star-rating__wrapper{text-align:left;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.elementor-star-rating--align-center .elementor-star-rating__wrapper{text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.elementor-star-rating--align-justify .elementor-star-rating__title{margin-right:auto}@media (max-width:1024px){.elementor-star-rating-tablet--align-right .elementor-star-rating__wrapper{text-align:right;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.elementor-star-rating-tablet--align-left .elementor-star-rating__wrapper{text-align:left;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.elementor-star-rating-tablet--align-center .elementor-star-rating__wrapper{text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.elementor-star-rating-tablet--align-justify .elementor-star-rating__title{margin-right:auto}}@media (max-width:767px){.elementor-star-rating-mobile--align-right .elementor-star-rating__wrapper{text-align:right;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.elementor-star-rating-mobile--align-left .elementor-star-rating__wrapper{text-align:left;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.elementor-star-rating-mobile--align-center .elementor-star-rating__wrapper{text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.elementor-star-rating-mobile--align-justify .elementor-star-rating__title{margin-right:auto}}.last-star{letter-spacing:0}.elementor--star-style-star_unicode .elementor-star-rating{font-family:Arial,Helvetica,sans-serif}.elementor--star-style-star_unicode .elementor-star-rating i:not(.elementor-star-empty):before{content:"\002605"}</style><link rel="stylesheet" href="https://cheflick.code7labs.com/wp-content/plugins/elementor-pro/assets/css/widget-carousel.min.css">		<div class="elementor-swiper">
 </head>
@@ -241,7 +249,24 @@ $data = $response_data1->data;
                     <p class="card-text text-muted m-0 text-12">
                   <?php echo $dish[$y]->description ;?>
                     </p>
-                    <a href="433434" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal<?php echo $aaa;?>"  data-code="codasknasnsknssse">Read more </a>
+                    <a href="433434" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal<?php echo $dish[$y]->dish_id ;?>"  data-code="codasknasnsknssse">Read more </a>
+                    <script type="text/javascript">
+                      $(function () {
+                    $('#hotelmodal<?php echo $dish[$y]->dish_id ;?>').on('show.bs.modal', function (event) {
+                      var button = $(event.relatedTarget); // Button that triggered the modal
+                      var codedat = button.data('code'); // Extract info from data-* attributes
+                    
+                      var modal = $(this);
+                      modal.find('#code').val(codedat);
+                      var a = $(this).find("#code").val(codedat);
+                      <?php $aa = 'console.log(codedat)';?>;
+                      var codedata = modal.find('#code').val(codedat);
+                      // document.writeln(codedat);
+                      console.log(a);
+
+                    });
+                  });
+                    </script>
                     <div class="card-text row mt-2">
                       <h5 class="col-sm-6 text-second">Service 2</h5>
                       <div class="col-sm-6">
@@ -280,23 +305,44 @@ $data = $response_data1->data;
                   <img class="float-left w-50" src="images/Heart.svg">
                   
                   
-<<<<<<< HEAD
-                  <form id="formId">
 
                   <input type="hidden" id="dish_id" class="dish_id" name="dish_id" value="<?php echo $dish[$y]->dish_id ;?> ">
-=======
                   <form method="post" action="" id="formId">
                     
-                <input type="hidden" id="dish_id" class="dish_id" name="dish_id" value="<?php echo $dish[$y]->dish_id ;?> ">
->>>>>>> 7f8a321976817f677646806c8bd2bad44a1d3609
-                <input type="hidden" id="dish_image" class="dish_image" name="dish_image" value="<?php echo $dish[$y]->dish_image ;?>">
-                <input type="hidden" id="dish_name" class="dish_name" name="dish_name" value="<?php echo $dish[$y]->dish_name ;?>">
-                <input type="hidden" id="dish_category" class="dish_category" name="dish_category" value="<?php echo $dish[$y]->dish_category ;?>">
-                <input type="hidden" id="kitchen_id" class="kitchen_id" name="kitchen_id" value="<?php echo $_GET['id'] ;?>">
+                <input type="hidden" id="dish_id<?php echo $dish[$y]->dish_id ;?>" class="dish_id" name="dish_id" value="<?php echo $dish[$y]->dish_id ;?> ">
+                <input type="hidden" id="dish_image<?php echo $dish[$y]->dish_id ;?>" class="dish_image" name="dish_image" value="<?php echo $dish[$y]->dish_image ;?>">
+                <input type="hidden" id="dish_name<?php echo $dish[$y]->dish_id ;?>" class="dish_name" name="dish_name" value="<?php echo $dish[$y]->dish_name ;?>">
+                <input type="hidden" id="dish_category<?php echo $dish[$y]->dish_id ;?>" class="dish_category" name="dish_category" value="<?php echo $dish[$y]->dish_category ;?>">
+                <input type="hidden" id="kitchen_id<?php echo $dish[$y]->dish_id ;?>" class="kitchen_id" name="kitchen_id" value="<?php echo $_GET['id'] ;?>">
+       
+                  <img class="float-right w-50  cartbutton" id="cartbutton<?php echo $dish[$y]->dish_id ;?>" value="<?php echo $dish[$y]->dish_id ;?>" src="images/basket.svg">
 
 
-                  <img class="float-right w-50  cartbutton" type="submit" id="cartbutton" value="<?php echo $dish[$y]->dish_id ;?>" src="images/basket.svg">
-              </form>
+
+                   <script type="text/javascript">
+                    $(document).ready(function(){
+                    $("#cartbutton<?php echo $dish[$y]->dish_id ;?>").click(function(){
+                      alert("<?php echo $dish[$y]->dish_id ;?>");
+                    $.ajax({
+
+                    type:'post',
+                    url : 'ajax_add_to_cart.php',
+                    data : {
+                     dish_id : $('#dish_id<?php echo $dish[$y]->dish_id ;?>').val(), 
+                     dish_image : $('#dish_image<?php echo $dish[$y]->dish_id ;?>').val(),
+                    dish_name : $('#dish_name<?php echo $dish[$y]->dish_id ;?>').val(), 
+                      dish_category : $('#dish_category<?php echo $dish[$y]->dish_id ;?>').val(), kitchen_id : $('#kitchen_id<?php echo $dish[$y]->dish_id ;?>').val()
+                    },
+
+                    success:function(result){
+                      alert(result);
+                      $('.mycart').html(result);
+                    }});});});
+                  </script>
+
+
+
+
                 </div>
               </div>
             </div>
@@ -334,7 +380,7 @@ $data = $response_data1->data;
 
 
 <!--- pop up --->
-<div class="modal fade" id="hotelmodal<?php echo $aaa;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="border-radius:25px;">
+<div class="modal fade" id="hotelmodal<?php echo $dish[$y]->dish_id ;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="border-radius:25px;">
     <div class="modal-dialog modal-lg ">
     
     <div class="modal-content">              
@@ -343,6 +389,29 @@ $data = $response_data1->data;
 <?php 
 include 'ajax_popup.php'; 
 ?>
+
+
+
+
+                   <script type="text/javascript">
+                    $(document).ready(function(){
+                    $("#hotelmodal<?php echo $dish[$y]->dish_id ;?>").click(function(){
+                      alert("<?php echo $dish[$y]->dish_id ;?>");
+                    $.ajax({
+
+                    type:'post',
+                    url : 'ajax_popup.php',
+                    data : {
+                     dish_id : $('#dish_id<?php echo $dish[$y]->dish_id ;?>').val(), 
+                    
+                    },
+
+                    success:function(result){
+                      alert(result);
+                      $('.mycart').html(result);
+                    }});});});
+                  </script>
+
 
 </div>
 </div>
@@ -377,7 +446,7 @@ include 'ajax_popup.php';
 
 
     </script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      
 
     <script>
 function category(categoryName) {
@@ -397,21 +466,7 @@ $(document).on("click", ".open-AddBookDialog", function () {
 
 
 // Execute something when the modal window is shown.
-$(function () {
-  $('#hotelmodal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget); // Button that triggered the modal
-    var codedat = button.data('code'); // Extract info from data-* attributes
-  
-    var modal = $(this);
-    modal.find('#code').val(codedat);
-    var a = $(this).find("#code").val(codedat);
-    <?php $aa = 'console.log(codedat)';?>;
-    var codedata = modal.find('#code').val(codedat);
-    // document.writeln(codedat);
-    console.log(a);
 
-  });
-});
 
 $(document).ready(function(){
   $("#code").change(function(){
@@ -469,33 +524,30 @@ $(document).ready(function(){
       
     // // When DOM is loaded this 
     // // function will get executed
-    $(() => {
-        // function will get executed 
-        // on click of submit button
-<<<<<<< HEAD
-        $("#cartbutton").click(function(ev) {
-            ev.preventDefault();
-=======
-        $(".cartbutton").click(function(ev) {
->>>>>>> 7f8a321976817f677646806c8bd2bad44a1d3609
-            var form = $("#formId");
-            var url =  'ajax_add_to_cart.php';
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: form.serialize(),
-                success: function(data) {
-                    console.log(data);
-                    alert("Form Submited Successfully");
-                },
-                error: function(data) {
+    // $(() => {
+    //     // function will get executed 
+    //     // on click of submit button
+    //    $("#cartbutton").click(function(ev) {
+    //         ev.preventDefault();
+    //     $(".cartbutton").click(function(ev) {
+    //         var form = $("#formId");
+    //         var url =  'ajax_add_to_cart.php';
+    //         $.ajax({
+    //             type: "POST",
+    //             url: url,
+    //             data: form.serialize(),
+    //             success: function(data) {
+    //                 console.log(data);
+    //                 alert("Form Submited Successfully");
+    //             },
+    //             error: function(data) {
                       
-                    // Some error in ajax call
-                    alert("some Error");
-                }
-            });
-        });
-    });
+    //                 // Some error in ajax call
+    //                 alert("some Error");
+    //             }
+    //         });
+    //     });
+    // });
     
 
 
@@ -514,7 +566,8 @@ $(document).ready(function(){
 //                     }})
 //                 })
 //             })
-</script>
+
+</script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 </html>
