@@ -138,7 +138,14 @@ $data = $response_data1->data;
 </head>
 
 <body>
-<?php include 'components/navigation.php'; ?>
+<?php 
+
+include 'components/navigation.php';
+include 'components/modals/map-modal.php';
+
+ 
+ ?>
+
 
   <div class="containerCustom marginMinus">
     <img src="<?php echo $user_data->kitchen_banner ;?>" class="img-fluid imgHeader" alt="" />
