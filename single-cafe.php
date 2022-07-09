@@ -256,7 +256,7 @@ include 'components/modals/map-modal.php';
                     <p class="card-text text-muted m-0 text-12">
                   <?php echo $dish[$y]->description ;?>
                     </p>
-                    <a href="433434" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal<?php echo $dish[$y]->dish_id ;?>"  data-code="codasknasnsknssse">Read more </a>
+                    <a href="#hotelmodal<?php echo $dish[$y]->dish_id ;?>" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal<?php echo $dish[$y]->dish_id ;?>"  data-code="codasknasnsknssse">Read more </a>
 
 
 
