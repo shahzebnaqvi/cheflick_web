@@ -321,6 +321,7 @@ include 'components/modals/map-modal.php';
                 <input type="hidden" id="dish_id<?php echo $dish[$y]->dish_id ;?>" class="dish_id" name="dish_id" value="<?php echo $dish[$y]->dish_id ;?> ">
                 <input type="hidden" id="dish_image<?php echo $dish[$y]->dish_id ;?>" class="dish_image" name="dish_image" value="<?php echo $dish[$y]->dish_image ;?>">
                 <input type="hidden" id="dish_name<?php echo $dish[$y]->dish_id ;?>" class="dish_name" name="dish_name" value="<?php echo $dish[$y]->dish_name ;?>">
+                <input type="hidden" id="dish_price<?php echo $dish[$y]->dish_id ;?>" class="dish_price" name="dish_price" value="<?php echo 33 ;?>">
                 <input type="hidden" id="dish_category<?php echo $dish[$y]->dish_id ;?>" class="dish_category" name="dish_category" value="<?php echo $dish[$y]->dish_category ;?>">
                 <input type="hidden" id="kitchen_id<?php echo $dish[$y]->dish_id ;?>" class="kitchen_id" name="kitchen_id" value="<?php echo $_GET['id'] ;?>">
        
@@ -339,7 +340,8 @@ include 'components/modals/map-modal.php';
                     data : {
                      dish_id : $('#dish_id<?php echo $dish[$y]->dish_id ;?>').val(), 
                      dish_image : $('#dish_image<?php echo $dish[$y]->dish_id ;?>').val(),
-                    dish_name : $('#dish_name<?php echo $dish[$y]->dish_id ;?>').val(), 
+                     dish_name : $('#dish_name<?php echo $dish[$y]->dish_id ;?>').val(), 
+                     dish_price : $('#dish_price<?php echo $dish[$y]->dish_id ;?>').val(), 
                       dish_category : $('#dish_category<?php echo $dish[$y]->dish_id ;?>').val(), kitchen_id : $('#kitchen_id<?php echo $dish[$y]->dish_id ;?>').val()
                     },
 
