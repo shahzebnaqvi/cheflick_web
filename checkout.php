@@ -1,5 +1,9 @@
 <?php include 'components/header.php' ; ?>
 <?php include 'components/navigation.php' ; ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
 <div class="container">
     <div class="row">
         <div class="col-md-8">
@@ -42,10 +46,55 @@
                        </div>
                        <div class="col-sm-3 ml-3">
                            <p class="pizzaHead"><?php echo $item["name"]; ?></p>
-                            <span class="purpleBack"><i class="fas fa-plus"></i></span>
+                            <span class="purpleBack add<?php echo$item["code"];?>"><i class="fas fa-plus" ></i></span>
+
+                             <script type="text/javascript">
+                    $(document).ready(function(){
+                    $(".add<?php echo$item["code"];?>").click(function(){
+                    // alert("kk");
+
+                    $.ajax({
+                        
+                    type:'post',
+                    url : 'ajax_cart_increase_decrease.php',
+                    data : {
+                     dish_id : <?php echo$item["code"];?>, 
+                     type: 'add',
+                    },
+
+                    success:function(result){
+                      // alert(result);
+                      $('.cardMy').html(result);
+                    }});});});
+                    
+
+                    $(document).ready(function(){
+                    $(".subtract<?php echo$item["code"];?>").click(function(){
+                    // alert("kk");
+
+                    $.ajax({
+                        
+                    type:'post',
+                    url : 'ajax_cart_increase_decrease.php',
+                    data : {
+                     dish_id : <?php echo$item["code"];?>, 
+                     type: 'subtract',
+                    },
+
+                    success:function(result){
+                      // alert(result);
+                      $('.cardMy').html(result);
+                    }});});});
+                  </script>
+
+
+
+
                            <span class="simpleBack"><?php echo $item["quantity"]; ?></span>
-                           <span class="purpleBack"><i class="fas fa-minus"></i></span>
+                           <span class="purpleBack subtract<?php echo$item["code"];?>"><i class="fas fa-minus"></i></span>
                        </div>
+
+                       
                        <div class="col-sm-2 d-flex align-items-center">
                            <p class="serveText">Serves 2</p>
                        </div>
@@ -54,6 +103,8 @@
                        </div>
                        
                    </div>
+                   
+
                    <div class="dropdown-divider"></div>
 
 
@@ -181,5 +232,8 @@
 <!--Voucher Modal-->
 <?php include 'components/modals/map-modal.php'; ?>
 <?php include 'components/modals/voucher-modal.php'; ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
 </body>
 </html>

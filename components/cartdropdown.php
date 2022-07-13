@@ -8,7 +8,7 @@
 
 
                    <?php		
-    $total_quantity =0;
+     $total_quantity =0;
     $total_price=0;
     foreach ($_SESSION["cart_item"] as $item){
 
