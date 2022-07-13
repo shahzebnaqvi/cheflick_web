@@ -332,7 +332,13 @@ include 'components/modals/map-modal.php';
                    <script type="text/javascript">
                     $(document).ready(function(){
                     $("#cartbutton<?php echo $dish[$y]->dish_id ;?>").click(function(){
-                      alert("<?php echo $dish[$y]->dish_id ;?>");
+                      // alert("
+                      <?php 
+                      // echo $dish[$y]->dish_id ;
+                      ?>
+                      // ");
+                      alert('product added to cart');
+
                     $.ajax({
 
                     type:'post',
@@ -346,7 +352,7 @@ include 'components/modals/map-modal.php';
                     },
 
                     success:function(result){
-                      alert(result);
+                      // alert(result);
                       $('.cardMy').html(result);
                     }});});});
                   </script>
@@ -482,7 +488,7 @@ $(document).on("click", ".open-AddBookDialog", function () {
 $(document).ready(function(){
   $("#code").change(function(){
     var inputVal = document.getElementById("code").value;
-    alert(inputVal);
+    // alert(inputVal);
   });
 });
     
