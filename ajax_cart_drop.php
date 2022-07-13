@@ -1,17 +1,50 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<div class="collapse dropdown-menu-center nav-toggle cart-toggle" id="dropMenuCart">
-                <div class="row my-4">
-                <div class="col-sm-12">
-                <div class="cardMy dropcard">
-                  
-              
-
-
-                   <?php		
-     $total_quantity =0;
+                
+    <?php	
+    session_start();
+    $total_quantity =0;
     $total_price=0;
+    // $productQty=1;
+    $dishid= $_POST['dish_id']." ";
+    if($_POST['type']=='add'){
+    
+    if(!empty($_SESSION["cart_item"])) {
+        if(in_array($dishid,array_keys($_SESSION["cart_item"]))) {
+
+    foreach($_SESSION["cart_item"] as $k => $v) {
+     
+  
+        if($dishid == $k) {
+          
+            $_SESSION["cart_item"][$dishid]["quantity"] += 1;
+
+        }
+}
+}
+}}
+elseif($_POST['type']=='subtract'){
+
+    if(!empty($_SESSION["cart_item"])) {
+        if(in_array($dishid,array_keys($_SESSION["cart_item"]))) {
+
+    foreach($_SESSION["cart_item"] as $k => $v) {
+     
+  
+        if($dishid == $k) {
+            if($_SESSION["cart_item"][$dishid]["quantity"]==1){
+                unset($_SESSION["cart_item"][$k]);				
+
+            }
+            else{
+            $_SESSION["cart_item"][$dishid]["quantity"] -= 1;}
+
+        }
+}
+}
+}
+}
+
+if($_SESSION["cart_item"]!=null){
+
     foreach ($_SESSION["cart_item"] as $item){
 
         $item_price = $item["quantity"]*$item["price"];
@@ -93,28 +126,14 @@
 
 
 
-
-
-				<?php
+<?php
 				$total_quantity += $item["quantity"];
 				$total_price += ($item["price"]*$item["quantity"]);
                 
-		}
+		
+    }}
 		?>
-
-
-
-
-                   <div class="row">
+         <div class="row">
                      
-                      <a class="rate2 mt-4 text-center" style="color:white" href="payment-checkout.php">Checkout</a>
-                   </div>
-
-
-                </div>
-            </div>
-            </div>
-            </div>
-
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                     <a class="rate2 mt-4 text-center" style="color:white" href="payment-checkout.php">Checkout</a>
+                  </div>
