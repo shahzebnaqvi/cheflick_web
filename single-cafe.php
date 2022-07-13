@@ -440,7 +440,6 @@ include 'ajax_popup.php';
 <!--- pop up --->
 
 
-<div class="mycart"><h1>ssmom</h1><div>
 
 
   <!-- Optional JavaScript -->
