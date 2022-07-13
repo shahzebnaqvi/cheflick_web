@@ -62,6 +62,8 @@
                     success:function(result){
                       // alert(result);
                       $('.cardMy').html(result);
+                      $("#price").load(location.href + " #price");
+
                     }});});});
                     
 
@@ -81,9 +83,7 @@
                     success:function(result){
                       // alert(result);
                       $('.cardMy').html(result);
-                    //   $("#lastid").empty().load('html #start');
-                      $("#lastid").load(location.href+" #lastid","");
-                    //   $('#lastid').load(' #lastid',"")
+                      $("#price").load(location.href + " #price");
 
                     }});});});
                   </script>

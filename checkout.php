@@ -65,12 +65,13 @@
                     success:function(result){
                       // alert(result);
                       $('.cardMy').html(result);
+                      $("#price").load(location.href + " #price");
+
                     }});});});
                     
 
                     $(document).ready(function(){
                     $(".subtract<?php echo$item["code"];?>").click(function(){
-                    // alert("kk");
 
                     $.ajax({
                         
@@ -82,8 +83,10 @@
                     },
 
                     success:function(result){
-                      // alert(result);
+                      
                       $('.cardMy').html(result);
+                      $("#price").load(location.href + " #price");
+
                     }});});});
                   </script>
 
@@ -208,7 +211,7 @@
                             <p class="card-texttt">Total</p>
                         </div>
                         <div class="col-6 text-end">
-                            <p class="bold">Rs.<?php echo $total_price; ?></p>
+                            <p class="bold" id="price">Rs.<?php echo $total_price; ?></p>
                             <p class="bold">Rs.500</p>
                             <p class="bold">Rs.800</p>
                             <p class="bold">Rs.8100</p>

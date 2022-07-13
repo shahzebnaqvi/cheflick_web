@@ -77,6 +77,8 @@ if($_SESSION["cart_item"]!=null){
                     success:function(result){
                       // alert(result);
                       $('.cardMy').html(result);
+                      $("#price").load(location.href + " #price");
+
                     }});});
                     
 
@@ -95,6 +97,8 @@ if($_SESSION["cart_item"]!=null){
                     success:function(result){
                       // alert(result);
                       $('.cardMy').html(result);
+                      $("#price").load(location.href + " #price");
+
                     }});});});
                   </script>
 
