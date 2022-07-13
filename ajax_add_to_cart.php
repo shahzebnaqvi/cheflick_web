@@ -7,11 +7,12 @@ $productQty=1;
 $productPrice=$_POST['dish_price'];
 $productName=$_POST['dish_name'];
 $productImg=$_POST['dish_image'];
+$kitchen_id=$_POST['kitchen_id'];
 
 
 
     if(!empty($productQty)) {
-    $itemArray = array($productID=>array('name'=>$productName, 'code'=>$productID, 'quantity'=>$productQty, 'price'=>$productPrice, 'image'=>$productImg));
+    $itemArray = array($productID=>array('name'=>$productName, 'code'=>$productID, 'quantity'=>$productQty, 'price'=>$productPrice, 'image'=>$productImg, 'kitchen_id'=>$kitchen_id));
 		
     if(!empty($_SESSION["cart_item"])) {
         if(in_array($productID,array_keys($_SESSION["cart_item"]))) {
