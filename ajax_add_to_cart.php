@@ -53,6 +53,9 @@ $productImg=$_POST['dish_image'];
     <?php		
     $total_quantity =0;
     $total_price=0;
+   
+if($_SESSION["cart_item"]!=null){
+
     foreach ($_SESSION["cart_item"] as $item){
 
         $item_price = $item["quantity"]*$item["price"];
@@ -66,9 +69,9 @@ $productImg=$_POST['dish_image'];
                        </div>
                        <div class="col-sm-5">
                            <p class="pizzaHead"><?php echo $item["name"]; ?></p>
-                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
+                           <div class="cartBtn"><span class="purpleBack  add<?php echo$item["code"];?>"><i class="fas fa-plus"></i></span>
                            <span class="simpleBack"><?php echo $item["quantity"]; ?></span>
-                           <span class="purpleBack"><i class="fas fa-minus"></i></span>
+                           <span class="purpleBack  subtract<?php echo$item["code"];?>"><i class="fas fa-minus"></i></span>
                        </div></div>
                        <div class="col-sm-2 d-flex align-items-center">
                            <p class="serveText">Serves 2</p>
@@ -85,6 +88,47 @@ $productImg=$_POST['dish_image'];
 
 
 
+                   <script type="text/javascript">
+                    $(document).ready(function(){
+                    $(".add<?php echo$item["code"];?>").click(function(){
+                    // alert("kk");
+
+                    $.ajax({
+                        
+                    type:'post',
+                    url : 'ajax_cart_drop.php',
+                    data : {
+                     dish_id : <?php echo$item["code"];?>, 
+                     type: 'add',
+                    },
+
+                    success:function(result){
+                      // alert(result);
+                      $('.dropcard').html(result);
+                      $("#price").load(location.href + " #price");
+
+                    }});});});
+                    
+
+                    $(document).ready(function(){
+                    $(".subtract<?php echo$item["code"];?>").click(function(){
+
+                    $.ajax({
+                        
+                    type:'post',
+                    url : 'ajax_cart_drop.php',
+                    data : {
+                     dish_id : <?php echo$item["code"];?>, 
+                     type: 'subtract',
+                    },
+
+                    success:function(result){
+                      
+                      $('.dropcard').html(result);
+                      $("#price").load(location.href + " #price");
+
+                    }});});});
+                  </script>
 
                 
                 
@@ -93,15 +137,13 @@ $productImg=$_POST['dish_image'];
 
 
 
-
-
-				<?php
+<?php
 				$total_quantity += $item["quantity"];
 				$total_price += ($item["price"]*$item["quantity"]);
                 
-		}
+		
+    }}
 		?>
-
 
 
 
