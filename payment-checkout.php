@@ -43,10 +43,59 @@
                        </div>
                        <div class="col-sm-3 ml-3">
                            <p class="pizzaHead"><?php echo $item["name"]; ?></p>
-                            <span class="purpleBack"><i class="fas fa-plus"></i></span>
+                            <span class="purpleBack add<?php echo$item["code"];?>"><i class="fas fa-plus" ></i></span>
+
+                             <script type="text/javascript">
+                    $(document).ready(function(){
+                    $(".add<?php echo$item["code"];?>").click(function(){
+                    // alert("kk");
+
+                    $.ajax({
+                        
+                    type:'post',
+                    url : 'ajax_cart_increase_decrease.php',
+                    data : {
+                     dish_id : <?php echo$item["code"];?>, 
+                     type: 'add',
+                    },
+
+                    success:function(result){
+                      // alert(result);
+                      $('.cardMy').html(result);
+                    }});});});
+                    
+
+                    $(document).ready(function(){
+                    $(".subtract<?php echo$item["code"];?>").click(function(){
+                    // alert("kk");
+
+                    $.ajax({
+                        
+                    type:'post',
+                    url : 'ajax_cart_increase_decrease.php',
+                    data : {
+                     dish_id : <?php echo$item["code"];?>, 
+                     type: 'subtract',
+                    },
+
+                    success:function(result){
+                      // alert(result);
+                      $('.cardMy').html(result);
+                    //   $("#lastid").empty().load('html #start');
+                      $("#lastid").load(location.href+" #lastid","");
+                    //   $('#lastid').load(' #lastid',"")
+
+                    }});});});
+                  </script>
+
+
+
+
                            <span class="simpleBack"><?php echo $item["quantity"]; ?></span>
-                           <span class="purpleBack"><i class="fas fa-minus"></i></span>
+                           <span class="purpleBack subtract<?php echo$item["code"];?>"><i class="fas fa-minus"></i></span>
                        </div>
+
+                       
                        <div class="col-sm-2 d-flex align-items-center">
                            <p class="serveText">Serves 2</p>
                        </div>
@@ -55,6 +104,8 @@
                        </div>
                        
                    </div>
+                   
+
                    <div class="dropdown-divider"></div>
 
 
@@ -81,6 +132,8 @@
                 
 		}
 		?>
+
+
                 </div>
             </div>
             </div>

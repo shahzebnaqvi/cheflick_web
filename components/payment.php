@@ -82,7 +82,7 @@
                             <p class="card-texttt">Total</p>
                         </div>
                         <div class="col-sm-6 text-end">
-                            <p class="bold">Rs.<?php echo $total_price; ?></p>
+                            <p class="bold " id="lastid">Rs.<?php echo $total_price; ?></p>
                             <p class="bold">Rs.500</p>
                             <p class="bold">Rs.800</p>
                             <p class="bold">Rs.8100</p>
