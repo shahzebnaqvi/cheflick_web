@@ -347,7 +347,7 @@ include 'components/modals/map-modal.php';
 
                     success:function(result){
                       alert(result);
-                      $('.mycart').html(result);
+                      $('.cardMy').html(result);
                     }});});});
                   </script>
 

@@ -1,56 +1,13 @@
-<?php
-session_start();
-// echo "sasas";
-// print_r( $_POST);
-$productID=$_POST['dish_id'];
-$productQty=1;
-$productPrice=$_POST['dish_price'];
-$productName=$_POST['dish_name'];
-$productImg=$_POST['dish_image'];
+
+<div class="collapse dropdown-menu-center nav-toggle cart-toggle" id="dropMenuCart">
+                <div class="row my-4">
+                <div class="col-sm-12">
+                <div class="cardMy">
+                  
+              
 
 
-
-    if(!empty($productQty)) {
-    $itemArray = array($productID=>array('name'=>$productName, 'code'=>$productID, 'quantity'=>$productQty, 'price'=>$productPrice, 'image'=>$productImg));
-		
-    if(!empty($_SESSION["cart_item"])) {
-        if(in_array($productID,array_keys($_SESSION["cart_item"]))) {
-            foreach($_SESSION["cart_item"] as $k => $v) {
-                    if($productID == $k) {
-                        if(empty($_SESSION["cart_item"][$k]["quantity"])) {
-                            $_SESSION["cart_item"][$k]["quantity"] = 0;
-                        }
-                        $_SESSION["cart_item"][$k]["quantity"] += $productQty;
-                    }
-            }
-        } else {
-            $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
-        }
-    } else {
-        $_SESSION["cart_item"] = $itemArray;
-    }}
-    
-    
-    
-    
-    
-    // print_r( $_SESSION["cart_item"]);
-
-
-
-
-
-
-    // show in drop down 
-
-
-
-
-
-?>
-    
-
-    <?php		
+                   <?php		
     $total_quantity =0;
     $total_price=0;
     foreach ($_SESSION["cart_item"] as $item){
@@ -111,4 +68,7 @@ $productImg=$_POST['dish_image'];
                    </div>
 
 
-
+                </div>
+            </div>
+            </div>
+            </div>
