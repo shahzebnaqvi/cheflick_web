@@ -54,7 +54,7 @@
            	     <span class="my-2 my-sm-0 fas fa-bars menu"></span>
            	</button>
            	 <div class="collapse dropdown-menu-right nav-toggle profile-toggle" id="profileDropdown">
-                <a class="dropdown-item" href="inner-dashboard/profile.php">My Profile</a>
+                <a class="dropdown-item" href="profile.php">My Profile</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="myorders.php">My Orders</a>
                 <div class="dropdown-divider"></div>

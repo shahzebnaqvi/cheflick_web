@@ -348,7 +348,8 @@ include 'components/modals/map-modal.php';
                      dish_image : $('#dish_image<?php echo $dish[$y]->dish_id ;?>').val(),
                      dish_name : $('#dish_name<?php echo $dish[$y]->dish_id ;?>').val(), 
                      dish_price : $('#dish_price<?php echo $dish[$y]->dish_id ;?>').val(), 
-                      dish_category : $('#dish_category<?php echo $dish[$y]->dish_id ;?>').val(), kitchen_id : $('#kitchen_id<?php echo $dish[$y]->dish_id ;?>').val()
+                      dish_category : $('#dish_category<?php echo $dish[$y]->dish_id ;?>').val(),
+                       kitchen_id : $('#kitchen_id<?php echo $dish[$y]->dish_id ;?>').val()
                     },
 
                     success:function(result){

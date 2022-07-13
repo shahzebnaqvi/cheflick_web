@@ -158,8 +158,8 @@
          ?>
     </div>
     <div class="row">
-        <div class="col-lg-12 my-2">
-            <button class="rate">Proceed</button>
+        <div class="col-lg-12 my-2">                    
+            <button class="rate" onclick="document.location='checkout.php'">Proceed</button>
         </div>
     </div>
 </div>

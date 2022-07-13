@@ -64,7 +64,7 @@
 
                    <div class="row">
                      
-                      <a class="rate2 mt-4 text-center" style="color:white" href="checkout.php">Checkout</a>
+                      <a class="rate2 mt-4 text-center" style="color:white" href="payment-checkout.php">Checkout</a>
                    </div>
 
 
