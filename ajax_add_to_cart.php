@@ -74,7 +74,7 @@ $productImg=$_POST['dish_image'];
                            <p class="serveText">Serves 2</p>
                        </div>
                        <div class="col-sm-4 d-flex justify-content-end align-items-center">
-                           <del class="strikeText">Rs.250</del><p class="serveText"><?php echo $item["price"]; ?></p>
+                           <del class="strikeText">Rs.250</del><p class="serveText">Rs.<?php echo $item["price"]; ?></p>
                        </div>
                    </div>
                    <div class="dropdown-divider"></div>
