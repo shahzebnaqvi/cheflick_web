@@ -10,11 +10,11 @@
 
 
                    <?php		
-                echo "<pre>";
-                   print_r($_SESSION["cart_item"]);
+                // echo "<pre>";
+                //    print_r($_SESSION["cart_item"]);
      $total_quantity =0;
     $total_price=0;
-    
+
     foreach ($_SESSION["cart_item"] as $item){
 
         $item_price = $item["quantity"]*$item["price"];
