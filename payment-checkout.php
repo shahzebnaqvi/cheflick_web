@@ -147,7 +147,7 @@
             </div>
             <div class="col-sm-4">
                 <a data-toggle="modal" href="#modal1" class="voucher-btn">Apply Voucher</a><br>
-                <p class="card-text"><span class="bold">Powered By: </span><span class="orderText">Sofrah</span></p>
+                <p class="card-text"><span class="bold">Powered By: </span><span class="orderText">Cheiflick</span></p>
             </div>
             </div>
         </div>
