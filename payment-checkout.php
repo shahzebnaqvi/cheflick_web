@@ -1,4 +1,29 @@
 <?php include 'components/header.php' ; ?>
+<?php 
+$api_url = 'https://api.cheflick.net/api/user/kitchen-detail?kitchen_id='.$_GET['id'].'&user_lat=40&user_long=67.0781';
+
+
+
+$options = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header'=>"Accept-language: en\r\n" .
+              "Cookie: foo=bar\r\n" .  // check function.stream-context-create on php.net
+              "Authorization: ".$_SESSION['remember_token']."" // i.e. An iPad 
+  )
+);
+$context = stream_context_create($options);
+$json_data = file_get_contents($api_url, false, $context);
+
+$response_data = json_decode($json_data);
+
+$user_data = $response_data->data;
+
+$tab = $user_data->kitchen_tabs;
+
+
+
+?>
 <?php include 'components/navigation.php' ; ?>
 <div class="container">
     <div class="row">
@@ -23,10 +48,6 @@
             <div class="row my-4">
                 <div class="col-sm-12">
                 <div class="myCard cardMy">
-                 
-                    
-
-                    
     <?php		
     $total_quantity =0;
     $total_price=0;
@@ -43,7 +64,8 @@
                        </div>
                        <div class="col-sm-3 ml-3">
                            <p class="pizzaHead"><?php echo $item["name"]; ?></p>
-                            <span class="purpleBack add<?php echo$item["code"];?>"><i class="fas fa-plus" ></i></span>
+                            <span class="purpleBack add<?php echo$item["code"];?>">
+                            <i class="fas fa-plus" ></i></span>
 
                              <script type="text/javascript">
                     $(document).ready(function(){
@@ -140,7 +162,7 @@
             <div class="row my-4">
             <div class="col-sm-4">
                 <p class="card-tex"><span class="bold">Contactless Delivery</span></p>
-                <p class="card-tex"><span class="bold">Order ID: </span><span class="orderText">65365</span></p>
+                <!-- <p class="card-tex"><span class="bold"> </span><span class="orderText"></span></p> -->
             </div>
             <div class="col-sm-4">
                 

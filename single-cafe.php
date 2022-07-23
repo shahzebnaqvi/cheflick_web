@@ -1,3 +1,8 @@
+<?php 
+include 'components/modals/feedback.php';
+
+?>
+
 <?php
  session_start();
  $aaa =32323;
@@ -26,11 +31,6 @@ $response_data = json_decode($json_data);
 $user_data = $response_data->data;
 
 $tab = $user_data->kitchen_tabs;
-
-
-
-
-
 
 
 $api_url1 = 'https://api.cheflick.net/api/user/get-rate-list?kid='.$_GET['id'].'';
@@ -257,7 +257,7 @@ include 'components/modals/map-modal.php';
                     <p class="card-text text-muted m-0 text-12">
                   <?php echo $dish[$y]->description ;?>
                     </p>
-                    <a href="#hotelmodal<?php echo $dish[$y]->dish_id ;?>" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal<?php echo $dish[$y]->dish_id ;?>"  data-code="codasknasnsknssse">Read more </a>
+                    <a href="#feedbackModal" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal"  data-code="codasknasnsknssse">Read more </a>
 
 
 
