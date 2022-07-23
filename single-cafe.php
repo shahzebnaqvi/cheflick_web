@@ -10,7 +10,7 @@ include 'components/modals/feedback.php';
 if($_GET['id']==null){
     header('location: index.php');
 
-}
+}print_r($_SESSION);
 $api_url = 'https://api.cheflick.net/api/user/kitchen-detail?kitchen_id='.$_GET['id'].'&user_lat=40&user_long=67.0781';
 
 
@@ -257,13 +257,17 @@ include 'components/modals/map-modal.php';
                     <p class="card-text text-muted m-0 text-12">
                   <?php echo $dish[$y]->description ;?>
                     </p>
+<<<<<<< HEAD
                     <a href="#feedbackModal" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal"  data-code="codasknasnsknssse">Read more </a>
+=======
+                    <a href="#hotelmoda" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmoda"  data-code="codasknasnsknssse">Read more </a>
+>>>>>>> 56bf5e4d3c55b2fc9e9fa180b3a88b829d3ed107
 
 
 
                     <script type="text/javascript">
                       $(function () {
-                    $('#hotelmodal<?php echo $dish[$y]->dish_id ;?>').on('show.bs.modal', function (event) {
+                    $('#hotelmoda').on('show.bs.modal', function (event) {
                       var button = $(event.relatedTarget); // Button that triggered the modal
                       var codedat = button.data('code'); // Extract info from data-* attributes
                     
@@ -399,7 +403,7 @@ include 'components/modals/map-modal.php';
 
 
 <!--- pop up --->
-<div class="modal fade" id="hotelmodal<?php echo $dish[$y]->dish_id ;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="border-radius:25px;">
+<div class="modal fade" id="hotelmoda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="border-radius:25px;">
     <div class="modal-dialog modal-lg ">
     
     <div class="modal-content">              
@@ -414,7 +418,7 @@ include 'ajax_popup.php';
 
                    <script type="text/javascript">
                     $(document).ready(function(){
-                    $("#hotelmodal<?php echo $dish[$y]->dish_id ;?>").click(function(){
+                    $("#hotelmoda").click(function(){
                       alert("<?php echo $dish[$y]->dish_id ;?>");
                     $.ajax({
 
