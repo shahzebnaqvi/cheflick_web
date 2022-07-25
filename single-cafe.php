@@ -27,12 +27,6 @@ $user_data = $response_data->data;
 
 $tab = $user_data->kitchen_tabs;
 
-
-
-
-
-
-
 $api_url1 = 'https://api.cheflick.net/api/user/get-rate-list?kid='.$_GET['id'].'';
 
 
