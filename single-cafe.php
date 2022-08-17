@@ -1,3 +1,8 @@
+<?php 
+include 'components/modals/feedback.php';
+
+?>
+
 <?php
  session_start();
  $aaa =32323;
@@ -5,7 +10,7 @@
 if($_GET['id']==null){
     header('location: index.php');
 
-}
+}print_r($_SESSION);
 $api_url = 'https://api.cheflick.net/api/user/kitchen-detail?kitchen_id='.$_GET['id'].'&user_lat=40&user_long=67.0781';
 
 
@@ -27,6 +32,10 @@ $user_data = $response_data->data;
 
 $tab = $user_data->kitchen_tabs;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c19abdfd1d286d1253e4b1d896a48b31b440a29c
 $api_url1 = 'https://api.cheflick.net/api/user/get-rate-list?kid='.$_GET['id'].'';
 
 
@@ -114,7 +123,8 @@ $data = $response_data1->data;
   </style>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cheflick.code7labs.com/wp-content/plugins/elementor-pro/assets/css/widget-carousel.min.css">
@@ -250,13 +260,17 @@ include 'components/modals/map-modal.php';
                     <p class="card-text text-muted m-0 text-12">
                   <?php echo $dish[$y]->description ;?>
                     </p>
-                    <a href="#hotelmodal<?php echo $dish[$y]->dish_id ;?>" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal<?php echo $dish[$y]->dish_id ;?>"  data-code="codasknasnsknssse">Read more </a>
+<<<<<<< HEAD
+                    <a href="#feedbackModal" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmodal"  data-code="codasknasnsknssse">Read more </a>
+=======
+                    <a href="#hotelmoda" class="m-0 text-main font-weight-bold" data-toggle="modal" data-target="#hotelmoda"  data-code="codasknasnsknssse">Read more </a>
+>>>>>>> 56bf5e4d3c55b2fc9e9fa180b3a88b829d3ed107
 
 
 
                     <script type="text/javascript">
                       $(function () {
-                    $('#hotelmodal<?php echo $dish[$y]->dish_id ;?>').on('show.bs.modal', function (event) {
+                    $('#hotelmoda').on('show.bs.modal', function (event) {
                       var button = $(event.relatedTarget); // Button that triggered the modal
                       var codedat = button.data('code'); // Extract info from data-* attributes
                     
@@ -315,6 +329,7 @@ include 'components/modals/map-modal.php';
                 <input type="hidden" id="dish_id<?php echo $dish[$y]->dish_id ;?>" class="dish_id" name="dish_id" value="<?php echo $dish[$y]->dish_id ;?> ">
                 <input type="hidden" id="dish_image<?php echo $dish[$y]->dish_id ;?>" class="dish_image" name="dish_image" value="<?php echo $dish[$y]->dish_image ;?>">
                 <input type="hidden" id="dish_name<?php echo $dish[$y]->dish_id ;?>" class="dish_name" name="dish_name" value="<?php echo $dish[$y]->dish_name ;?>">
+                <input type="hidden" id="dish_price<?php echo $dish[$y]->dish_id ;?>" class="dish_price" name="dish_price" value="<?php echo 33 ;?>">
                 <input type="hidden" id="dish_category<?php echo $dish[$y]->dish_id ;?>" class="dish_category" name="dish_category" value="<?php echo $dish[$y]->dish_category ;?>">
                 <input type="hidden" id="kitchen_id<?php echo $dish[$y]->dish_id ;?>" class="kitchen_id" name="kitchen_id" value="<?php echo $_GET['id'] ;?>">
        
@@ -325,7 +340,13 @@ include 'components/modals/map-modal.php';
                    <script type="text/javascript">
                     $(document).ready(function(){
                     $("#cartbutton<?php echo $dish[$y]->dish_id ;?>").click(function(){
-                      alert("<?php echo $dish[$y]->dish_id ;?>");
+                      // alert("
+                      <?php 
+                      // echo $dish[$y]->dish_id ;
+                      ?>
+                      // ");
+                      alert('product added to cart');
+
                     $.ajax({
 
                     type:'post',
@@ -333,13 +354,15 @@ include 'components/modals/map-modal.php';
                     data : {
                      dish_id : $('#dish_id<?php echo $dish[$y]->dish_id ;?>').val(), 
                      dish_image : $('#dish_image<?php echo $dish[$y]->dish_id ;?>').val(),
-                    dish_name : $('#dish_name<?php echo $dish[$y]->dish_id ;?>').val(), 
-                      dish_category : $('#dish_category<?php echo $dish[$y]->dish_id ;?>').val(), kitchen_id : $('#kitchen_id<?php echo $dish[$y]->dish_id ;?>').val()
+                     dish_name : $('#dish_name<?php echo $dish[$y]->dish_id ;?>').val(), 
+                     dish_price : $('#dish_price<?php echo $dish[$y]->dish_id ;?>').val(), 
+                      dish_category : $('#dish_category<?php echo $dish[$y]->dish_id ;?>').val(),
+                       kitchen_id : $('#kitchen_id<?php echo $dish[$y]->dish_id ;?>').val()
                     },
 
                     success:function(result){
-                      alert(result);
-                      $('.mycart').html(result);
+                      // alert(result);
+                      $('.cardMy').html(result);
                     }});});});
                   </script>
 
@@ -383,7 +406,7 @@ include 'components/modals/map-modal.php';
 
 
 <!--- pop up --->
-<div class="modal fade" id="hotelmodal<?php echo $dish[$y]->dish_id ;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="border-radius:25px;">
+<div class="modal fade" id="hotelmoda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="border-radius:25px;">
     <div class="modal-dialog modal-lg ">
     
     <div class="modal-content">              
@@ -398,7 +421,7 @@ include 'ajax_popup.php';
 
                    <script type="text/javascript">
                     $(document).ready(function(){
-                    $("#hotelmodal<?php echo $dish[$y]->dish_id ;?>").click(function(){
+                    $("#hotelmoda").click(function(){
                       alert("<?php echo $dish[$y]->dish_id ;?>");
                     $.ajax({
 
@@ -424,7 +447,19 @@ include 'ajax_popup.php';
 <!--- pop up --->
 
 
-<div class="mycart"><h1>ssmom</h1><div>
+
+<div class="modal fade" id="addedtocard" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">              
+      <div class="modal-body">
+      	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <img src="" class="imagepreview" style="width: 100%;" >
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 
   <!-- Optional JavaScript -->
@@ -474,7 +509,7 @@ $(document).on("click", ".open-AddBookDialog", function () {
 $(document).ready(function(){
   $("#code").change(function(){
     var inputVal = document.getElementById("code").value;
-    alert(inputVal);
+    // alert(inputVal);
   });
 });
     

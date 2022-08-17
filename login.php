@@ -61,7 +61,7 @@ if($obj['status']){
      $_SESSION['address_type'] = $obj['data']['address_type'];
      $_SESSION['user_city'] = $obj['data']['user_city'];
      $_SESSION['address1'] = $obj['data']['address1'];
-
+    $_SESSION['cart_item'] = array();
     print_r( $obj['data']);
     header("Location:index.php");
 }

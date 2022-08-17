@@ -1,4 +1,29 @@
 <?php include 'components/header.php' ; ?>
+<?php 
+$api_url = 'https://api.cheflick.net/api/user/kitchen-detail?kitchen_id='.$_GET['id'].'&user_lat=40&user_long=67.0781';
+
+
+
+$options = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header'=>"Accept-language: en\r\n" .
+              "Cookie: foo=bar\r\n" .  // check function.stream-context-create on php.net
+              "Authorization: ".$_SESSION['remember_token']."" // i.e. An iPad 
+  )
+);
+$context = stream_context_create($options);
+$json_data = file_get_contents($api_url, false, $context);
+
+$response_data = json_decode($json_data);
+
+$user_data = $response_data->data;
+
+$tab = $user_data->kitchen_tabs;
+
+
+
+?>
 <?php include 'components/navigation.php' ; ?>
 <div class="container">
     <div class="row">
@@ -23,127 +48,128 @@
             <div class="row my-4">
                 <div class="col-sm-12">
                 <div class="myCard cardMy">
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <img class="heiImage" src="images/pizza.png" />
-                        </div>
-                        <div class="col-sm-3 ml-3">
-                            <p class="pizzaHead">Pizza Vlopper</p>
-                            <span class="purpleBack"><i class="fas fa-plus"></i></span>
-                            <span class="simpleBack">2</span>
-                            <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                        </div>
-                        <div class="col-sm-2 d-flex align-items-center">
-                            <p class="serveText">Serves 2</p>
-                        </div>
-                        <div class="col-sm-5 d-flex justify-content-end align-items-center">
-                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
-                        </div>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <img class="heiImage" src="images/pizza.png" />
-                        </div>
-                        <div class="col-sm-3 ml-3">
-                            <p class="pizzaHead">Pizza Vlopper</p>
-                            <span class="purpleBack"><i class="fas fa-plus"></i></span>
-                            <span class="simpleBack">2</span>
-                            <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                        </div>
-                        <div class="col-sm-2 d-flex align-items-center">
-                            <p class="serveText">Serves 2</p>
-                        </div>
-                        <div class="col-sm-5 d-flex justify-content-end align-items-center">
-                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
-                        </div>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <img class="heiImage" src="images/pizza.png" />
-                        </div>
-                        <div class="col-sm-3 ml-3">
-                            <p class="pizzaHead">Pizza Vlopper</p>
-                            <span class="purpleBack"><i class="fas fa-plus"></i></span>
-                            <span class="simpleBack">2</span>
-                            <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                        </div>
-                        <div class="col-sm-2 d-flex align-items-center">
-                            <p class="serveText">Serves 2</p>
-                        </div>
-                        <div class="col-sm-5 d-flex justify-content-end align-items-center">
-                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
-                        </div>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <img class="heiImage" src="images/pizza.png" />
-                        </div>
-                        <div class="col-sm-3 ml-3">
-                            <p class="pizzaHead">Pizza Vlopper</p>
-                            <span class="purpleBack"><i class="fas fa-plus"></i></span>
-                            <span class="simpleBack">2</span>
-                            <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                        </div>
-                        <div class="col-sm-2 d-flex align-items-center">
-                            <p class="serveText">Serves 2</p>
-                        </div>
-                        <div class="col-sm-5 d-flex justify-content-end align-items-center">
-                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
-                        </div>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <img class="heiImage" src="images/pizza.png" />
-                        </div>
-                        <div class="col-sm-3 ml-3">
-                            <p class="pizzaHead">Pizza Vlopper</p>
-                            <span class="purpleBack"><i class="fas fa-plus"></i></span>
-                            <span class="simpleBack">2</span>
-                            <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                        </div>
-                        <div class="col-sm-2 d-flex align-items-center">
-                            <p class="serveText">Serves 2</p>
-                        </div>
-                        <div class="col-sm-5 d-flex justify-content-end align-items-center">
-                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
-                        </div>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <img class="heiImage" src="images/pizza.png" />
-                        </div>
-                        <div class="col-sm-3 ml-3">
-                            <p class="pizzaHead">Pizza Vlopper</p>
-                            <span class="purpleBack"><i class="fas fa-plus"></i></span>
-                            <span class="simpleBack">2</span>
-                            <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                        </div>
-                        <div class="col-sm-2 d-flex align-items-center">
-                            <p class="serveText">Serves 2</p>
-                        </div>
-                        <div class="col-sm-5 d-flex justify-content-end align-items-center">
-                            <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
-                        </div>
-                    </div>
+    <?php		
+    $total_quantity =0;
+    $total_price=0;
+    foreach ($_SESSION["cart_item"] as $item){
+
+        $item_price = $item["quantity"]*$item["price"];
+		?>
+				
+
+
+                <div class="row">
+                       <div class="col-sm-1">
+                           <img class="heiImage" src="<?php echo $item["image"]; ?>" />
+                       </div>
+                       <div class="col-sm-3 ml-3">
+                           <p class="pizzaHead"><?php echo $item["name"]; ?></p>
+                            <span class="purpleBack add<?php echo$item["code"];?>">
+                            <i class="fas fa-plus" ></i></span>
+
+                             <script type="text/javascript">
+                    $(document).ready(function(){
+                    $(".add<?php echo$item["code"];?>").click(function(){
+                    // alert("kk");
+
+                    $.ajax({
+                        
+                    type:'post',
+                    url : 'ajax_cart_increase_decrease.php',
+                    data : {
+                     dish_id : <?php echo$item["code"];?>, 
+                     type: 'add',
+                    },
+
+                    success:function(result){
+                      // alert(result);
+                      $('.cardMy').html(result);
+                      $("#price").load(location.href + " #price");
+
+                    }});});});
+                    
+
+                    $(document).ready(function(){
+                    $(".subtract<?php echo$item["code"];?>").click(function(){
+                    // alert("kk");
+
+                    $.ajax({
+                        
+                    type:'post',
+                    url : 'ajax_cart_increase_decrease.php',
+                    data : {
+                     dish_id : <?php echo$item["code"];?>, 
+                     type: 'subtract',
+                    },
+
+                    success:function(result){
+                      // alert(result);
+                      $('.cardMy').html(result);
+                      $("#price").load(location.href + " #price");
+
+                    }});});});
+                  </script>
+
+
+
+
+                           <span class="simpleBack"><?php echo $item["quantity"]; ?></span>
+                           <span class="purpleBack subtract<?php echo$item["code"];?>"><i class="fas fa-minus"></i></span>
+                       </div>
+
+                       
+                       <div class="col-sm-2 d-flex align-items-center">
+                           <p class="serveText">Serves 2</p>
+                       </div>
+                       <div class="col-sm-5 d-flex justify-content-end align-items-center">
+                           <del class="strikeText">Rs.250</del><p class="serveText">Rs <?php echo $item["price"]; ?></p>
+                       </div>
+                       
+                   </div>
+                   
+
+                   <div class="dropdown-divider"></div>
+
+
+                      
+
+
+
+
+
+
+
+                
+                
+                
+                
+
+
+
+
+
+				<?php
+				$total_quantity += $item["quantity"];
+				$total_price += ($item["price"]*$item["quantity"]);
+                
+		}
+		?>
+
+
                 </div>
             </div>
             </div>
             <div class="row my-4">
             <div class="col-sm-4">
                 <p class="card-tex"><span class="bold">Contactless Delivery</span></p>
-                <p class="card-tex"><span class="bold">Order ID: </span><span class="orderText">65365</span></p>
+                <!-- <p class="card-tex"><span class="bold"> </span><span class="orderText"></span></p> -->
             </div>
             <div class="col-sm-4">
                 
             </div>
             <div class="col-sm-4">
                 <a data-toggle="modal" href="#modal1" class="voucher-btn">Apply Voucher</a><br>
-                <p class="card-text"><span class="bold">Powered By: </span><span class="orderText">Sofrah</span></p>
+                <p class="card-text"><span class="bold">Powered By: </span><span class="orderText">Cheiflick</span></p>
             </div>
             </div>
         </div>
@@ -158,8 +184,8 @@
          ?>
     </div>
     <div class="row">
-        <div class="col-lg-12 my-2">
-            <button class="rate">Proceed</button>
+        <div class="col-lg-12 my-2">                    
+            <button class="rate" onclick="document.location='checkout.php'">Proceed</button>
         </div>
     </div>
 </div>

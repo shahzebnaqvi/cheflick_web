@@ -1,6 +1,44 @@
+
+<script>
+var x = document.getElementById("mapsearch");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  latitude = position.coords.latitude;
+  longitude = position.coords.longitude;
+  // y  = "https://www.google.com/maps/search/" + latitude +
+  //     ",+" + longitude+"/@"+ latitude+","+ longitude+","+"17z";
+  //     alert(y);
+  x.innerHTML = '<iframe class="map-custom" width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q='  + position.coords.latitude +',' +position.coords.longitude+'&output=embed"></iframe>' ;
+
+}
+</script>
 <?php include 'components/header.php'; ?>
-<?php include 'components/navigation.php'; ?>
+<?php inc
+lude 'components/navigation.php'; ?>
 <?php include 'components/modals/feedback.php'; ?>
+
+<?php
+
+$id=$_GET['id'];
+$api_url = 'https://api.cheflick.net/api/user/view-all?view_id=$id&kitchen_type=both&latitude=33.698&longitude=73.053&order_types=same_day&mode_of_delivery=delivery';
+
+// Read JSON file
+$json_data = file_get_contents($api_url);
+
+// Decode JSON data into PHP array
+$response_data = json_decode($json_data);
+
+// All user data exists in 'data' object
+$user_data = $response_data->data;
+?>
 <section>
   <div class="container">
 <div class="row mt-4 mb-4">

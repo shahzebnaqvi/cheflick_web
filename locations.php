@@ -5,7 +5,7 @@
 
 <?php 
 include 'components/header.php';
-include 'components/modals/map-modal.php';
+include 'components/modals/map-modal.php'; 
 
 
  ?>
@@ -61,10 +61,11 @@ $alllocationdata = $response_data->data;
 <div class="shadow-none p-3  bg mb-5 rounded">
   <span style="color:#001746; font-weight: 700;"><?php echo $alllocationdata[$x]->type ?>  </span>
  
-
+<a data-toggle="modal" href="#mapModal" class="voucher-btn">
 <p style="float: right;">
 <span style="color:#9C3DFD; font-weight: 700">Edit</span> 
 </p>
+</a>
 <br>
 
 <span style="color: #6A6A6A;"><?php echo $alllocationdata[$x]->address ?><?php echo $alllocationdata[$x]->address1 ?></span>

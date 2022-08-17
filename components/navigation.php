@@ -45,131 +45,16 @@
            	 <button class="drop-btn dropdown-toggle" type="button" id="dropMenu" data-toggle="collapse" href="#dropMenuCart" role="button" aria-expanded="false" aria-controls="collapseExample">
            	     <span class="my-2 my-sm-0 fas fa-shopping-cart	 sell"></span>
            	</button>
-           	 <div class="collapse dropdown-menu-center nav-toggle cart-toggle" id="dropMenuCart">
-                <div class="row my-4">
-                <div class="col-sm-12">
-                <div class="cardMy">
-                   <div class="row">
-                       <div class="col-sm-1">
-                           <img class="heiImage" src="images/pizza.png" />
-                       </div>
-                       <div class="col-sm-5">
-                           <p class="pizzaHead">Pizza Vlopper</p>
-                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
-                           <span class="simpleBack">2</span>
-                           <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                       </div></div>
-                       <div class="col-sm-2 d-flex align-items-center">
-                           <p class="serveText">Serves 2</p>
-                       </div>
-                       <div class="col-sm-4 d-flex justify-content-end align-items-center">
-                           <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
-                       </div>
-                   </div>
-                   <div class="dropdown-divider"></div>
-                   <div class="row">
-                       <div class="col-sm-1">
-                           <img class="heiImage" src="images/pizza.png" />
-                       </div>
-                       <div class="col-sm-5">
-                           <p class="pizzaHead">Pizza Vlopper</p>
-                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
-                           <span class="simpleBack">2</span>
-                           <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                       </div></div>
-                       <div class="col-sm-2 d-flex align-items-center">
-                           <p class="serveText">Serves 2</p>
-                       </div>
-                       <div class="col-sm-4 d-flex justify-content-end align-items-center">
-                           <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
-                       </div>
-                   </div>
-                   <div class="dropdown-divider"></div>
-                   <div class="row">
-                       <div class="col-sm-1">
-                           <img class="heiImage" src="images/pizza.png" />
-                       </div>
-                       <div class="col-sm-5">
-                           <p class="pizzaHead">Pizza Vlopper</p>
-                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
-                           <span class="simpleBack">2</span>
-                           <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                       </div></div>
-                       <div class="col-sm-2 d-flex align-items-center">
-                           <p class="serveText">Serves 2</p>
-                       </div>
-                       <div class="col-sm-4 d-flex justify-content-end align-items-center">
-                           <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
-                       </div>
-                   </div>
-                   <div class="dropdown-divider"></div>
-                   <div class="row">
-                       <div class="col-sm-1">
-                           <img class="heiImage" src="images/pizza.png" />
-                       </div>
-                       <div class="col-sm-5">
-                           <p class="pizzaHead">Pizza Vlopper</p>
-                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
-                           <span class="simpleBack">2</span>
-                           <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                       </div></div>
-                       <div class="col-sm-2 d-flex align-items-center">
-                           <p class="serveText">Serves 2</p>
-                       </div>
-                       <div class="col-sm-4 d-flex justify-content-end align-items-center">
-                           <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
-                       </div>
-                   </div>
-                   <div class="dropdown-divider"></div>
-                   <div class="row">
-                       <div class="col-sm-1">
-                           <img class="heiImage" src="images/pizza.png" />
-                       </div>
-                       <div class="col-sm-5">
-                           <p class="pizzaHead">Pizza Vlopper</p>
-                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
-                           <span class="simpleBack">2</span>
-                           <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                       </div></div>
-                       <div class="col-sm-2 d-flex align-items-center">
-                           <p class="serveText">Serves 2</p>
-                       </div>
-                       <div class="col-sm-4 d-flex justify-content-end align-items-center">
-                           <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
-                       </div>
-                   </div>
-                   <div class="dropdown-divider"></div>
-                   <div class="row">
-                       <div class="col-sm-1">
-                           <img class="heiImage" src="images/pizza.png" />
-                       </div>
-                       <div class="col-sm-5">
-                           <p class="pizzaHead">Pizza Vlopper</p>
-                           <div class="cartBtn"><span class="purpleBack"><i class="fas fa-plus"></i></span>
-                           <span class="simpleBack">2</span>
-                           <span class="purpleBack"><i class="fas fa-minus"></i></span>
-                       </div></div>
-                       <div class="col-sm-2 d-flex align-items-center">
-                           <p class="serveText">Serves 2</p>
-                       </div>
-                       <div class="col-sm-4 d-flex justify-content-end align-items-center">
-                           <del class="strikeText">Rs.250</del><p class="serveText">Rs.150</p>
-                       </div>
-                      <a class="rate2 mt-4 text-center" style="color:white" href="checkout.php">Checkout</a>
-                   </div>
-
-
-                </div>
-            </div>
-            </div>
-            </div>
+            
+           	 <?php include_once('cartdropdown.php');?>
+            
             </div>
            	 <div class="dropdown">
            	 <button class="drop-btn dropdown-toggle" id="profileDrop" type="button"  data-toggle="collapse" href="#profileDropdown" role="button" aria-expanded="false" aria-controls="collapseExample">
            	     <span class="my-2 my-sm-0 fas fa-bars menu"></span>
            	</button>
            	 <div class="collapse dropdown-menu-right nav-toggle profile-toggle" id="profileDropdown">
-                <a class="dropdown-item" href="inner-dashboard/profile.php">My Profile</a>
+                <a class="dropdown-item" href="profile.php">My Profile</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="myorders.php">My Orders</a>
                 <div class="dropdown-divider"></div>
